@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.pandatv.view.activity.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/homeframe"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="92%"
+        app:layout_widthPercent="100%"></FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/homerelativeLayout"
+        android:layout_alignParentBottom="true"
+        app:layout_heightPercent="8%"
+        app:layout_widthPercent="100%">
+
+        <RadioGroup
+            android:id="@+id/HomeRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <RadioButton
+                android:id="@+id/mHomeModule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/tab_home_normal"
+                android:gravity="center_horizontal"
+                android:text="首页" />
+
+            <RadioButton
+                android:id="@+id/mLiveModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/tab_panda_live_normal"
+                android:gravity="center_horizontal"
+                android:text="熊猫直播" />
+
+            <RadioButton
+                android:id="@+id/mRollingModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/tab_panda_culture_normals"
+                android:gravity="center_horizontal"
+                android:text="滚滚视频" />
+
+            <RadioButton
+                android:id="@+id/mBroadcastModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+
+                android:drawableTop="@drawable/tab_panda_eye_normal"
+                android:gravity="center"
+                android:text="熊猫播报" />
+
+            <RadioButton
+                android:id="@+id/mChinaModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/tab_live_china_normal"
+                android:gravity="center"
+                android:text="直播中国" />
+        </RadioGroup>
+    </RelativeLayout>
+
+
+</android.support.percent.PercentRelativeLayout>
