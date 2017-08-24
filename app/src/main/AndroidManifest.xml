@@ -24,9 +24,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.MainActivity"
-            android:screenOrientation="portrait"
-            ></activity>
+        <activity
+            android:name=".view.activity.Main2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".view.activity.MainActivity"></activity>
     </application>
 
 </manifest>
