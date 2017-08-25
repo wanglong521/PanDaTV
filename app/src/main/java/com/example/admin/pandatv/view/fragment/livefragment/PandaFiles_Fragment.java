@@ -28,10 +28,13 @@ public class PandaFiles_Fragment extends BaseFragment {
     @Override
     protected void initData() {
 
+
     }
 
     @Override
     protected void initView(View view) {
+
+        //这是我改的
 
     }
 }
