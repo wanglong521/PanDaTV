@@ -5,7 +5,6 @@ package com.example.admin.pandatv.view.base;
  */
 
 public class UrlUtils {
-
     //服务器地址
     public static final String BASEURL = "http://www.ipanda.com/kehuduan/";
     //首页
