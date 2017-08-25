@@ -1,11 +1,18 @@
 package com.example.admin.pandatv.model.networkutils;
 
+import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
+import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.google.gson.Gson;
 
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -14,18 +21,28 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManage {
     private static RetrofitManage retrofitManage;
+    private final RetrofitServices retrofitServices;
 
-    private RetrofitManage(String url) {
+    private RetrofitManage() {
         OkHttpClient client = new OkHttpClient.Builder().connectTimeout(50, TimeUnit.SECONDS).readTimeout(50, TimeUnit.SECONDS).writeTimeout(50, TimeUnit.SECONDS).build();
-        Retrofit retrofit = new Retrofit.Builder().client(client).baseUrl(url).addConverterFactory(GsonConverterFactory.create(new Gson())).build();
+        retrofitServices = new Retrofit.Builder().client(client).baseUrl("https://www.baidu.com/").addConverterFactory(GsonConverterFactory.create(new Gson())).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build().create(RetrofitServices.class);
     }
 
-    public synchronized static RetrofitManage getInstance(String url) {
+    public synchronized static RetrofitManage getInstance() {
         if (retrofitManage == null) {
-            retrofitManage = new RetrofitManage(url);
+            retrofitManage = new RetrofitManage();
         }
         return retrofitManage;
     }
 
+    public void GetNetwork(Observer<BroadcastBean> observer) {
+        Observable<BroadcastBean> beanObserver = retrofitServices.sendGet();
+        beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    }
+
+    public void GetNetworkItem(Observer<BoradcastBeanitem> observer) {
+        Observable<BoradcastBeanitem> beanObserver = retrofitServices.sendGetItem();
+        beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    }
 
 }
