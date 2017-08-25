@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
@@ -20,7 +21,6 @@ import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.IView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
-import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +39,7 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
     private ArrayList<String> imagesurl = new ArrayList<String>();
     private BroadcastAdapter adapter;
     private ArrayList<BoradcastBeanitem.ListBean> listBeen = new ArrayList<BoradcastBeanitem.ListBean>();
+    private RecyclerAdapterWithHF adap;
     ;
 
     @Override
@@ -48,11 +49,11 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
 
     @Override
     protected void initListener() {
-        broadcastBanner.setOnBannerListener(new OnBannerListener() {
+        adap.setOnItemClickListener(new RecyclerAdapterWithHF.OnItemClickListener() {
             @Override
-            public void OnBannerClick(int position) {
+            public void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position) {
                 Intent intent = new Intent(App.mBaseActivity, WebActivity.class);
-                intent.putExtra("imageurl",imagesurl);
+                intent.putExtra("imageurl",listBeen.get(position).getUrl());
                 startActivity(intent);
             }
         });
@@ -77,7 +78,8 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
         broadcastRecyclerView = view.findViewById(R.id.BroadcastRecyclerView);
         adapter = new BroadcastAdapter(App.mBaseActivity, listBeen);
         broadcastRecyclerView.setLayoutManager(new LinearLayoutManager(App.mBaseActivity, LinearLayoutManager.VERTICAL, false));
-        broadcastRecyclerView.setAdapter(adapter);
+        adap = new RecyclerAdapterWithHF(adapter);
+        broadcastRecyclerView.setAdapter(adap);
     }
 
 
@@ -115,7 +117,7 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
             BoradcastBeanitem.ListBean listBean1 = list.get(i);
             listBeen.add(i, listBean1);
         }
-        adapter.notifyDataSetChanged();
+        adap.notifyDataSetChanged();
     }
 
     @Override

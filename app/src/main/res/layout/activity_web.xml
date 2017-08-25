@@ -10,24 +10,25 @@
         android:id="@+id/WebLinear"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
-        app:layout_heightPercent="10%"
+        app:layout_heightPercent="8%"
         app:layout_widthPercent="100%"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
         <ImageView
+            android:id="@+id/Backwards"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="4dp"
+            android:layout_margin="2dp"
             android:src="@drawable/personal_back_img"/>
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/WebRelative"
-        android:background="@color/colorPrimary"
+        android:background="#fff"
         android:orientation="horizontal"
-        app:layout_heightPercent="10%"
+        app:layout_heightPercent="8%"
         app:layout_widthPercent="100%"
         android:layout_alignParentBottom="true">
 
@@ -41,20 +42,20 @@
             android:id="@+id/WebCollection"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/play_fullsrcee_collect"
+            android:src="@drawable/personal_shoucang_img"
             android:layout_toLeftOf="@id/WebMyView"/>
 
         <ImageView
             android:id="@+id/WebShare"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/play_fullsrcee_share"
+            android:src="@drawable/play_fullsrcee_share_true"
             android:layout_toRightOf="@id/WebMyView"/>
     </RelativeLayout>
 
     <WebView
         android:id="@+id/WebView"
-        app:layout_heightPercent="80%"
+        app:layout_heightPercent="84%"
         app:layout_widthPercent="100%"
         android:layout_below="@id/WebLinear"
         android:layout_above="@id/WebRelative"></WebView>
