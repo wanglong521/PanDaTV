@@ -28,9 +28,6 @@ public class MainActivity extends BaseActivity implements IView{
     RadioGroup   HomeRadioGroup;
     private double mExitTime;
 
-
-
-
     @Override
     protected void initListener() {
         HomeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -48,10 +45,6 @@ public class MainActivity extends BaseActivity implements IView{
                         /**
                          * 熊猫直播
                          */
-
-
-
-
                         FragmentBuilder.getInstance().init().initContainId(R.id.homeframe).add(LiveModule_Fragment.class).build();
                         break;
                     case mRollingModule:
@@ -155,7 +148,6 @@ public class MainActivity extends BaseActivity implements IView{
                 return true;
             }
         }
-
         return super.onKeyDown(keyCode, event);
     }
 }

@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">熊猫频道</string>
-
-
-
+    <string name="chinamodule">直播中国</string>
 </resources>
