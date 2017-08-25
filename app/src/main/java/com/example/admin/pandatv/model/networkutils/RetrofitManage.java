@@ -21,7 +21,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManage {
     private static RetrofitManage retrofitManage;
-    private final RetrofitServices retrofitServices;
+    private  RetrofitServices retrofitServices;
+
 
     private RetrofitManage() {
         OkHttpClient client = new OkHttpClient.Builder().connectTimeout(50, TimeUnit.SECONDS).readTimeout(50, TimeUnit.SECONDS).writeTimeout(50, TimeUnit.SECONDS).build();
@@ -35,14 +36,13 @@ public class RetrofitManage {
         return retrofitManage;
     }
 
-    public void GetNetwork(Observer<BroadcastBean> observer) {
-        Observable<BroadcastBean> beanObserver = retrofitServices.sendGet();
-        beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    public void GetNetwork( Observer<BroadcastBean> observer) {
+        Observable<BroadcastBean> beanObservable = retrofitServices.sendGet();
+        beanObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
     public void GetNetworkItem(Observer<BoradcastBeanitem> observer) {
         Observable<BoradcastBeanitem> beanObserver = retrofitServices.sendGetItem();
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
-
 }

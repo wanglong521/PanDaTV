@@ -4,11 +4,6 @@ import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 
-import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
-import com.example.admin.pandatv.model.entity.BroadcastBean;
-
-import com.example.admin.pandatv.model.entity.ChinaTabList;
-
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 

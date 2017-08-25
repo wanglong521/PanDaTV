@@ -1,8 +1,6 @@
 package com.example.admin.pandatv.view.fragment;
 
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -10,8 +8,6 @@ import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.view.base.BaseFragment;
 
 import java.util.ArrayList;
-
-import static com.example.admin.pandatv.R.id.china_vp_pager;
 
 /**
  * Created by admin on 2017/8/23.
