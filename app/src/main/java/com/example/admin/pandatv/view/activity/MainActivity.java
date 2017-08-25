@@ -23,11 +23,10 @@ import static com.example.admin.pandatv.R.id.mHomeModule;
 import static com.example.admin.pandatv.R.id.mLiveModule;
 import static com.example.admin.pandatv.R.id.mRollingModule;
 
-public class MainActivity extends BaseActivity implements IView{
+public class MainActivity extends BaseActivity implements IView {
     private android.support.v4.app.FragmentManager supportFragmentManager;
-    RadioGroup   HomeRadioGroup;
+    RadioGroup HomeRadioGroup;
     private double mExitTime;
-
     @Override
     protected void initListener() {
         HomeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -45,7 +44,6 @@ public class MainActivity extends BaseActivity implements IView{
                         /**
                          * 熊猫直播
                          */
-
                         FragmentBuilder.getInstance().init().initContainId(R.id.homeframe).add(LiveModule_Fragment.class).build();
                         break;
                     case mRollingModule:
@@ -54,54 +52,43 @@ public class MainActivity extends BaseActivity implements IView{
                          *
                          *
                          */
-
                         FragmentBuilder.getInstance().init().initContainId(R.id.homeframe).add(RollingModule_Fragment.class).build();
                         break;
                     case mBroadcastModule:
                         /**
                          * 熊猫播报
                          */
-
                         FragmentBuilder.getInstance().init().initContainId(R.id.homeframe).add(BroadcastModule_Fragment.class).build();
                         break;
                     case mChinaModule:
                         /**
                          * 直播中国
                          */
-
                         FragmentBuilder.getInstance().init().initContainId(R.id.homeframe).add(ChinaModule_Fragment.class).build();
                         break;
                 }
             }
         });
-
     }
-
     @Override
     protected void initData() {
         /**
          * 用来添加Fragment
          */
-    supportFragmentManager= App.mBaseActivity.getSupportFragmentManager();
+        supportFragmentManager = App.mBaseActivity.getSupportFragmentManager();
         FragmentBuilder.getInstance().init().initContainId(R.id.homeframe).add(HomeModule_Fragment.class).build();
     }
-
     @Override
     protected void initView() {
-        HomeRadioGroup=   (RadioGroup) findViewById(R.id.HomeRadioGroup);
-
+        HomeRadioGroup = (RadioGroup) findViewById(R.id.HomeRadioGroup);
     }
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
     }
-
     @Override
     public void OnSucceed(String succed) {
-
     }
-
     @Override
     public void OnDefeated() {
 
@@ -111,15 +98,15 @@ public class MainActivity extends BaseActivity implements IView{
      * 获取栈顶的fragment的名字，判断名字是否和主页的名字是否一样，
      * 如果一样就退出应用，如果不是就回退上一个fragment；
      */
-   @Override
+    @Override
     public void onBackPressed() {
         //通过FragmentManger来获取回退栈中位于栈顶的Fregment的名字
 
 
         String simpleName = supportFragmentManager.getBackStackEntryAt(supportFragmentManager.getBackStackEntryCount() - 1).getName();
-        if ("HomeModule_Fragment".equals(simpleName)|"LiveModule_Fragment".equals(simpleName)
-                |"RollingModule_Fragment".equals(simpleName)|"BroadcastModule_Fragment".equals(simpleName)
-                |"ChinaModule_Fragment".equals(simpleName)) {
+        if ("HomeModule_Fragment".equals(simpleName) | "LiveModule_Fragment".equals(simpleName)
+                | "RollingModule_Fragment".equals(simpleName) | "BroadcastModule_Fragment".equals(simpleName)
+                | "ChinaModule_Fragment".equals(simpleName)) {
             finish();
         } else {
             if (supportFragmentManager.getBackStackEntryCount() > 1) {
@@ -129,15 +116,13 @@ public class MainActivity extends BaseActivity implements IView{
             }
         }
     }
-
-
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         //通过FragmentManger来获取回退栈中位于栈顶的Fregment的名字
         //supportFragmentManager.getBackStackEntryCount()  该方法获取fragment栈里面Fragment的总数
-        String  simpleName = supportFragmentManager.getBackStackEntryAt(supportFragmentManager.getBackStackEntryCount() - 1).getName();
+        String simpleName = supportFragmentManager.getBackStackEntryAt(supportFragmentManager.getBackStackEntryCount() - 1).getName();
 
-        if ("HomeModule_Fragment".equals(simpleName)|"LiveModule_Fragment".equals(simpleName)|"RollingModule_Fragment".equals(simpleName)
-                |"BroadcastModule_Fragment".equals(simpleName)|"ChinaModule_Fragment".equals(simpleName)) {
+        if ("HomeModule_Fragment".equals(simpleName) | "LiveModule_Fragment".equals(simpleName) | "RollingModule_Fragment".equals(simpleName)
+                | "BroadcastModule_Fragment".equals(simpleName) | "ChinaModule_Fragment".equals(simpleName)) {
             if (keyCode == KeyEvent.KEYCODE_BACK) {//back键被按下了
                 if ((System.currentTimeMillis() - mExitTime) > 2000) {//第二次点击判断是否在两秒内完成，是的话Finish掉（退出）
                     Toast.makeText(this, "连续点击两次退出程序", Toast.LENGTH_SHORT).show();
@@ -149,7 +134,6 @@ public class MainActivity extends BaseActivity implements IView{
                 return true;
             }
         }
-
         return super.onKeyDown(keyCode, event);
     }
 }
