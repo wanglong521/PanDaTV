@@ -6,6 +6,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.admin.pandatv.R;
+import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
+import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.modelutils.FragmentBuilder;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseActivity;
@@ -45,6 +47,7 @@ public class MainActivity extends BaseActivity implements IView{
                         /**
                          * 熊猫直播
                          */
+
                         FragmentBuilder.getInstance().init().initContainId(R.id.homeframe).add(LiveModule_Fragment.class).build();
                         break;
                     case mRollingModule:
@@ -97,7 +100,11 @@ public class MainActivity extends BaseActivity implements IView{
     }
 
     @Override
+<<<<<<< HEAD
     public void OnSucceed(String succed) {
+=======
+    public void OnSucceed(BroadcastBean succed) {
+>>>>>>> origin/master
 
     }
 
@@ -105,6 +112,17 @@ public class MainActivity extends BaseActivity implements IView{
     public void OnDefeated() {
 
     }
+
+    @Override
+    public void OnSucceedItem(BoradcastBeanitem beanitem) {
+
+    }
+
+    @Override
+    public void OnDefeatedItem() {
+
+    }
+
     /**
      * 自定义回退栈管理；
      * 获取栈顶的fragment的名字，判断名字是否和主页的名字是否一样，
@@ -148,6 +166,7 @@ public class MainActivity extends BaseActivity implements IView{
                 return true;
             }
         }
+
         return super.onKeyDown(keyCode, event);
     }
 }
