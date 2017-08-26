@@ -11,7 +11,7 @@ import com.example.admin.pandatv.view.base.BaseFragment;
  *            精彩一刻
  *
  */
-
+//这是小媛荣的代码
 public class Splendid_Fragment extends BaseFragment{
     @Override
     public int getLayout() {
@@ -22,6 +22,8 @@ public class Splendid_Fragment extends BaseFragment{
     protected void initListener() {
 
     }
+
+
 
     @Override
     protected void initData() {

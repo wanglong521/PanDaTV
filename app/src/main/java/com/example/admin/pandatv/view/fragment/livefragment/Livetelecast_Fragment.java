@@ -15,7 +15,7 @@ import com.example.admin.pandatv.view.base.BaseFragment;
  *          直播
  *
  */
-
+//这是小媛荣的代码
 public class Livetelecast_Fragment extends BaseFragment {
 
     private ImageView live_img;

@@ -10,12 +10,14 @@ import com.example.admin.pandatv.view.base.BaseFragment;
  *
  *          超萌滚滚秀
  */
-
+//这是小媛荣的代码
 public class Supersprout_Fragment extends BaseFragment {
     @Override
     public int getLayout() {
         return R.layout.other_item;
     }
+
+
 
     @Override
     protected void initListener() {

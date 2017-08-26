@@ -10,7 +10,7 @@ import com.example.admin.pandatv.view.base.BaseFragment;
  *
  *      原创新闻
  */
-
+//这是小媛荣的代码
 public class Primarynew_Fragment extends BaseFragment{
     @Override
     public int getLayout() {
@@ -24,6 +24,7 @@ public class Primarynew_Fragment extends BaseFragment{
 
     @Override
     protected void initData() {
+
 
     }
 

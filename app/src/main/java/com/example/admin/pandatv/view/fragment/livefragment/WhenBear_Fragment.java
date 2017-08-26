@@ -11,12 +11,14 @@ import com.example.admin.pandatv.view.base.BaseFragment;
  *
  *          当熊不让
  */
-
+//这是小媛荣的代码
 public class WhenBear_Fragment extends BaseFragment{
     @Override
     public int getLayout() {
         return R.layout.other_item;
     }
+
+
 
     @Override
     protected void initListener() {
