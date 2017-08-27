@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.Main2Activity"
+            android:name=".view.activity.VideoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="io.vov.vitamio.activity.InitActivity"

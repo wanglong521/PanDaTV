@@ -14,6 +14,7 @@ import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.modelutils.GlideImageLoader;
 import com.example.admin.pandatv.prosenter.IPresenterImpl;
 import com.example.admin.pandatv.prosenter.IPresenterImplItem;
+import com.example.admin.pandatv.view.activity.VideoActivity;
 import com.example.admin.pandatv.view.activity.WebActivity;
 import com.example.admin.pandatv.view.adapter.BroadcastAdapter;
 import com.example.admin.pandatv.view.base.App;
@@ -21,6 +22,7 @@ import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.IView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +56,14 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
             public void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position) {
                 Intent intent = new Intent(App.mBaseActivity, WebActivity.class);
                 intent.putExtra("imageurl",listBeen.get(position).getUrl());
+                startActivity(intent);
+            }
+        });
+        broadcastBanner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(App.mBaseActivity, VideoActivity.class);
+                intent.putExtra("video",imagesurl.get(position));
                 startActivity(intent);
             }
         });

@@ -25,9 +25,9 @@ import static com.example.admin.pandatv.R.id.mHomeModule;
 import static com.example.admin.pandatv.R.id.mLiveModule;
 import static com.example.admin.pandatv.R.id.mRollingModule;
 
-public class MainActivity extends BaseActivity implements IView{
+public class MainActivity extends BaseActivity implements IView {
     private android.support.v4.app.FragmentManager supportFragmentManager;
-    RadioGroup   HomeRadioGroup;
+    RadioGroup HomeRadioGroup;
     private double mExitTime;
 
     @Override
