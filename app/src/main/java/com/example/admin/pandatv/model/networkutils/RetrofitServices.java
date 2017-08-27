@@ -3,6 +3,7 @@ package com.example.admin.pandatv.model.networkutils;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
+import com.example.admin.pandatv.model.entity.LiveMBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -22,5 +23,8 @@ public interface RetrofitServices {
 
     @GET("http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json")
     Observable<ChinaTabList> getChiTabList();
+
+    @GET("http://www.ipanda.com/kehuduan/PAGE14501769230331752/index.json")
+    Observable<LiveMBean> getlivembean();
 
 }

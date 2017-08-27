@@ -55,7 +55,7 @@
                 android:id="@+id/live_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/live_up"/>
+                android:src="@drawable/live_down"/>
 
         </LinearLayout>
         <View
@@ -64,6 +64,7 @@
             android:background="#ebe7e7"></View>
 
         <TextView
+            android:layout_margin="10dp"
             android:visibility="gone"
             android:text="叫四份哈数据库地方收款方借款拉的屎"
             android:layout_width="match_parent"
