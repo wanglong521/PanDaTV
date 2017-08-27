@@ -2,6 +2,7 @@ package com.example.admin.pandatv.model.networkutils;
 
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.RllingBean;
 
 import io.reactivex.Observer;
 
@@ -20,7 +21,10 @@ public class NetWorkimpl implements NetWorkManger {
         RetrofitManage.getInstance().GetNetworkItem(observer);
     }
 
-
+    @Override
+    public void requestGetRlling(Observer<RllingBean> observer) {
+        RetrofitManage.getInstance().GetNetworkRlling(observer);
+    }
 
 
 }

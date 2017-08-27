@@ -2,6 +2,7 @@ package com.example.admin.pandatv.model.networkutils;
 
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.RllingBean;
 import com.google.gson.Gson;
 
 import java.util.concurrent.TimeUnit;
@@ -46,7 +47,10 @@ public class RetrofitManage {
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
-
+    public void GetNetworkRlling(Observer<RllingBean> observer) {
+        Observable<RllingBean> beanObserver = retrofitServices.sendGetRlling();
+        beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    }
 
 
 }

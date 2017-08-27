@@ -1,6 +1,6 @@
 package com.example.admin.pandatv.prosenter;
 
-import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
+import com.example.admin.pandatv.model.entity.RllingBean;
 import com.example.admin.pandatv.model.networkutils.NetWorkimpl;
 import com.example.admin.pandatv.view.base.IView;
 
@@ -9,15 +9,15 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 
 /**
- * Created by Administrator on 2017/8/25.
+ * Created by Administrator on 2017/8/27.
  */
 
-public class IPresenterImplItem implements IPresenter, Observer<BoradcastBeanitem> {
+public class IPresenterImplRlling implements IPresenter, Observer<RllingBean> {
 
     private NetWorkimpl netWorkimpl;
     private IView iView;
 
-    public IPresenterImplItem(IView iView) {
+    public IPresenterImplRlling(IView iView) {
         this.iView = iView;
         this.netWorkimpl = new NetWorkimpl();
     }
@@ -29,12 +29,12 @@ public class IPresenterImplItem implements IPresenter, Observer<BoradcastBeanite
 
     @Override
     public void GetcontrollerItem() {
-        netWorkimpl.requestGetItem(this);
+
     }
 
     @Override
     public void GetcontrollerRlling() {
-
+        netWorkimpl.requestGetRlling(this);
     }
 
     @Override
@@ -48,13 +48,13 @@ public class IPresenterImplItem implements IPresenter, Observer<BoradcastBeanite
     }
 
     @Override
-    public void onNext(@NonNull BoradcastBeanitem beanitem) {
-        iView.OnSucceedItem(beanitem);
+    public void onNext(@NonNull RllingBean rllingBean) {
+        iView.OnSucceedRlling(rllingBean);
     }
 
     @Override
     public void onError(@NonNull Throwable e) {
-        iView.OnDefeatedItem();
+        iView.OnDefeatedRlling();
     }
 
     @Override
