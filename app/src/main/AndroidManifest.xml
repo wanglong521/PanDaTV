@@ -44,6 +44,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".view.activity.OriginalInteractiveDetailsActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".view.activity.PersonalCenter" />
+        <activity android:name=".view.activity.LoginActivity" />
+        <activity android:name=".view.activity.RegisteredActivity" />
+        <activity android:name=".view.activity.ForgetPasswordActivity"></activity>
     </application>
 
 </manifest>

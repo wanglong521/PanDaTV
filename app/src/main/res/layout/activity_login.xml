@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.pandatv.view.activity.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/LoginLinear"
+        android:background="@color/colorPrimary"
+        app:layout_heightPercent="8%"
+        app:layout_widthPercent="100%">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="登录"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/LoginBackwards"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/personal_back_img" />
+
+        <TextView
+            android:id="@+id/LoginRegistered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="注册"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/LoginThirdparty"
+        app:layout_heightPercent="22%"
+        app:layout_widthPercent="100%"
+        android:layout_below="@+id/LoginLinear"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/LoginSocial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用社交账号登录到社交频道"
+            android:textSize="15sp"
+            android:textColor="#3f51b5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="10dp"/>
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/LoginSocial">
+
+            <LinearLayout
+                app:layout_heightPercent="100%"
+                app:layout_widthPercent="94%"
+                android:layout_centerHorizontal="true"
+                android:background="#ffffff">
+
+                <RadioGroup
+                    android:gravity="center_vertical"
+                    android:id="@+id/LoginRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RadioButton
+                        android:id="@+id/LoginWX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:drawableTop="@drawable/login_weixin"
+                        android:text="微信" />
+
+                    <RadioButton
+                        android:id="@+id/LoginQQ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:drawableTop="@drawable/login_qq"
+                        android:gravity="center_horizontal"
+                        android:text="QQ" />
+
+                    <RadioButton
+                        android:id="@+id/LoginXL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:drawableTop="@drawable/login_sina"
+                        android:gravity="center_horizontal"
+                        android:text="微博" />
+                </RadioGroup>
+            </LinearLayout>
+        </android.support.percent.PercentRelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/LoginRelative"
+        app:layout_heightPercent="45%"
+        app:layout_widthPercent="100%"
+        android:layout_below="@id/LoginThirdparty">
+
+        <LinearLayout
+            android:id="@+id/LinearPass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="CNTV通行证"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/LoginNumber"
+            android:layout_below="@id/LinearPass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="账号：请输入邮箱或手机号"/>
+
+        <EditText
+            android:id="@+id/LoginPassword"
+            android:layout_below="@id/LoginNumber"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="请输入密码"/>
+
+        <Button
+            android:id="@+id/LoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:text="登录"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:id="@+id/ForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgetpassword"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/LoginPassword"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+</android.support.percent.PercentRelativeLayout>

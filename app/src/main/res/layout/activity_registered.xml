@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.pandatv.view.activity.RegisteredActivity">
+
+    <RelativeLayout
+        android:id="@+id/RegisteredLinear"
+        android:background="@color/colorPrimary"
+        app:layout_heightPercent="8%"
+        app:layout_widthPercent="100%">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="注册"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/RegisteredBackwards"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/personal_back_img" />
+    </RelativeLayout>
+
+    <LinearLayout
+        app:layout_heightPercent="68%"
+        app:layout_widthPercent="100%"
+        android:layout_below="@id/RegisteredLinear"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/RegisteredTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabIndicatorColor="@color/colorPrimary"></android.support.design.widget.TabLayout>
+
+        <android.support.v4.view.ViewPager
+        android:id="@+id/RegisteredViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+      ></android.support.v4.view.ViewPager>
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>

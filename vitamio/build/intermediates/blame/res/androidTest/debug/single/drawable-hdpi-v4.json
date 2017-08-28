@@ -1,16 +1,6 @@
 [
     {
-        "merged": "D:\\android\\projects\\PanDaTV\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
-        "source": "D:\\android\\projects\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
         "merged": "D:\\AndroidDaShiXun\\PanDaTV\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
         "source": "D:\\AndroidDaShiXun\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
-    },
-    {
-        "merged": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
-        "source": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
-    },
-    {
-        "merged": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
-        "source": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
     }
 ]
