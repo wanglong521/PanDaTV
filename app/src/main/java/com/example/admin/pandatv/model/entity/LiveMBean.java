@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * Created by LiYRong on 2017/8/25.
+ *
+ * //这里是熊猫直播里面直播的bean类
  */
 
 public class LiveMBean {

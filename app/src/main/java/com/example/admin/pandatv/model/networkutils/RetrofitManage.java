@@ -4,6 +4,8 @@ import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LvieChina;
+import com.example.admin.pandatv.model.entity.LiveMBean;
+import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
 import com.google.gson.Gson;
 
@@ -49,6 +51,24 @@ public class RetrofitManage {
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
+    //这里是熊猫直播里面直播的网络请求的方法
+    public void GetNetWorkLiveMBean(Observer<LiveMBean> observer){
+        Observable<LiveMBean> getlivembean = retrofitServices.getlivembean();
+
+        getlivembean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
+
+    }
+
+    //这里是熊猫直播里面精彩一刻的网络请求的方法
+
+    public void GetNetWorkSplendidbean(Observer<SplendidBean> observer){
+
+        Observable<SplendidBean> getsplendidbean=retrofitServices.getsplendidbean();
+
+       getsplendidbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
+    }
     public void GetNetworkRlling(Observer<RllingBean> observer) {
         Observable<RllingBean> beanObserver = retrofitServices.sendGetRlling();
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
