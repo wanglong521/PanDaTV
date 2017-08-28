@@ -3,11 +3,15 @@ package com.example.admin.pandatv.model.networkutils;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
-import com.example.admin.pandatv.model.entity.LvieChina;
 import com.example.admin.pandatv.model.entity.LiveMBean;
+import com.example.admin.pandatv.model.entity.LvieChina;
 import com.example.admin.pandatv.model.entity.PandaFilesBean;
-import com.example.admin.pandatv.model.entity.SplendidBean;
+import com.example.admin.pandatv.model.entity.PandaTOPBean;
+import com.example.admin.pandatv.model.entity.PandaThingBean;
+import com.example.admin.pandatv.model.entity.PrimarynewBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
+import com.example.admin.pandatv.model.entity.SpecialBean;
+import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.SupersBean;
 import com.example.admin.pandatv.model.entity.WhenBreadBean;
 import com.google.gson.Gson;
@@ -103,6 +107,45 @@ public class RetrofitManage {
         pandaFilesbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
 
     }
+    //这是熊猫直播里面熊猫TOP榜的网络请求
+
+    public void getPandaTOP(Observer<PandaTOPBean> observer,Map<String,String> map){
+
+        Observable<PandaTOPBean> pandaTOPBeanObservable = retrofitServices.getpandaTOPbean(map);
+
+        pandaTOPBeanObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
+    }
+
+    //这是熊猫直播里面熊猫那些事的网络请求
+
+    public void getPandaThing(Observer<PandaThingBean> observer,Map<String,String> map){
+
+        Observable<PandaThingBean> pandaThingBeanObservable = retrofitServices.getpandaThing(map);
+
+        pandaThingBeanObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
+
+    }
+
+    //这是熊猫直播里面特别节目的网络请求
+    public void getSpecial(Observer<SpecialBean> observer,Map<String,String> map){
+
+        Observable<SpecialBean> getspcialbean = retrofitServices.getspcialbean(map);
+
+        getspcialbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    }
+
+    //这是熊猫直播里面原创新闻的网络请求
+
+    public void getPrimarynew(Observer<PrimarynewBean> observer,Map<String,String> map){
+
+        Observable<PrimarynewBean> getprimarybean = retrofitServices.getprimarybean(map);
+
+        getprimarybean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
+    }
+
     public void getChiTabList(Observer<ChinaTabList> observer) {
         Observable<ChinaTabList> beanObserver = retrofitServices.getChiTabList();
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
