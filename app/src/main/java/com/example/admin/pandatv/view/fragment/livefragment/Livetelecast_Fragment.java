@@ -101,7 +101,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         live_tablayout = view.findViewById(R.id.live_tablayout);
         live_viewpager = view.findViewById(R.id.live_viewpager);
 
-
+//zheshishane
 
     }
 
