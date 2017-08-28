@@ -104,4 +104,11 @@ private Toolbar toolbar;
     public int getLayoutId() {
         return R.layout.activity_original_interactive_details;
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        wv.destroy();
+    }
 }
