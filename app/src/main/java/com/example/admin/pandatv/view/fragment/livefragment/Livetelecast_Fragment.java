@@ -1,5 +1,6 @@
 package com.example.admin.pandatv.view.fragment.livefragment;
 
+
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -29,6 +30,8 @@ import java.util.List;
  *
  */
 //这是小媛荣的代码
+
+// TODO: 2017/8/27 这里有一个很严重的问题,就是tablayout的名字会加载两遍
 public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView{
 
     private ImageView live_img;
@@ -36,7 +39,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     private ImageView live_up;
     private TextView brief;
     private View oneself;
-    private TabLayout live_tablayout;
+    private  TabLayout live_tablayout;
     private ViewPager live_viewpager;
     private List<LiveMBean> liveMBeen=new ArrayList<LiveMBean>();
     private int NUM=1;
@@ -79,9 +82,12 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
     @Override
     protected void initData() {
+
         IPresenterImplLivemBean iPresenterImplLivemBean=new IPresenterImplLivemBean(this);
 
-        iPresenterImplLivemBean.Getcontroller();
+            iPresenterImplLivemBean.Getcontroller();
+        live_tablayout.setupWithViewPager(live_viewpager);
+
     }
 
     @Override
@@ -96,36 +102,38 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         live_tablayout = view.findViewById(R.id.live_tablayout);
         live_viewpager = view.findViewById(R.id.live_viewpager);
 
+
+
     }
 
     @Override
     public void OnSucceed(LiveMBean succed) {
-
       liveMBeen.add(succed);
+
+
         for (LiveMBean item :
                 liveMBeen) {
             List<LiveMBean.LiveBean> live = item.getLive();
 
             LiveMBean.BookmarkBean bookmark = item.getBookmark();
 
-            List<LiveMBean.BookmarkBean.MultipleBean> multiple = bookmark.getMultiple();
+                List<LiveMBean.BookmarkBean.MultipleBean> multiple = bookmark.getMultiple();
+                for (LiveMBean.BookmarkBean.MultipleBean multipleBean :
+                        multiple) {
 
-            for (LiveMBean.BookmarkBean.MultipleBean multipleBean :
-                    multiple) {
+                    tabnamelist.add(multipleBean.getTitle());
 
+                }
 
-                tabnamelist.add(multipleBean.getTitle());
+                List<LiveMBean.BookmarkBean.WatchTalkBean> watchTalk = bookmark.getWatchTalk();
 
-            }
+                for (LiveMBean.BookmarkBean.WatchTalkBean watchTalkBean :
+                        watchTalk) {
 
-            List<LiveMBean.BookmarkBean.WatchTalkBean> watchTalk = bookmark.getWatchTalk();
+                    tabnamelist.add(watchTalkBean.getTitle());
 
-            for (LiveMBean.BookmarkBean.WatchTalkBean watchTalkBean :
-                    watchTalk) {
+                }
 
-                tabnamelist.add(watchTalkBean.getTitle());
-
-            }
 
             for (LiveMBean.LiveBean bean:
             live){
@@ -149,7 +157,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
         live_viewpager.setAdapter(adapter);
 
-        live_tablayout.setupWithViewPager(live_viewpager);
+
 
     }
 

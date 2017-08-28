@@ -10,6 +10,9 @@ import io.reactivex.disposables.Disposable;
 
 /**
  * Created by LiYRong on 2017/8/26.
+ *
+ * 这里是熊猫直播里面直播的网络请求的方法
+ *
  */
 
 public class IPresenterImplLivemBean implements IPresenter,Observer<LiveMBean>{

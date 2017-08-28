@@ -3,6 +3,7 @@ package com.example.admin.pandatv.model.networkutils;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.LiveMBean;
+import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.google.gson.Gson;
 
 import java.util.concurrent.TimeUnit;
@@ -47,6 +48,7 @@ public class RetrofitManage {
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
+    //这里是熊猫直播里面直播的网络请求的方法
     public void GetNetWorkLiveMBean(Observer<LiveMBean> observer){
         Observable<LiveMBean> getlivembean = retrofitServices.getlivembean();
 
@@ -55,6 +57,15 @@ public class RetrofitManage {
 
     }
 
+    //这里是熊猫直播里面精彩一刻的网络请求的方法
+
+    public void GetNetWorkSplendidbean(Observer<SplendidBean> observer){
+
+        Observable<SplendidBean> getsplendidbean=retrofitServices.getsplendidbean();
+
+       getsplendidbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
+    }
 
 
 }
