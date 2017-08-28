@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.pandatv.view.activity.OriginalInteractionActivity">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/Yuanchuang_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#0000ff"
+            app:layout_heightPercent="8%"
+            app:layout_widthPercent="100%">
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:text="原创·互动"
+            android:textColor="#FFFFFF" />
+
+        <GridView
+            android:id="@+id/Yuanchuang_gv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@id/Yuanchuang_toolbar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="1"
+            android:scrollbars="none"
+            android:verticalSpacing="10dp"
+            app:layout_heightPercent="92%"
+            app:layout_widthPercent="100%"></GridView>
+    </android.support.percent.PercentRelativeLayout>
+</RelativeLayout>

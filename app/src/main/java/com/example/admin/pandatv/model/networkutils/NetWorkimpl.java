@@ -2,14 +2,11 @@ package com.example.admin.pandatv.model.networkutils;
 
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LiveMBean;
-import com.example.admin.pandatv.model.entity.PandaFilesBean;
+import com.example.admin.pandatv.model.entity.LvieChina;
 import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
-import com.example.admin.pandatv.model.entity.SupersBean;
-import com.example.admin.pandatv.model.entity.WhenBreadBean;
-
-import java.util.Map;
 
 import io.reactivex.Observer;
 
@@ -42,11 +39,18 @@ public class NetWorkimpl implements NetWorkManger {
     }
 
     //这里是熊猫直播里面精彩一刻的网络请求的方法
-
+    @Override
+    public void requestsplendidbean(Observer<SplendidBean> observer) {
+        RetrofitManage.getInstance().GetNetWorkSplendidbean(observer);
+    }
 
     @Override
     public void requestGetRlling(Observer<RllingBean> observer) {
         RetrofitManage.getInstance().GetNetworkRlling(observer);
+    }
+    @Override
+    public void getChiTabList(Observer<ChinaTabList> observer) {
+        RetrofitManage.getInstance().getChiTabList(observer);
     }
     //这里是熊猫直播里面当熊不让的网络请求的方法
     @Override
@@ -70,5 +74,9 @@ public class NetWorkimpl implements NetWorkManger {
 
     }
 
+    @Override
+    public void getLvieChina(Observer<LvieChina> observer, String url) {
+        RetrofitManage.getInstance().getLvieChina(observer,url);
+    }
 
 }

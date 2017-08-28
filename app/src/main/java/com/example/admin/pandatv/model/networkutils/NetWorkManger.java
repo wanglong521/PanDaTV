@@ -6,10 +6,8 @@ import com.example.admin.pandatv.model.entity.LiveMBean;
 import com.example.admin.pandatv.model.entity.PandaFilesBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
-import com.example.admin.pandatv.model.entity.SupersBean;
-import com.example.admin.pandatv.model.entity.WhenBreadBean;
-
-import java.util.Map;
+import com.example.admin.pandatv.model.entity.ChinaTabList;
+import com.example.admin.pandatv.model.entity.LvieChina;
 
 import io.reactivex.Observer;
 
@@ -28,6 +26,10 @@ public interface NetWorkManger {
 
     //这里是熊猫直播里面精彩一刻的网络请求的方法
     void requestsplendidbean(Observer<SplendidBean> observer, Map<String,String> map);
+
+    void getChiTabList(Observer<ChinaTabList> observer);
+
+    void getLvieChina(Observer<LvieChina> observer, String url);
 
     void requestGetRlling(Observer<RllingBean> observer);
 

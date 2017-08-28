@@ -45,4 +45,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'in.srain.cube:ptr-load-more:1.0.6'
+    compile project(':vitamio')
+    compile 'com.android.support:design:26.0.0-alpha1'
 }

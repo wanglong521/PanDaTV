@@ -3,6 +3,7 @@ package com.example.admin.pandatv.model.networkutils;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
+import com.example.admin.pandatv.model.entity.LvieChina;
 import com.example.admin.pandatv.model.entity.LiveMBean;
 import com.example.admin.pandatv.model.entity.PandaFilesBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
@@ -13,7 +14,11 @@ import com.example.admin.pandatv.model.entity.WhenBreadBean;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Url;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
@@ -60,4 +65,6 @@ public interface RetrofitServices {
     @GET("http://www.ipanda.com/kehuduan/video/index.json")
     Observable<RllingBean> sendGetRlling();
 
+    @GET()
+    Observable<LvieChina> getLvieChina(@Url String url);
 }

@@ -2,6 +2,8 @@ package com.example.admin.pandatv.model.networkutils;
 
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.ChinaTabList;
+import com.example.admin.pandatv.model.entity.LvieChina;
 import com.example.admin.pandatv.model.entity.LiveMBean;
 import com.example.admin.pandatv.model.entity.PandaFilesBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
@@ -100,6 +102,15 @@ public class RetrofitManage {
 
         pandaFilesbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
 
+    }
+    public void getChiTabList(Observer<ChinaTabList> observer) {
+        Observable<ChinaTabList> beanObserver = retrofitServices.getChiTabList();
+        beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    }
+
+    public void getLvieChina(Observer<LvieChina> observer,String url) {
+        Observable<LvieChina> beanObserver = retrofitServices.getLvieChina(url);
+        beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 
 }

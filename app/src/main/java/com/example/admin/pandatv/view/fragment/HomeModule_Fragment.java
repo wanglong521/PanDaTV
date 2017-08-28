@@ -1,5 +1,6 @@
 package com.example.admin.pandatv.view.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.example.admin.pandatv.model.OkHttpClientManager;
 import com.example.admin.pandatv.model.bean.Home;
 import com.example.admin.pandatv.model.bean.RoolView;
 import com.example.admin.pandatv.model.bean.Wonderful;
+import com.example.admin.pandatv.view.activity.OriginalInteractionActivity;
 import com.example.admin.pandatv.view.adapter.GvAdapter;
 import com.example.admin.pandatv.view.adapter.LiveAdapter;
 import com.example.admin.pandatv.view.adapter.RoolViewAdapter;
@@ -36,7 +38,7 @@ import java.util.List;
  */
 
 public class HomeModule_Fragment extends BaseFragment {
-
+   ImageView imageView2;
     Toolbar toolbr;
     Banner banner;
     ProgressBar pbr;
@@ -70,7 +72,13 @@ public class HomeModule_Fragment extends BaseFragment {
 
     @Override
     protected void initListener() {
-
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), OriginalInteractionActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
     }
 
@@ -216,6 +224,7 @@ public class HomeModule_Fragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
+        imageView2 =(ImageView) view.findViewById(R.id. imageView2);
         toolbr = (Toolbar) view.findViewById(R.id.toolbar);
         toolbr.setNavigationIcon(R.mipmap.panda_sign);
         toolbr.setTitle("");
