@@ -89,9 +89,6 @@ public class LiveModule_Fragment  extends BaseFragment {
         fraglist.add(new Special_Fragment());
         fraglist.add(new Primarynew_Fragment());
 
-
-
-
         mTablayout.addTab(mTablayout.newTab().setText(titlelist.get(0)));
         mTablayout.addTab(mTablayout.newTab().setText(titlelist.get(1)));
         mTablayout.addTab(mTablayout.newTab().setText(titlelist.get(2)));
