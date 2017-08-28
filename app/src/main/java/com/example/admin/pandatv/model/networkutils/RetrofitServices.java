@@ -13,6 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Url;
 
 /**
  * Created by admin on 2017/8/23.
@@ -42,7 +43,6 @@ public interface RetrofitServices {
     @GET("http://www.ipanda.com/kehuduan/video/index.json")
     Observable<RllingBean> sendGetRlling();
 
-    @FormUrlEncoded
-    @POST("{url}")
-    Observable<LvieChina> getLvieChina(@Path("url")String url);
+    @GET()
+    Observable<LvieChina> getLvieChina(@Url String url);
 }

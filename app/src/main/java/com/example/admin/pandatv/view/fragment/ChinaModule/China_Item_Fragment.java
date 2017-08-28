@@ -1,26 +1,53 @@
 package com.example.admin.pandatv.view.fragment.ChinaModule;
 
-import android.app.Fragment;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.LvieItemBean;
+import com.example.admin.pandatv.view.adapter.China_Item_FragmentAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
-
 import java.util.ArrayList;
+
+import static android.R.id.list;
 
 /**
  * Created by lenovo on 2017/8/26.
+ *  直播中国内容Fragment
  */
 
 public class China_Item_Fragment extends BaseFragment{
+    private Bundle bundle;
 
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            bundle = intent.getBundleExtra("bundle");
+            ArrayList<LvieItemBean> list = new ArrayList<>();
+            ArrayList<String> brief = bundle.getStringArrayList("brief");
+            ArrayList<String> image = bundle.getStringArrayList("image");
+            ArrayList<String> title = bundle.getStringArrayList("title");
+            for (int i = 0; i < brief.size(); i++) {
+                LvieItemBean bean = new LvieItemBean(brief.get(i)
+                        ,image.get(i),title.get(i));
+                list.add(bean);
+            }
+            China_Item_FragmentAdapter adapter = new China_Item_FragmentAdapter(getActivity(),list);
+            china_recycler.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
+            china_recycler.setAdapter(adapter);
+            Log.e("onReceive: ", bundle.toString());
+        }
+    };
     private RecyclerView china_recycler;
-    private Bundle arguments;
 
     @Override
     public int getLayout() {
@@ -34,18 +61,10 @@ public class China_Item_Fragment extends BaseFragment{
 
     @Override
     protected void initData() {
-        ArrayList<LvieItemBean> list = new ArrayList<>();
-        ArrayList<String> brief = arguments.getStringArrayList("brief");
-        ArrayList<String> image = arguments.getStringArrayList("image");
-        ArrayList<String> title = arguments.getStringArrayList("title");
-
-        for (int i = 0; i < brief.size(); i++) {
-                LvieItemBean bean = new LvieItemBean(brief.get(i)
-                ,image.get(i),title.get(i));
-            list.add(bean);
-        }
-
-
+//        arguments = getArguments();
+//        ArrayList<String> brief = arguments.getStringArrayList("brief");
+//        ArrayList<String> image = arguments.getStringArrayList("image");
+//        ArrayList<String> title = arguments.getStringArrayList("title");
     }
 
     @Override
@@ -55,6 +74,8 @@ public class China_Item_Fragment extends BaseFragment{
 //        china_item_title = view.findViewById(R.id.china_item_title);
 //        china_item_updele = view.findViewById(R.id.china_item_updele);
         china_recycler = view.findViewById(R.id.china_recycler);
-        arguments = getArguments();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("aaa");
+        getActivity().registerReceiver(broadcastReceiver,filter);
     }
 }

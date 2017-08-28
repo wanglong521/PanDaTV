@@ -1,7 +1,13 @@
 package com.example.admin.pandatv.view.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 import com.example.admin.pandatv.R;
@@ -9,10 +15,13 @@ import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LvieChina;
 import com.example.admin.pandatv.model.modelutils.FragmentBuilder;
 import com.example.admin.pandatv.prosenter.ChinaPersenter;
+import com.example.admin.pandatv.view.adapter.China_item_PagerAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.ChinaViewImpl;
 import com.example.admin.pandatv.view.fragment.ChinaModule.China_Item_Fragment;
 import java.util.ArrayList;
+
+import static android.R.attr.fragment;
 
 /**
  * Created by admin on 2017/8/23.
@@ -21,7 +30,7 @@ import java.util.ArrayList;
 public class ChinaModule_Fragment  extends BaseFragment implements ChinaViewImpl{
     private TabLayout china_tab;
     private ChinaPersenter chinaPersenter;
-    private China_Item_Fragment china_item_fragment;
+    private ViewPager china_viewpager;
 
     @Override
     public int getLayout() {
@@ -39,12 +48,14 @@ public class ChinaModule_Fragment  extends BaseFragment implements ChinaViewImpl
     @Override
     protected void initView(View view) {
         china_tab = view.findViewById(R.id.china_tab);
+        china_viewpager = view.findViewById(R.id.china_viewpager);
     }
 
     @Override
     public void OnSucceedChinaTabList(final ChinaTabList chinaTabList) {
         for (int i = 0; i < chinaTabList.getTablist().size(); i++) {
             china_tab.addTab(china_tab.newTab().setText(chinaTabList.getTablist().get(i).getTitle()));
+            china_tab.setTag(china_tab.newTab().setText(chinaTabList.getTablist().get(i).getTitle()));
         }
         chinaPersenter.getLvieChina(chinaTabList.getTablist().get(0).getUrl());
         china_tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -54,6 +65,7 @@ public class ChinaModule_Fragment  extends BaseFragment implements ChinaViewImpl
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < chinaTabList.getAlllist().size(); j++) {
                         String title = tab.getText().toString();
+                        Log.e("onTabSelected: ", title);
                         if (title .equals(chinaTabList.getAlllist().get(j).getTitle())){
                             chinaPersenter.getLvieChina(chinaTabList.getAlllist().get(j).getUrl());
                         }
@@ -82,9 +94,19 @@ public class ChinaModule_Fragment  extends BaseFragment implements ChinaViewImpl
         bundle.putStringArrayList("brief",briefList);
         bundle.putStringArrayList("image",imageList);
         bundle.putStringArrayList("title",titleList);
-        setArguments(bundle);
-        china_item_fragment = new China_Item_Fragment();
-        china_item_fragment.setArguments(bundle);
-        FragmentBuilder.getInstance().init().initContainId(R.id.china_frame).add(China_Item_Fragment.class).build();
+        Log.e("OnSucceedLvieChina: ", briefList.get(0));
+//        setArguments(bundle);
+//        china_item_fragment = new China_Item_Fragment();
+//        china_item_fragment.setArguments(bundle);
+        Intent intent = new Intent();
+        intent.setAction("aaa");
+        intent.putExtra("bundle",bundle);
+        getActivity().sendBroadcast(intent);
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        for (int i = 0; i < china_tab.getTabCount() ; i++) {
+                fragments.add(new China_Item_Fragment());
+        }
+        china_viewpager.setAdapter(new China_item_PagerAdapter(getActivity().getSupportFragmentManager()
+        ,getActivity(),fragments));
     }
 }
