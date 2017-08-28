@@ -3,8 +3,10 @@ package com.example.admin.pandatv.model.networkutils;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.LiveMBean;
+import com.example.admin.pandatv.model.entity.PandaFilesBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
+import com.example.admin.pandatv.model.entity.SupersBean;
 import com.example.admin.pandatv.model.entity.WhenBreadBean;
 
 import java.util.Map;
@@ -51,6 +53,20 @@ public class NetWorkimpl implements NetWorkManger {
     public void requestWhenBreadbean(Observer<WhenBreadBean> observer, Map<String, String> map) {
 
         RetrofitManage.getInstance().GetNetworkWhenBreadbean(observer,map);
+
+    }
+    //这里是熊猫直播里面熊猫档案的网络请求的方法
+    @Override
+    public void requestPandaFiles(Observer<PandaFilesBean> observer, Map<String, String> map) {
+
+        RetrofitManage.getInstance().GetNetworkPandaFilesbean(observer,map);
+
+    }
+    //这里是熊猫直播里面超萌滚滚秀的网络请求的方法
+    @Override
+    public void requestSupersbean(Observer<SupersBean> observer, Map<String, String> map) {
+
+        RetrofitManage.getInstance().GetNetworkSupersbean(observer,map);
 
     }
 

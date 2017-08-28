@@ -53,6 +53,8 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     @Override
     protected void initListener() {
 
+
+
         live_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,9 +73,10 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
             }
         });
 
-
+        fragmentlist.clear();
         fragmentlist.add(new MoreLiveFragment());
         fragmentlist.add(new Lookalittle());
+
 
     }
 
@@ -107,6 +110,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     public void OnSucceed(LiveMBean succed) {
       liveMBeen.add(succed);
 
+        tabnamelist.clear();
 
             for (LiveMBean item :
                     liveMBeen) {
@@ -150,6 +154,9 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(0)));
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(1)));
+
+
+
         FragmentManager manager = getActivity().getSupportFragmentManager();
 
         MyliveAdapter adapter=new MyliveAdapter(manager);

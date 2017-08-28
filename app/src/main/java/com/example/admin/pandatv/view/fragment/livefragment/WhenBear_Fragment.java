@@ -1,5 +1,6 @@
 package com.example.admin.pandatv.view.fragment.livefragment;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -112,6 +113,6 @@ public class WhenBear_Fragment extends BaseFragment implements WhenBreadView{
 
     @Override
     public void OnDefeated() {
-
+        Log.e("TAG","失败");
     }
 }

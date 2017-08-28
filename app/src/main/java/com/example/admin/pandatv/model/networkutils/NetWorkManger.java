@@ -3,8 +3,10 @@ package com.example.admin.pandatv.model.networkutils;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.LiveMBean;
+import com.example.admin.pandatv.model.entity.PandaFilesBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
+import com.example.admin.pandatv.model.entity.SupersBean;
 import com.example.admin.pandatv.model.entity.WhenBreadBean;
 
 import java.util.Map;
@@ -31,4 +33,9 @@ public interface NetWorkManger {
 
     //这里是熊猫直播里面当熊不让的网络请求的方法
     void requestWhenBreadbean(Observer<WhenBreadBean> observer,Map<String,String> map);
+
+    //这是熊猫直播里面熊猫档案的网络请求的方法
+    void requestPandaFiles(Observer<PandaFilesBean> observer,Map<String,String> map);
+
+    void requestSupersbean(Observer<SupersBean> observer,Map<String,String> map);
 }
