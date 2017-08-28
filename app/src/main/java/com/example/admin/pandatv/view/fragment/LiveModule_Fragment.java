@@ -23,7 +23,7 @@ import com.example.admin.pandatv.view.fragment.livefragment.WhenBear_Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//这是小媛荣的代码
 /**
  * Created by admin on 2017/8/23.
  */
@@ -50,6 +50,9 @@ public class LiveModule_Fragment  extends BaseFragment {
 
     @Override
     protected void initData() {
+
+
+
 
 
     }
