@@ -178,3 +178,4 @@ public class MainActivity extends BaseActivity implements IView {
         return super.onKeyDown(keyCode, event);
     }
 }
+
