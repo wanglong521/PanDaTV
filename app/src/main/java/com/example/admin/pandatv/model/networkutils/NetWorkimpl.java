@@ -2,6 +2,8 @@ package com.example.admin.pandatv.model.networkutils;
 
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.ChinaTabList;
+import com.example.admin.pandatv.model.entity.LvieChina;
 
 import io.reactivex.Observer;
 
@@ -20,7 +22,15 @@ public class NetWorkimpl implements NetWorkManger {
         RetrofitManage.getInstance().GetNetworkItem(observer);
     }
 
+    @Override
+    public void getChiTabList(Observer<ChinaTabList> observer) {
+        RetrofitManage.getInstance().getChiTabList(observer);
+    }
 
+    @Override
+    public void getLvieChina(Observer<LvieChina> observer, String url) {
+        RetrofitManage.getInstance().getLvieChina(observer,url);
+    }
 
 
 }
