@@ -33,8 +33,17 @@
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".view.activity.MainActivity" />
-        <activity android:name=".view.activity.WebActivity"></activity>
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.WebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.OriginalInteractionActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.activity.OriginalInteractiveDetailsActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
