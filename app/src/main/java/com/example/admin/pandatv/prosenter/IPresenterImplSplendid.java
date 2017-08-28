@@ -38,6 +38,11 @@ public class IPresenterImplSplendid implements IPresenter,Observer<SplendidBean>
     }
 
     @Override
+    public void GetcontrollerRlling() {
+
+    }
+
+    @Override
     public void onDestroy() {
 
         splenddidView=null;

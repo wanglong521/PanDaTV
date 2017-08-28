@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.RllingBean;
 import com.example.admin.pandatv.model.modelutils.FragmentBuilder;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseActivity;
@@ -117,6 +118,16 @@ public class MainActivity extends BaseActivity implements IView {
 
     @Override
     public void OnDefeatedItem() {
+
+    }
+
+    @Override
+    public void OnSucceedRlling(RllingBean beanitem) {
+
+    }
+
+    @Override
+    public void OnDefeatedRlling() {
 
     }
 

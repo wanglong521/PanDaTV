@@ -11,6 +11,7 @@ import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.RllingBean;
 import com.example.admin.pandatv.model.modelutils.GlideImageLoader;
 import com.example.admin.pandatv.prosenter.IPresenterImpl;
 import com.example.admin.pandatv.prosenter.IPresenterImplItem;
@@ -133,5 +134,15 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
     @Override
     public void OnDefeatedItem() {
         Log.e("TAG", "失败了");
+    }
+
+    @Override
+    public void OnSucceedRlling(RllingBean beanitem) {
+
+    }
+
+    @Override
+    public void OnDefeatedRlling() {
+
     }
 }

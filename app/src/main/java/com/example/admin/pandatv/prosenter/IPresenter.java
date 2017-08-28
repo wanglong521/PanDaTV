@@ -5,5 +5,7 @@ public interface IPresenter {
 
     void GetcontrollerItem();
 
+    void GetcontrollerRlling();
+
     void onDestroy();
 }

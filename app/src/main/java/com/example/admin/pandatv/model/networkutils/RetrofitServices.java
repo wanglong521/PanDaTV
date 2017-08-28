@@ -5,6 +5,7 @@ import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LiveMBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
+import com.example.admin.pandatv.model.entity.RllingBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -33,5 +34,8 @@ public interface RetrofitServices {
     @GET("http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1")
     Observable<SplendidBean> getsplendidbean();
 
+
+    @GET("http://www.ipanda.com/kehuduan/video/index.json")
+    Observable<RllingBean> sendGetRlling();
 
 }

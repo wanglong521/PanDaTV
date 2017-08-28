@@ -4,6 +4,7 @@ import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.LiveMBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
+import com.example.admin.pandatv.model.entity.RllingBean;
 
 import io.reactivex.Observer;
 
@@ -36,6 +37,10 @@ public class NetWorkimpl implements NetWorkManger {
         RetrofitManage.getInstance().GetNetWorkSplendidbean(observer);
     }
 
+    @Override
+    public void requestGetRlling(Observer<RllingBean> observer) {
+        RetrofitManage.getInstance().GetNetworkRlling(observer);
+    }
 
 
 }

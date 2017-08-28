@@ -33,6 +33,11 @@ public class IPresenterImplItem implements IPresenter, Observer<BoradcastBeanite
     }
 
     @Override
+    public void GetcontrollerRlling() {
+
+    }
+
+    @Override
     public void onDestroy() {
         iView = null;
     }

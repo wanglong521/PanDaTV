@@ -39,6 +39,11 @@ public class IPresenterImplLivemBean implements IPresenter,Observer<LiveMBean>{
     }
 
     @Override
+    public void GetcontrollerRlling() {
+
+    }
+
+    @Override
     public void onDestroy() {
         liveMBeanView=null;
 
