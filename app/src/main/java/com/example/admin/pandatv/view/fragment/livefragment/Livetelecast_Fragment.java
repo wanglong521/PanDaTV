@@ -78,6 +78,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         Log.i("TAG",tabnamelist.size()+"");
 
 
+        //这里有一个
     }
 
     @Override
