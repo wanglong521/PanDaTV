@@ -5,8 +5,10 @@ import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.LiveMBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
+import com.example.admin.pandatv.model.entity.WhenBreadBean;
 import com.google.gson.Gson;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -60,9 +62,9 @@ public class RetrofitManage {
 
     //这里是熊猫直播里面精彩一刻的网络请求的方法
 
-    public void GetNetWorkSplendidbean(Observer<SplendidBean> observer){
+    public void GetNetWorkSplendidbean(Observer<SplendidBean> observer, Map<String,String> map){
 
-        Observable<SplendidBean> getsplendidbean=retrofitServices.getsplendidbean();
+        Observable<SplendidBean> getsplendidbean=retrofitServices.getsplendidbean(map);
 
        getsplendidbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
 
@@ -70,6 +72,15 @@ public class RetrofitManage {
     public void GetNetworkRlling(Observer<RllingBean> observer) {
         Observable<RllingBean> beanObserver = retrofitServices.sendGetRlling();
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    }
+
+    //这里是熊猫直播里面当熊不让的网络请求的方法
+
+    public void GetNetworkWhenBreadbean(Observer<WhenBreadBean> observer,Map<String,String> map){
+        Observable<WhenBreadBean> getwhenbreadbean = retrofitServices.getwhenbreadbean(map);
+
+        getwhenbreadbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+
     }
 
 

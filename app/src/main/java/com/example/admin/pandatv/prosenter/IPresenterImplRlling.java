@@ -38,6 +38,17 @@ public class IPresenterImplRlling implements IPresenter, Observer<RllingBean> {
     }
 
     @Override
+    public void GetcontrollerSplendid(int a) {
+
+    }
+
+    @Override
+    public void GetcontrollerWhenBread(int a) {
+
+    }
+
+
+    @Override
     public void onDestroy() {
         iView = null;
     }

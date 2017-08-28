@@ -5,6 +5,9 @@ import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.LiveMBean;
 import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
+import com.example.admin.pandatv.model.entity.WhenBreadBean;
+
+import java.util.Map;
 
 import io.reactivex.Observer;
 
@@ -31,15 +34,24 @@ public class NetWorkimpl implements NetWorkManger {
 
     }
 
-    //这里是熊猫直播里面精彩一刻的网络请求的方法
     @Override
-    public void requestsplendidbean(Observer<SplendidBean> observer) {
-        RetrofitManage.getInstance().GetNetWorkSplendidbean(observer);
+    public void requestsplendidbean(Observer<SplendidBean> observer, Map<String, String> map) {
+        RetrofitManage.getInstance().GetNetWorkSplendidbean(observer,map);
     }
+
+    //这里是熊猫直播里面精彩一刻的网络请求的方法
+
 
     @Override
     public void requestGetRlling(Observer<RllingBean> observer) {
         RetrofitManage.getInstance().GetNetworkRlling(observer);
+    }
+    //这里是熊猫直播里面当熊不让的网络请求的方法
+    @Override
+    public void requestWhenBreadbean(Observer<WhenBreadBean> observer, Map<String, String> map) {
+
+        RetrofitManage.getInstance().GetNetworkWhenBreadbean(observer,map);
+
     }
 
 
