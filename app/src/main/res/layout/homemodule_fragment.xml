@@ -47,7 +47,9 @@
                     android:id="@+id/panda_Broadcast_Text"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:text="----" />
+                    android:textColor="#0000ff"
+                    android:layout_marginLeft="10dp"
+                    android:text="" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -65,6 +67,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
+                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
@@ -72,39 +75,139 @@
                                 android:id="@+id/zj_tv"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="--"
-                                />
+                                android:textColor="#ff0000"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:background="@drawable/textbackground"
+                                android:text="" />
+
                             <TextView
                                 android:id="@+id/zj_tvs"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="50dp"
                                 android:layout_marginLeft="10dp"
-                                android:text="-------"
+                                android:layout_marginRight="10dp"
                                 android:maxLines="2"
-                                />
+                                android:text="" />
                         </LinearLayout>
-                           <LinearLayout
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content">
-                               <TextView
-                                   android:id="@+id/qs_tv"
-                                   android:layout_width="wrap_content"
-                                   android:layout_height="wrap_content"
-                                   android:text="--"/>
-                                   <TextView
-                                       android:id="@+id/qs_tvs"
-                                       android:layout_width="wrap_content"
-                                       android:layout_height="wrap_content"
-                                       android:maxLines="2"
-                                       android:text="-----------"
-                                       />
-                           </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp">
+
+                            <TextView
+                                android:id="@+id/qs_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ff0000"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:background="@drawable/textbackground"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/qs_tvs"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:maxLines="2"
+                                android:text="" />
+                        </LinearLayout>
 
                     </LinearLayout>
-                </LinearLayout>
 
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/liveshwtv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#0000ff"
+                    android:text=""/>
+                <com.example.admin.pandatv.model.modelutils.Ify_Grid
+                    android:id="@+id/home_gv"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:numColumns="3"
+                    android:layout_marginTop="10dp"
+                    android:verticalSpacing="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:scrollbars="none"
+                    ></com.example.admin.pandatv.model.modelutils.Ify_Grid>
+                <TextView
+                    android:id="@+id/wendforment_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#0000ff"
+                    android:layout_marginLeft="10dp"/>
+                <com.example.admin.pandatv.model.modelutils.Ify_Grid
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:numColumns="2"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/gv_wendforment"
+                    android:verticalSpacing="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:scrollbars="none"
+                    >
+
+                </com.example.admin.pandatv.model.modelutils.Ify_Grid>
+                <TextView
+                    android:id="@+id/roll_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#0000ff"
+                    android:layout_marginLeft="10dp"
+                    android:text=""/>
+               <com.example.admin.pandatv.model.modelutils.Ify_Grid
+                   android:layout_width="match_parent"
+                   android:layout_height="200dp"
+                   android:numColumns="1"
+                   android:layout_marginTop="10dp"
+                   android:id="@+id/homethree_gv"
+                   android:verticalSpacing="10dp"
+                   android:horizontalSpacing="10dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp"
+                   android:gravity="center"
+                   android:scrollbars="none"
+                   ></com.example.admin.pandatv.model.modelutils.Ify_Grid>
+                <TextView
+                    android:id="@+id/live_china"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#0000ff"
+                    android:layout_marginLeft="10dp"
+                    android:text=""/>
+                <com.example.admin.pandatv.model.modelutils.Ify_Grid
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:numColumns="3"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/home_live_gv"
+                    android:verticalSpacing="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:scrollbars="none"></com.example.admin.pandatv.model.modelutils.Ify_Grid>
             </LinearLayout>
+
         </ScrollView>
+
+
     </android.support.percent.PercentRelativeLayout>
 
     <ImageView
