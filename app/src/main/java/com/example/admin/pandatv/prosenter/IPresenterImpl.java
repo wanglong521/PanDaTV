@@ -29,6 +29,11 @@ public class IPresenterImpl implements IPresenter,Observer<BroadcastBean> {
 
     }
 
+    @Override
+    public void GetcontrollerRlling() {
+
+    }
+
 
     @Override
     public void onDestroy() {

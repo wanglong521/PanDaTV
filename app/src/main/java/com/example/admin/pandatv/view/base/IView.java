@@ -2,6 +2,7 @@ package com.example.admin.pandatv.view.base;
 
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
+import com.example.admin.pandatv.model.entity.RllingBean;
 
 /**
  *
@@ -16,4 +17,8 @@ public interface IView {
     void OnSucceedItem(BoradcastBeanitem beanitem);
 
     void OnDefeatedItem();
+
+    void OnSucceedRlling(RllingBean beanitem);
+
+    void OnDefeatedRlling();
 }

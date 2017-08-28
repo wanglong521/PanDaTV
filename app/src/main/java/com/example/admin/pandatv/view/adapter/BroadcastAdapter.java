@@ -2,7 +2,6 @@ package com.example.admin.pandatv.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -40,9 +40,11 @@ public class BroadcastAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         MyViewHolder viewHolder = (MyViewHolder) holder;
         BoradcastBeanitem.ListBean listBean = list.get(position);
-        Log.e("TAG",listBean.getPicurl());
         Glide.with(context).load(listBean.getPicurl()).error(R.mipmap.ic_launcher).into(viewHolder.broadcastImage);
         viewHolder.broadcastTitle.setText(listBean.getTitle());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        String format = sdf.format(listBean.getFocus_date());
+        viewHolder.broadcastTime.setText(format);
     }
 
     @Override

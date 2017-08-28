@@ -4,6 +4,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.view.base.App;
@@ -15,10 +16,29 @@ public class WebActivity extends BaseActivity {
     private ImageView WebCollection;
     private ImageView WebShare;
     private WebView webView;
+    private int a = 0 ;
+    private ImageView webCollectionOK;
 
     @Override
     protected void initListener() {
-
+        WebCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (a==0){
+                    webCollectionOK.setVisibility(View.VISIBLE);
+                    WebCollection.setEnabled(false);
+                    Toast.makeText(WebActivity.this, "已添加，请到【我的收藏】中查看", Toast.LENGTH_SHORT).show();
+                    WebCollection.setEnabled(true);
+                    a=1;
+                }else {
+                    webCollectionOK.setVisibility(View.GONE);;
+                    WebCollection.setEnabled(false);
+                    Toast.makeText(WebActivity.this, "已取消收藏", Toast.LENGTH_SHORT).show();
+                    WebCollection.setEnabled(true);
+                    a=0;
+                }
+            }
+        });
     }
 
     @Override
@@ -32,6 +52,7 @@ public class WebActivity extends BaseActivity {
         webView = (WebView) findViewById(R.id.WebView);
         WebCollection = (ImageView) findViewById(R.id.WebCollection);
         WebShare = (ImageView) findViewById(R.id.WebShare);
+        webCollectionOK = (ImageView) findViewById(R.id.WebCollectionOK);
         WebSettings settings = webView.getSettings();
         settings.setUseWideViewPort(true);
         settings.setLoadsImagesAutomatically(true);

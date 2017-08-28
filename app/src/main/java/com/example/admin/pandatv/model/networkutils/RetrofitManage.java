@@ -4,6 +4,7 @@ import com.example.admin.pandatv.model.entity.BoradcastBeanitem;
 import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LvieChina;
+import com.example.admin.pandatv.model.entity.RllingBean;
 import com.google.gson.Gson;
 
 import java.util.concurrent.TimeUnit;
@@ -47,6 +48,12 @@ public class RetrofitManage {
         Observable<BoradcastBeanitem> beanObserver = retrofitServices.sendGetItem();
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
+
+    public void GetNetworkRlling(Observer<RllingBean> observer) {
+        Observable<RllingBean> beanObserver = retrofitServices.sendGetRlling();
+        beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+    }
+
     public void getChiTabList(Observer<ChinaTabList> observer) {
         Observable<ChinaTabList> beanObserver = retrofitServices.getChiTabList();
         beanObserver.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);

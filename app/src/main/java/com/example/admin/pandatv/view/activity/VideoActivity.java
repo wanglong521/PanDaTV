@@ -10,17 +10,18 @@ import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
-public class Main2Activity extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
+public class VideoActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     private VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        Vitamio.isInitialized(Main2Activity.this);
+        Vitamio.isInitialized(VideoActivity.this);
         videoView = (VideoView) findViewById(R.id.video);
-        videoView.setVideoPath("https://vfx.mtime.cn/Video/2017/07/27/mp4/170727100951771139.mp4");
-        MediaController mediaController = new MediaController(Main2Activity.this);
+        String video = getIntent().getStringExtra("video");
+        videoView.setVideoPath(video);
+        MediaController mediaController = new MediaController(VideoActivity.this);
         videoView.setOnPreparedListener(this);
         videoView.setMediaController(mediaController);
 
