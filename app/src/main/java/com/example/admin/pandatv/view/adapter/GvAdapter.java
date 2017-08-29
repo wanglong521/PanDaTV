@@ -15,7 +15,7 @@ import java.util.List;
  * Created by admin on 2017/8/26.
  */
 
-public class GvAdapter extends  BaseCommAdapter<Home.DataBean.PandaliveBean.ListBean> {
+public class GvAdapter extends BaseCommAdapter<Home.DataBean.PandaliveBean.ListBean> {
     public GvAdapter(List<Home.DataBean.PandaliveBean.ListBean> li) {
         super(li);
     }
