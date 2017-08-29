@@ -7,7 +7,7 @@ import android.widget.ListView;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.adapter.WhenAdapter;
 import com.example.admin.pandatv.model.entity.WhenBreadBean;
-import com.example.admin.pandatv.prosenter.IPresenterImplWhenBread;
+import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplWhenBread;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.WhenBreadView;
@@ -72,6 +72,8 @@ public class WhenBear_Fragment extends BaseFragment implements WhenBreadView{
 
     @Override
     protected void initData() {
+
+        whenbreadlist.clear();
 
         iPresenterImplWhenBread = new IPresenterImplWhenBread(this);
         iPresenterImplWhenBread.GetcontrollerWhenBread(a);

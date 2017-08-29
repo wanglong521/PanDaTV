@@ -7,7 +7,7 @@ import android.widget.ListView;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.adapter.SpecialAdapter;
 import com.example.admin.pandatv.model.entity.SpecialBean;
-import com.example.admin.pandatv.prosenter.IPersenterImplSpecial;
+import com.example.admin.pandatv.prosenter.livepandaimpl.IPersenterImplSpecial;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.SpecialView;
@@ -69,6 +69,8 @@ public class Special_Fragment extends BaseFragment implements SpecialView {
 
     @Override
     protected void initData() {
+
+        speciallist.clear();
 
         iPersenterImplSpecial = new IPersenterImplSpecial(this);
 

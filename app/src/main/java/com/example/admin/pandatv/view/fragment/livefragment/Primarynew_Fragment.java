@@ -7,7 +7,7 @@ import android.widget.ListView;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.adapter.PrimmaryAdapter;
 import com.example.admin.pandatv.model.entity.PrimarynewBean;
-import com.example.admin.pandatv.prosenter.IPresenterImplPrimary;
+import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplPrimary;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.PrimaryView;
@@ -65,6 +65,8 @@ public class Primarynew_Fragment extends BaseFragment implements PrimaryView {
 
     @Override
     protected void initData() {
+
+        primarylist.clear();
 
         iPresenterImplPrimary = new IPresenterImplPrimary(this);
         iPresenterImplPrimary.GetcontrollerPrimary(a);

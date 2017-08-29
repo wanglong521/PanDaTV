@@ -7,7 +7,7 @@ import android.widget.ListView;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.adapter.PThingAdapter;
 import com.example.admin.pandatv.model.entity.PandaThingBean;
-import com.example.admin.pandatv.prosenter.IPresenterImplThing;
+import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplThing;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.PandatingView;
@@ -72,6 +72,7 @@ public class Pandathing_Fragment extends BaseFragment implements PandatingView{
     @Override
     protected void initData() {
 
+        thinglist.clear();
         iPresenterImplThing = new IPresenterImplThing(this);
         iPresenterImplThing.GetcontrollerPanTing(a);
 

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.LiveMBean;
-import com.example.admin.pandatv.prosenter.IPresenterImplLivemBean;
+import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplLivemBean;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.LiveMBeanView;
 import com.example.admin.pandatv.view.fragment.livefragment.lfragment.Lookalittle;
@@ -102,7 +102,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         live_tablayout = view.findViewById(R.id.live_tablayout);
         live_viewpager = view.findViewById(R.id.live_viewpager);
 
-//zheshishane
 
     }
 
