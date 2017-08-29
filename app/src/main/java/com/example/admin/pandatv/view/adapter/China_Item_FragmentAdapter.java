@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_FragmentAdapter.MyHolder>{
     Context context;
-        ArrayList<LvieItemBean> list;
+    ArrayList<LvieItemBean> list;
         public China_Item_FragmentAdapter(Context context, ArrayList<LvieItemBean> list) {
             this.context = context;
             this.list = list ;
@@ -41,7 +41,7 @@ public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_
 
             holder.china_item_brief.setText(list.get(position).getBrief());
             holder.china_item_title.setText(list.get(position).getTitle());
-            Glide.with(context).load(list.get(position).getImage()).error(R.drawable._no_img).into(holder.china_item_image);
+            Glide.with(context).load(list.get(position).getImage()).placeholder(R.drawable._no_img).error(R.drawable._no_img).into(holder.china_item_image);
             holder.china_item_updele.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
