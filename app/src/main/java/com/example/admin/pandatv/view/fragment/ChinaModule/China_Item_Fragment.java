@@ -1,21 +1,30 @@
 package com.example.admin.pandatv.view.fragment.ChinaModule;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.LvieItemBean;
 import com.example.admin.pandatv.view.adapter.China_Item_FragmentAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import static android.R.attr.filter;
 import static android.R.id.list;
 
 /**
@@ -31,6 +40,21 @@ public class China_Item_Fragment extends BaseFragment{
 
         @Override
         public void onReceive(Context context, Intent intent) {
+            china_progress.setVisibility(View.VISIBLE);
+            Timer timer = new Timer();
+            TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            china_progress.setVisibility(View.GONE);
+                        }
+                    });
+
+                }
+            };
+            timer.schedule(timerTask,0,2000);
             bundle = intent.getBundleExtra("bundle");
             ArrayList<LvieItemBean> list = new ArrayList<>();
             ArrayList<String> brief = bundle.getStringArrayList("brief");
@@ -44,10 +68,13 @@ public class China_Item_Fragment extends BaseFragment{
             China_Item_FragmentAdapter adapter = new China_Item_FragmentAdapter(getActivity(),list);
             china_recycler.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
             china_recycler.setAdapter(adapter);
-            Log.e("onReceive: ", bundle.toString());
+
+
         }
     };
     private RecyclerView china_recycler;
+    private ProgressDialog dialog;
+    private ProgressBar china_progress;
 
     @Override
     public int getLayout() {
@@ -61,21 +88,33 @@ public class China_Item_Fragment extends BaseFragment{
 
     @Override
     protected void initData() {
-//        arguments = getArguments();
-//        ArrayList<String> brief = arguments.getStringArrayList("brief");
-//        ArrayList<String> image = arguments.getStringArrayList("image");
-//        ArrayList<String> title = arguments.getStringArrayList("title");
     }
 
     @Override
     protected void initView(View view) {
-//        china_item_brief = view.findViewById(R.id.china_item_brief);
-//        china_item_image = view.findViewById(R.id.china_item_image);
-//        china_item_title = view.findViewById(R.id.china_item_title);
-//        china_item_updele = view.findViewById(R.id.china_item_updele);
         china_recycler = view.findViewById(R.id.china_recycler);
+        china_progress = view.findViewById(R.id.china_progress);
+        china_progress.setVisibility(View.VISIBLE);
         IntentFilter filter = new IntentFilter();
         filter.addAction("aaa");
         getActivity().registerReceiver(broadcastReceiver,filter);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser){
+            // load data here：fragment可见时执行加载数据或者进度条等
+
+        }else {
+            // fragment is no longer visible：不可见时不执行操作
+        }
     }
 }

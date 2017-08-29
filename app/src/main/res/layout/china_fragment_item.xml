@@ -6,6 +6,7 @@
     android:id="@+id/china_item_image"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:scaleType="centerCrop"
     android:src="@drawable/_no_img"
     />
     <LinearLayout
@@ -57,5 +58,11 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        
+        <TextView
+            android:background="@color/gap"
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
     </LinearLayout>
+    
 </RelativeLayout>

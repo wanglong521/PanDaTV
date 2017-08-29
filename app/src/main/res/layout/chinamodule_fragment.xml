@@ -13,22 +13,32 @@
 
             <TextView
                 android:textSize="18dp"
+                android:textColor="@color/white"
                 android:layout_centerVertical="true"
                 android:text="@string/chinamodule"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <ImageView
+                android:id="@+id/china_login"
                 android:layout_margin="5dp"
-                android:src="@drawable/live_china_add"
+                android:scaleType="centerInside"
+                android:src="@drawable/person_sign"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
+        <TextView
+            android:background="@color/gap"
+            android:id="@+id/china_view"
+            android:layout_below="@+id/china_top"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            />
         <LinearLayout
             android:id="@+id/cen"
-            android:layout_below="@id/china_top"
+            android:layout_below="@id/china_view"
             android:layout_alignParentRight="true"
             android:layout_alignParentLeft="true"
             app:layout_heightPercent="8%"
@@ -42,6 +52,8 @@
                 android:layout_height="match_parent">
             </android.support.design.widget.TabLayout>
             <ImageView
+                android:background="@color/white"
+                android:scaleType="center"
                 android:id="@+id/china_iv_add"
                 android:layout_gravity="right"
                 android:layout_width="0dp"
