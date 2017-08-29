@@ -35,11 +35,17 @@
             android:layout_marginTop="14dp"
             android:text="原创·互动"
             android:textColor="#FFFFFF" />
-
-        <GridView
-            android:id="@+id/Yuanchuang_gv"
+        <in.srain.cube.views.ptr.PtrClassicFrameLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_below="@id/Yuanchuang_toolbar"
+            app:layout_heightPercent="92%"
+            app:layout_widthPercent="100%"
+            android:id="@+id/ptr">
+        <ListView
+            android:id="@+id/Yuanchuang_gv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@id/Yuanchuang_toolbar"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -48,7 +54,7 @@
             android:numColumns="1"
             android:scrollbars="none"
             android:verticalSpacing="10dp"
-            app:layout_heightPercent="92%"
-            app:layout_widthPercent="100%"></GridView>
+           ></ListView>
+        </in.srain.cube.views.ptr.PtrClassicFrameLayout>
     </android.support.percent.PercentRelativeLayout>
 </RelativeLayout>
