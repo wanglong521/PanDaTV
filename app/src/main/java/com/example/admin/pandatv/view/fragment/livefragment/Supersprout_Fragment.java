@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.adapter.SupersAdapter;
-import com.example.admin.pandatv.model.entity.SupersBean;
+import com.example.admin.pandatv.model.entity.livapandabean.SupersBean;
 import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImolSupers;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;

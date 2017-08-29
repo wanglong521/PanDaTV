@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.model.entity.WhenBreadBean;
+import com.example.admin.pandatv.model.entity.livapandabean.WhenBreadBean;
 
 import java.util.List;
 

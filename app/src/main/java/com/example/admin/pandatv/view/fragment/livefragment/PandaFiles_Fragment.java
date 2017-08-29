@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.adapter.PandaFilesAdapter;
-import com.example.admin.pandatv.model.entity.PandaFilesBean;
+import com.example.admin.pandatv.model.entity.livapandabean.PandaFilesBean;
 import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplPanFiles;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;

@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.adapter.PandaTOPAdapter;
-import com.example.admin.pandatv.model.entity.PandaTOPBean;
+import com.example.admin.pandatv.model.entity.livapandabean.PandaTOPBean;
 import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplTOP;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;

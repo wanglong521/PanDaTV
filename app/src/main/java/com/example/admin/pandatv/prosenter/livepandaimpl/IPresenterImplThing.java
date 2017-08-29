@@ -1,6 +1,6 @@
 package com.example.admin.pandatv.prosenter.livepandaimpl;
 
-import com.example.admin.pandatv.model.entity.PandaThingBean;
+import com.example.admin.pandatv.model.entity.livapandabean.PandaThingBean;
 import com.example.admin.pandatv.model.networkutils.NetWorkimpl;
 import com.example.admin.pandatv.prosenter.IPresenterPTing;
 import com.example.admin.pandatv.view.base.PandatingView;

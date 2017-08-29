@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
-import com.example.admin.pandatv.view.customview.NonSwipeableViewPager;
+import com.example.admin.pandatv.view.view.NonSwipeableViewPager;
 import com.example.admin.pandatv.view.fragment.livefragment.Livetelecast_Fragment;
 import com.example.admin.pandatv.view.fragment.livefragment.PandaFiles_Fragment;
 import com.example.admin.pandatv.view.fragment.livefragment.PandaTOP_Fragment;

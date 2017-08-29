@@ -1,6 +1,6 @@
 package com.example.admin.pandatv.prosenter.livepandaimpl;
 
-import com.example.admin.pandatv.model.entity.PandaFilesBean;
+import com.example.admin.pandatv.model.entity.livapandabean.PandaFilesBean;
 import com.example.admin.pandatv.model.networkutils.NetWorkimpl;
 import com.example.admin.pandatv.prosenter.IPresenterPanFiles;
 import com.example.admin.pandatv.view.base.PandaFilesView;

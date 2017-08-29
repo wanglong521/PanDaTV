@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.model.entity.LiveMBean;
+import com.example.admin.pandatv.model.entity.livapandabean.LiveMBean;
 import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplLivemBean;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.LiveMBeanView;
@@ -45,6 +45,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     private int NUM=1;
     private List<String> tabnamelist;
     private List<Fragment> fragmentlist=new ArrayList<Fragment>();
+
     @Override
     public int getLayout() {
         return R.layout.livetelecast_item;
@@ -52,8 +53,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
     @Override
     protected void initListener() {
-
-
 
         live_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,13 +79,17 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
     }
 
+
+
+
+
     @Override
     protected void initData() {
-
         tabnamelist=new ArrayList<>();
         IPresenterImplLivemBean iPresenterImplLivemBean=new IPresenterImplLivemBean(this);
         iPresenterImplLivemBean.Getcontroller();
         live_tablayout.setupWithViewPager(live_viewpager);
+
 
     }
 
@@ -107,6 +110,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
     @Override
     public void OnSucceed(LiveMBean succed) {
+
       liveMBeen.add(succed);
 
         tabnamelist.clear();

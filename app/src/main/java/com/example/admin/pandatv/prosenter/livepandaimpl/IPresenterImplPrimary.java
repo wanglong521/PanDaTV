@@ -1,6 +1,6 @@
 package com.example.admin.pandatv.prosenter.livepandaimpl;
 
-import com.example.admin.pandatv.model.entity.PrimarynewBean;
+import com.example.admin.pandatv.model.entity.livapandabean.PrimarynewBean;
 import com.example.admin.pandatv.model.networkutils.NetWorkimpl;
 import com.example.admin.pandatv.prosenter.IPersenterPrimary;
 import com.example.admin.pandatv.view.base.PrimaryView;
