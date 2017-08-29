@@ -7,5 +7,9 @@ public interface IPresenter {
 
     void GetcontrollerRlling();
 
+    void GetcontrollerSplendid(int a);
+
+    void GetcontrollerWhenBread(int a);
+
     void onDestroy();
 }

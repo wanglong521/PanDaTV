@@ -1,11 +1,9 @@
 package com.example.admin.pandatv.view.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -13,15 +11,13 @@ import android.view.View;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LvieChina;
-import com.example.admin.pandatv.model.modelutils.FragmentBuilder;
 import com.example.admin.pandatv.prosenter.ChinaPersenter;
 import com.example.admin.pandatv.view.adapter.China_item_PagerAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.ChinaViewImpl;
 import com.example.admin.pandatv.view.fragment.ChinaModule.China_Item_Fragment;
-import java.util.ArrayList;
 
-import static android.R.attr.fragment;
+import java.util.ArrayList;
 
 /**
  * Created by admin on 2017/8/23.

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/PhoneRegistrationLinear"
+        app:layout_heightPercent="8%"
+        app:layout_widthPercent="100%"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="海外用户暂不支持手机号注册，您可以使用邮箱注册"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/PhoneRegistrationNumber"
+        android:layout_below="@id/PhoneRegistrationLinear"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/edit_bg"
+        android:hint="账号：请输入手机帐号"/>
+
+    <LinearLayout
+        android:id="@+id/PhoneRegistrationLinear1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/PhoneRegistrationNumber">
+
+        <EditText
+            android:id="@+id/PhoneRegistrationimage"
+            android:layout_below="@id/PhoneRegistrationLinear"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="请输入图片验证码"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/PhoneRegistrationLinear2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/PhoneRegistrationLinear1">
+
+        <EditText
+            android:id="@+id/PhoneRegistrationimagetext"
+            android:layout_below="@id/PhoneRegistrationLinear"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="请输入收到的验证码"/>
+
+        <Button
+            android:id="@+id/GetVerificationcode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="获取验证码"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/PhoneRegistrationPassword"
+        android:layout_below="@id/PhoneRegistrationLinear2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/edit_bg"
+        android:hint="请输入密码"/>
+
+    <LinearLayout
+        android:id="@+id/PhoneRegistrationLinear3"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/PhoneRegistrationPassword">
+
+        <ImageView
+            android:id="@+id/PhoneRegistrationOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/personal_check_img"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/PhoneRegistrationAgree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="我已阅读并同意《央视网网络服务使用协议》"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/PhoneRegistrationLinear3">
+    <Button
+        android:id="@+id/PhoneRegistrationAgreeBut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryDark"/>
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>

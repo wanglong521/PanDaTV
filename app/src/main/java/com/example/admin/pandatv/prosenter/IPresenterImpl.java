@@ -34,6 +34,16 @@ public class IPresenterImpl implements IPresenter,Observer<BroadcastBean> {
 
     }
 
+    @Override
+    public void GetcontrollerSplendid(int a) {
+
+    }
+
+    @Override
+    public void GetcontrollerWhenBread(int a) {
+
+    }
+
 
     @Override
     public void onDestroy() {
