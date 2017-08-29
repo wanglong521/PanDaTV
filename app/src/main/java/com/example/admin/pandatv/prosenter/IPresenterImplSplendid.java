@@ -4,6 +4,9 @@ import com.example.admin.pandatv.model.entity.SplendidBean;
 import com.example.admin.pandatv.model.networkutils.NetWorkimpl;
 import com.example.admin.pandatv.view.base.SplendidView;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
@@ -27,9 +30,6 @@ public class IPresenterImplSplendid implements IPresenter,Observer<SplendidBean>
     @Override
     public void Getcontroller() {
 
-
-      netWorkimpl.requestsplendidbean(this);
-
     }
 
     @Override
@@ -41,6 +41,24 @@ public class IPresenterImplSplendid implements IPresenter,Observer<SplendidBean>
     public void GetcontrollerRlling() {
 
     }
+
+    @Override
+    public void GetcontrollerSplendid(int a) {
+        Map<String,String> map = new TreeMap<String, String>();
+        map.put("vsid","VSET100167216881");
+        map.put("n","7");
+        map.put("serviceId","panda");
+        map.put("o","desc");
+        map.put("of","time");
+        map.put("p",a+"");
+        netWorkimpl.requestsplendidbean(this,map);
+    }
+
+    @Override
+    public void GetcontrollerWhenBread(int a) {
+
+    }
+
 
     @Override
     public void onDestroy() {
@@ -56,7 +74,6 @@ public class IPresenterImplSplendid implements IPresenter,Observer<SplendidBean>
 
     @Override
     public void onNext(@NonNull SplendidBean splendidBean) {
-
         splenddidView.OnSucceed(splendidBean);
     }
 

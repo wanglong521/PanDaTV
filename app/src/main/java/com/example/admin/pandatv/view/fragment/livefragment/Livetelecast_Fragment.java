@@ -43,7 +43,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     private ViewPager live_viewpager;
     private List<LiveMBean> liveMBeen=new ArrayList<LiveMBean>();
     private int NUM=1;
-    private List<String> tabnamelist=new ArrayList<String>();
+    private List<String> tabnamelist;
     private List<Fragment> fragmentlist=new ArrayList<Fragment>();
     @Override
     public int getLayout() {
@@ -52,6 +52,8 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
     @Override
     protected void initListener() {
+
+
 
         live_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,20 +73,19 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
             }
         });
 
-
+        fragmentlist.clear();
         fragmentlist.add(new MoreLiveFragment());
         fragmentlist.add(new Lookalittle());
 
-        Log.i("TAG",tabnamelist.size()+"");
 
     }
 
     @Override
     protected void initData() {
 
+        tabnamelist=new ArrayList<>();
         IPresenterImplLivemBean iPresenterImplLivemBean=new IPresenterImplLivemBean(this);
-
-            iPresenterImplLivemBean.Getcontroller();
+        iPresenterImplLivemBean.Getcontroller();
         live_tablayout.setupWithViewPager(live_viewpager);
 
     }
@@ -109,12 +110,15 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     public void OnSucceed(LiveMBean succed) {
       liveMBeen.add(succed);
 
+        tabnamelist.clear();
 
-        for (LiveMBean item :
-                liveMBeen) {
-            List<LiveMBean.LiveBean> live = item.getLive();
+            for (LiveMBean item :
+                    liveMBeen) {
+                List<LiveMBean.LiveBean> live = item.getLive();
 
             LiveMBean.BookmarkBean bookmark = item.getBookmark();
+
+
 
                 List<LiveMBean.BookmarkBean.MultipleBean> multiple = bookmark.getMultiple();
                 for (LiveMBean.BookmarkBean.MultipleBean multipleBean :
@@ -150,6 +154,9 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(0)));
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(1)));
+
+
+
         FragmentManager manager = getActivity().getSupportFragmentManager();
 
         MyliveAdapter adapter=new MyliveAdapter(manager);
@@ -191,5 +198,11 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         {
             return tabnamelist.get(position);
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
     }
 }

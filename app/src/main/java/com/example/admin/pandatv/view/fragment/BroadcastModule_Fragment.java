@@ -15,6 +15,7 @@ import com.example.admin.pandatv.model.entity.RllingBean;
 import com.example.admin.pandatv.model.modelutils.GlideImageLoader;
 import com.example.admin.pandatv.prosenter.IPresenterImpl;
 import com.example.admin.pandatv.prosenter.IPresenterImplItem;
+import com.example.admin.pandatv.view.activity.PersonalCenter;
 import com.example.admin.pandatv.view.activity.VideoActivity;
 import com.example.admin.pandatv.view.activity.WebActivity;
 import com.example.admin.pandatv.view.adapter.BroadcastAdapter;
@@ -52,6 +53,12 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
 
     @Override
     protected void initListener() {
+        broadcastPersonal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(App.mBaseActivity, PersonalCenter.class));
+            }
+        });
         adap.setOnItemClickListener(new RecyclerAdapterWithHF.OnItemClickListener() {
             @Override
             public void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position) {

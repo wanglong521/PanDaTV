@@ -1,5 +1,6 @@
 package com.example.admin.pandatv.view.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,6 +14,7 @@ import com.example.admin.pandatv.model.entity.BroadcastBean;
 import com.example.admin.pandatv.model.entity.RllingBean;
 import com.example.admin.pandatv.model.modelutils.GlideImageLoader;
 import com.example.admin.pandatv.prosenter.IPresenterImplRlling;
+import com.example.admin.pandatv.view.activity.PersonalCenter;
 import com.example.admin.pandatv.view.adapter.RollingAdapter;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
@@ -45,7 +47,12 @@ public class RollingModule_Fragment extends BaseFragment implements IView {
 
     @Override
     protected void initListener() {
-
+        RollingPersonal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(App.mBaseActivity, PersonalCenter.class));
+            }
+        });
     }
 
     @Override
