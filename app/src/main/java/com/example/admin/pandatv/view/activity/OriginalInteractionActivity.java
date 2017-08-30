@@ -47,16 +47,16 @@ public class OriginalInteractionActivity extends BaseActivity {
         ptrFrameLayout.setPtrHandler(new PtrDefaultHandler2() {
             @Override
             public void onLoadMoreBegin(PtrFrameLayout frame) {
-                Log.e("MainActivity","开始加载更多");
+                Log.e("MainActivity", "开始加载更多");
 
-              initData();
+                initData();
                 ptrFrameLayout.refreshComplete();
 
             }
 
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                Log.e("MainActivity","开始下拉刷新");
+                Log.e("MainActivity", "开始下拉刷新");
                 ptrFrameLayout.refreshComplete();
             }
         });

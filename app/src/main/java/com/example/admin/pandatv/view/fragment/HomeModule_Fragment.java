@@ -18,6 +18,7 @@ import com.example.admin.pandatv.model.bean.RoolView;
 import com.example.admin.pandatv.model.bean.Wonderful;
 import com.example.admin.pandatv.view.activity.LoginActivity;
 import com.example.admin.pandatv.view.activity.OriginalInteractionActivity;
+import com.example.admin.pandatv.view.activity.banderavtivitys.FristActivity;
 import com.example.admin.pandatv.view.adapter.GvAdapter;
 import com.example.admin.pandatv.view.adapter.LiveAdapter;
 import com.example.admin.pandatv.view.adapter.RoolViewAdapter;
@@ -30,6 +31,7 @@ import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +68,7 @@ public class HomeModule_Fragment extends BaseFragment {
     List<RoolView.ListBean> roolViewlists = new ArrayList<>();
     List<Home.DataBean.ChinaliveBean.ListBeanX> chinaLivelists = new ArrayList<>();
     String chinalivetitle;
+    private List<Home.DataBean.BigImgBean> bigImg;
 
     @Override
     public int getLayout() {
@@ -108,7 +111,7 @@ public class HomeModule_Fragment extends BaseFragment {
             @Override
             public void onResponse(String response) {
                 Home home = new Gson().fromJson(response, Home.class);
-                List<Home.DataBean.BigImgBean> bigImg = home.getData().getBigImg();
+                bigImg = home.getData().getBigImg();
                 title = home.getData().getPandaeye().getTitle();
                 List<Home.DataBean.PandaeyeBean.ItemsBean> items = home.getData().getPandaeye().getItems();
                 zj = items.get(0).getBrief();
@@ -175,6 +178,7 @@ public class HomeModule_Fragment extends BaseFragment {
 
                     }
                 });
+
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -220,6 +224,34 @@ public class HomeModule_Fragment extends BaseFragment {
 
                         //banner设置方法全部调用完毕时最后调用
                         banner.start();
+                        banner.setOnBannerListener(new OnBannerListener() {
+                            @Override
+                            public void OnBannerClick(int position) {
+                                switch (position) {
+                                    case 1:
+                                        Intent intent1 = new Intent(getActivity(), FristActivity.class);
+                                          intent1.putExtra("url",bigImg.get(1).getUrl());
+                                        getActivity().startActivity(intent1);
+
+                                        break;
+                                    case 2:
+                                        Intent intent2 = new Intent(getActivity(), FristActivity.class);
+                                        intent2.putExtra("url",bigImg.get(2).getUrl());
+                                        getActivity().startActivity(intent2);
+                                        break;
+                                    case 3:
+                                        Intent intent3 = new Intent(getActivity(), FristActivity.class);
+                                        intent3.putExtra("url",bigImg.get(3).getUrl());
+                                        getActivity().startActivity(intent3);
+                                        break;
+                                    case 4:
+                                        Intent intent4= new Intent(getActivity(), FristActivity.class);
+                                        intent4.putExtra("url",bigImg.get(4).getUrl());
+                                        getActivity().startActivity(intent4);
+                                        break;
+                                }
+                            }
+                        });
                     }
                 });
 

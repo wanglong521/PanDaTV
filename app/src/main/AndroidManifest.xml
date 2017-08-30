@@ -42,7 +42,29 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.OriginalInteractionActivity"
+            android:screenOrientation="portrait"
+           />
+        <activity
+            android:name=".view.activity.OriginalInteractiveDetailsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.PersonalCenter"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".view.activity.RegisteredActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".view.activity.banderavtivitys.FristActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.activity.OriginalInteractiveDetailsActivity"
             android:screenOrientation="portrait" />

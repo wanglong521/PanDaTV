@@ -7,6 +7,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.admin.pandatv.R;
@@ -19,7 +20,9 @@ public class OriginalInteractiveDetailsActivity extends BaseActivity {
     private String url;
     private String name;
     private ImageView share_im;
-private Toolbar toolbar;
+    private Toolbar toolbar;
+    RelativeLayout rl;
+
     @Override
     protected void initListener() {
         /**
@@ -77,6 +80,8 @@ private Toolbar toolbar;
         name = intent.getStringExtra("name");
         url = intent.getStringExtra("url");
         wv = (WebView) findViewById(R.id.web);
+        rl = (RelativeLayout) findViewById(R.id.rl);
+
         toolbar = (Toolbar) findViewById(R.id.Yuanchuangdetails_toolbar);
         toolbar.setNavigationIcon(R.drawable.personal_back_img);
         toolbar.setTitle("");
@@ -108,7 +113,7 @@ private Toolbar toolbar;
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        rl.removeView(wv);
         wv.destroy();
     }
 }

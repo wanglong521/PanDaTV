@@ -1,6 +1,6 @@
 package com.example.admin.pandatv.view.base;
 
-import com.example.admin.pandatv.model.entity.PandaTOPBean;
+import com.example.admin.pandatv.model.entity.livapandabean.PandaTOPBean;
 
 /**
  * Created by LiYRong on 2017/8/28.
