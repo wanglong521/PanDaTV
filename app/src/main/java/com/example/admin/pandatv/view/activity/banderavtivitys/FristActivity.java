@@ -1,39 +1,34 @@
-package com.example.admin.pandatv.view.activity;
+package com.example.admin.pandatv.view.activity.banderavtivitys;
 
 import android.content.Intent;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseActivity;
 
-public class OriginalInteractiveDetailsActivity extends BaseActivity {
-    private WebView wv;
-    private TextView xiangqingtitle;
-    private String url;
-    private String name;
-    private ImageView share_im;
-    private Toolbar toolbar;
-    RelativeLayout rl;
-
+public class FristActivity extends BaseActivity{
+private  WebView wv;
+private LinearLayout li;
     @Override
     protected void initListener() {
-        /**
-         * 分享监听
-         */
-        share_im.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initView() {
+        Intent intent = this.getIntent();
+        String url = intent.getStringExtra("url");
+
+        wv = (WebView) findViewById(R.id.wv);
+        li = (LinearLayout) findViewById(R.id.li);
         WebSettings settings = wv.getSettings();
         //wv必须设置支持JavaScript
         settings.setJavaScriptEnabled(true);
@@ -59,7 +54,7 @@ public class OriginalInteractiveDetailsActivity extends BaseActivity {
         //3.加载手机本地的html页面
         //wv.loadUrl("content://"com.android.htmlfileprovider/sdcard/text.html");
         // 步骤3   调用shouldOverrideUrlLoading方法，使打开网页不用系统浏览器，在本页面显示
-        wv.setWebViewClient(new WebViewClient() {
+        wv.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
@@ -67,53 +62,19 @@ public class OriginalInteractiveDetailsActivity extends BaseActivity {
             }
         });
 
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void initView() {
-        Intent intent = this.getIntent();
-        name = intent.getStringExtra("name");
-        url = intent.getStringExtra("url");
-        wv = (WebView) findViewById(R.id.web);
-        rl = (RelativeLayout) findViewById(R.id.rl);
-
-        toolbar = (Toolbar) findViewById(R.id.Yuanchuangdetails_toolbar);
-        toolbar.setNavigationIcon(R.drawable.personal_back_img);
-        toolbar.setTitle("");
-        App.mBaseActivity.setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        /**
-         * 标题
-         */
-        xiangqingtitle = (TextView) findViewById(R.id.xiangqingtitle);
-        /**
-         * 分享
-         */
-        share_im = (ImageView) findViewById(R.id.share_im);
-        xiangqingtitle.setText(name);
 
 
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_original_interactive_details;
+        return R.layout.activity_frist;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        rl.removeView(wv);
+        li.removeView(wv);
         wv.destroy();
     }
 }

@@ -40,6 +40,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
+                    android:background="@drawable/rbback"
                     android:drawableTop="@drawable/tab_home_normal"
                     android:gravity="center_horizontal"
                     android:text="首页" />
@@ -50,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
+                    android:background="@drawable/rbback"
                     android:drawableTop="@drawable/tab_panda_live_normal"
                     android:gravity="center_horizontal"
                     android:text="熊猫直播" />
@@ -60,6 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
+                    android:background="@drawable/rbback"
                     android:drawableTop="@drawable/tab_panda_culture_normals"
                     android:gravity="center_horizontal"
                     android:text="滚滚视频" />
@@ -70,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
-
+                    android:background="@drawable/rbback"
                     android:drawableTop="@drawable/tab_panda_eye_normal"
                     android:gravity="center"
                     android:text="熊猫播报" />
@@ -81,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
+                    android:background="@drawable/rbback"
                     android:drawableTop="@drawable/tab_live_china_normal"
                     android:gravity="center"
                     android:text="直播中国" />
