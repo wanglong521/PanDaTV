@@ -43,6 +43,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".view.activity.MainActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.WebActivity"

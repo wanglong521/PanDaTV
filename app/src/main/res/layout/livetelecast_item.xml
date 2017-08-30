@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/livetel_img"
-        android:background="@mipmap/ic_launcher"/>
+        android:src="@drawable/def_no_iv"/>
 
     <LinearLayout
         android:layout_weight="1"
@@ -100,20 +100,18 @@
 
                     <android.support.design.widget.TabLayout
                         tabMode="scrollable"
-                        tabSelectedTextColor="@color/colorPrimaryDark"
-                        tabIndicatorColor="@color/colorPrimaryDark"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/live_tablayout"
                         ></android.support.design.widget.TabLayout>
 
 
-                    <com.example.admin.pandatv.view.view.WrapContentHeightViewPager
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/live_viewpager">
+                   <com.example.admin.pandatv.view.view.WrapContentHeightViewPager
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:id="@+id/live_viewpager">
 
-                    </com.example.admin.pandatv.view.view.WrapContentHeightViewPager>
+                   </com.example.admin.pandatv.view.view.WrapContentHeightViewPager>
 
                 </LinearLayout>
             </LinearLayout>

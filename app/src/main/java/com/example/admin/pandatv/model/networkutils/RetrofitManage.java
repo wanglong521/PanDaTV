@@ -39,7 +39,11 @@ public class RetrofitManage {
 
     private RetrofitManage() {
         OkHttpClient client = new OkHttpClient.Builder().connectTimeout(50, TimeUnit.SECONDS).readTimeout(50, TimeUnit.SECONDS).writeTimeout(50, TimeUnit.SECONDS).build();
-        retrofitServices = new Retrofit.Builder().client(client).baseUrl("https://www.baidu.com/").addConverterFactory(GsonConverterFactory.create(new Gson())).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build().create(RetrofitServices.class);
+        retrofitServices = new Retrofit.Builder()
+                .client(client).baseUrl("https://www.baidu.com/")
+                .addConverterFactory(GsonConverterFactory.create(new Gson()))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build().create(RetrofitServices.class);
     }
 
     public synchronized static RetrofitManage getInstance() {
@@ -102,9 +106,11 @@ public class RetrofitManage {
     //这是熊猫直播里面熊猫档案的网络请求的方法
     public void GetNetworkPandaFilesbean(Observer<PandaFilesBean> observer,Map<String,String> map){
 
-        Observable<PandaFilesBean> pandaFilesbean = retrofitServices.getPandaFilesbean(map);
+        Observable<PandaFilesBean> pandaFilesbean = retrofitServices.
+                getPandaFilesbean(map);
 
-        pandaFilesbean.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+        pandaFilesbean.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
 
     }
     //这是熊猫直播里面熊猫TOP榜的网络请求

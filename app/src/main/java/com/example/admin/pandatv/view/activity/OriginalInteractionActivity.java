@@ -114,8 +114,6 @@ public class OriginalInteractionActivity extends BaseActivity {
         });
         Yuanchuang_gv = (ListView) findViewById(R.id.Yuanchuang_gv);
         p = (ProgressBar) findViewById(R.id.p);
-
-
     }
 
     @Override

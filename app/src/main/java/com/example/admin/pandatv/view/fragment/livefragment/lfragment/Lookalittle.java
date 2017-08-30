@@ -2,11 +2,11 @@ package com.example.admin.pandatv.view.fragment.livefragment.lfragment;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.view.base.BaseFragment;
+import com.example.admin.pandatv.view.view.ClearEditText;
 
 /**
  * Created by LiYRong on 2017/8/26.
@@ -14,7 +14,7 @@ import com.example.admin.pandatv.view.base.BaseFragment;
 // TODO: 2017/8/29 差网址
 public class Lookalittle extends BaseFragment {
 
-    private EditText ed_comment;
+    private ClearEditText ed_comment;
     private Button send;
     private ListView look_litview;
 
