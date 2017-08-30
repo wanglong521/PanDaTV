@@ -42,18 +42,8 @@
             android:id="@+id/WebCollection"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/personal_shoucang_img"
+            android:src="@drawable/collect_no"
             android:layout_toLeftOf="@id/WebMyView"/>
-
-        <ImageView
-            android:id="@+id/WebCollectionOK"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_marginRight="7dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/personal_check_img"
-            android:layout_toLeftOf="@id/WebMyView"
-            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/WebShare"

@@ -72,6 +72,7 @@ public class BroadcastModule_Fragment extends BaseFragment implements IView {
             public void OnBannerClick(int position) {
                 Intent intent = new Intent(App.mBaseActivity, VideoActivity.class);
                 intent.putExtra("video",imagesurl.get(position));
+                intent.putExtra("title",titles.get(position));
                 startActivity(intent);
             }
         });

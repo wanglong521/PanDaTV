@@ -6,34 +6,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.model.OkHttpClientManager;
 import com.example.admin.pandatv.model.entity.LvieItemBean;
-import com.example.admin.pandatv.view.activity.MainActivity;
 import com.example.admin.pandatv.view.adapter.China_Item_FragmentAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-
-import static android.R.attr.filter;
-import static android.R.id.list;
 
 /**
  * Created by lenovo on 2017/8/26.
@@ -61,7 +49,6 @@ public class China_Item_Fragment extends BaseFragment{
                             china_progress.setVisibility(View.GONE);
                         }
                     });
-
                 }
             };
             timer.schedule(timerTask,0,2000);
@@ -99,6 +86,7 @@ public class China_Item_Fragment extends BaseFragment{
 
     @Override
     protected void initData() {
+
     }
 
     @Override

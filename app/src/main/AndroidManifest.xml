@@ -3,7 +3,15 @@
     package="com.example.admin.pandatv">
 
     <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <application
         android:name=".view.base.App"
@@ -41,39 +49,18 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.OriginalInteractionActivity"
-            android:screenOrientation="portrait"
-           />
-        <activity
-            android:name=".view.activity.OriginalInteractiveDetailsActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.PersonalCenter"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity
-            android:name=".view.activity.LoginActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity
-            android:name=".view.activity.RegisteredActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.ForgetPasswordActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity
-            android:name=".view.activity.banderavtivitys.FristActivity"
+        <activity android:name=".view.activity.OriginalInteractiveDetailsActivity"
             android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".view.activity.OriginalInteractiveDetailsActivity"
-            android:screenOrientation="portrait" />
         <activity android:name=".view.activity.PersonalCenter" />
         <activity android:name=".view.activity.LoginActivity" />
         <activity android:name=".view.activity.RegisteredActivity" />
-        <activity android:name=".view.activity.ForgetPasswordActivity" />
-        <activity android:name=".view.activity.DialogActivity"
-            android:theme="@style/translucent"
-            ></activity>
+        <activity android:name=".view.activity.ForgetPasswordActivity"></activity>
+        <activity android:name=".view.activity.RollingVideoActivity"/>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59a669b1c62dca174b000545" >
+        </meta-data>
     </application>
 
 </manifest>
