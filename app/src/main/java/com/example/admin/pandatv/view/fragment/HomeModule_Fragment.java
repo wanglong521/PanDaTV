@@ -16,7 +16,9 @@ import com.example.admin.pandatv.model.OkHttpClientManager;
 import com.example.admin.pandatv.model.bean.Home;
 import com.example.admin.pandatv.model.bean.RoolView;
 import com.example.admin.pandatv.model.bean.Wonderful;
+import com.example.admin.pandatv.view.activity.LoginActivity;
 import com.example.admin.pandatv.view.activity.OriginalInteractionActivity;
+import com.example.admin.pandatv.view.activity.banderavtivitys.FristActivity;
 import com.example.admin.pandatv.view.adapter.GvAdapter;
 import com.example.admin.pandatv.view.adapter.LiveAdapter;
 import com.example.admin.pandatv.view.adapter.RoolViewAdapter;
@@ -29,6 +31,7 @@ import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,12 +41,12 @@ import java.util.List;
  */
 
 public class HomeModule_Fragment extends BaseFragment {
-   ImageView imageView2;
+    ImageView imageView2, imageView;
     Toolbar toolbr;
     Banner banner;
     ProgressBar pbr;
     TextView panda_Broadcast_Text, zj_tv, zj_tvs, qs_tv,
-            qs_tvs, liveshwtv, wendforment_tv,roll_tv,live_china;
+            qs_tvs, liveshwtv, wendforment_tv, roll_tv, live_china;
     private List<String> images;
     private List<String> titles;
     private List<Home.DataBean.BigImgBean> listim;
@@ -56,15 +59,17 @@ public class HomeModule_Fragment extends BaseFragment {
     String pandaeyelogo;
     String titlepandalive;
     List<Home.DataBean.PandaliveBean.ListBean> li = new ArrayList<>();
-    GridView home_gv, gv_wendforment,homethree_gv,home_live_gv;
+    GridView home_gv, gv_wendforment, homethree_gv, home_live_gv;
     private GvAdapter gvAdapter;
     String wnderfulmomnet;
     List<Wonderful.ListBean> wonderfullists = new ArrayList<>();
     private TwoGVAdapter twoGVAdapter;
     String rooltitle;
-    List<RoolView.ListBean>roolViewlists=new ArrayList<>();
-    List<Home.DataBean.ChinaliveBean.ListBeanX> chinaLivelists=new ArrayList<>();
+    List<RoolView.ListBean> roolViewlists = new ArrayList<>();
+    List<Home.DataBean.ChinaliveBean.ListBeanX> chinaLivelists = new ArrayList<>();
     String chinalivetitle;
+    private List<Home.DataBean.BigImgBean> bigImg;
+
     @Override
     public int getLayout() {
         return R.layout.homemodule_fragment;
@@ -75,7 +80,14 @@ public class HomeModule_Fragment extends BaseFragment {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), OriginalInteractionActivity.class);
+                Intent intent = new Intent(getActivity(), OriginalInteractionActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 getActivity().startActivity(intent);
             }
         });
@@ -99,7 +111,7 @@ public class HomeModule_Fragment extends BaseFragment {
             @Override
             public void onResponse(String response) {
                 Home home = new Gson().fromJson(response, Home.class);
-                List<Home.DataBean.BigImgBean> bigImg = home.getData().getBigImg();
+                bigImg = home.getData().getBigImg();
                 title = home.getData().getPandaeye().getTitle();
                 List<Home.DataBean.PandaeyeBean.ItemsBean> items = home.getData().getPandaeye().getItems();
                 zj = items.get(0).getBrief();
@@ -113,9 +125,9 @@ public class HomeModule_Fragment extends BaseFragment {
                 //直播中国
 
                 Home.DataBean.ChinaliveBean chinalive = home.getData().getChinalive();
-                 chinalivetitle = chinalive.getTitle();
+                chinalivetitle = chinalive.getTitle();
                 List<Home.DataBean.ChinaliveBean.ListBeanX> chinalivelist = chinalive.getList();
-                if (chinaLivelists.size()==0) {
+                if (chinaLivelists.size() == 0) {
                     chinaLivelists.addAll(chinalivelist);
                 }
                 OkHttpClientManager.getAsyn(home.getData().getCctv().getListurl(), new OkHttpClientManager.ResultCallback<String>() {
@@ -131,7 +143,6 @@ public class HomeModule_Fragment extends BaseFragment {
                         if (wonderfullists.size() == 0) {
                             wonderfullists.addAll(wonderfullist);
                         }
-
 
 
                     }
@@ -158,24 +169,24 @@ public class HomeModule_Fragment extends BaseFragment {
                     @Override
                     public void onResponse(String response) {
                         RoolView roolView = new Gson().fromJson(response, RoolView.class);
-                        List<RoolView.ListBean>  roolViewlist = roolView.getList();
+                        List<RoolView.ListBean> roolViewlist = roolView.getList();
 
                         if (roolViewlists.size() == 0) {
                             roolViewlists.addAll(roolViewlist);
                         }
 
 
-
                     }
                 });
+
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (images.size()==0&&titles.size()==0){
-                        for (int i = 0; i < listim.size(); i++) {
-                            images.add(listim.get(i).getImage());
-                            titles.add(listim.get(i).getTitle());
-                        }
+                        if (images.size() == 0 && titles.size() == 0) {
+                            for (int i = 0; i < listim.size(); i++) {
+                                images.add(listim.get(i).getImage());
+                                titles.add(listim.get(i).getTitle());
+                            }
                         }
                         Log.e("TAG", "run: " + images.size());
                         Log.e("TAG", "run: " + titles.size());
@@ -197,13 +208,13 @@ public class HomeModule_Fragment extends BaseFragment {
                         gvAdapter.notifyDataSetChanged();
                         //滚滚视频
                         roll_tv.setText(rooltitle);
-                        RoolViewAdapter roolViewAdapter=new RoolViewAdapter(roolViewlists);
+                        RoolViewAdapter roolViewAdapter = new RoolViewAdapter(roolViewlists);
                         homethree_gv.setAdapter(roolViewAdapter);
 
                         liveshwtv.setText(titlepandalive);
                         //直播中国
                         live_china.setText(chinalivetitle);
-                        LiveAdapter liveAdapter=new LiveAdapter(chinaLivelists);
+                        LiveAdapter liveAdapter = new LiveAdapter(chinaLivelists);
                         home_live_gv.setAdapter(liveAdapter);
                         //设置banner样式
                         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
@@ -213,6 +224,34 @@ public class HomeModule_Fragment extends BaseFragment {
 
                         //banner设置方法全部调用完毕时最后调用
                         banner.start();
+                        banner.setOnBannerListener(new OnBannerListener() {
+                            @Override
+                            public void OnBannerClick(int position) {
+                                switch (position) {
+                                    case 1:
+                                        Intent intent1 = new Intent(getActivity(), FristActivity.class);
+                                          intent1.putExtra("url",bigImg.get(1).getUrl());
+                                        getActivity().startActivity(intent1);
+
+                                        break;
+                                    case 2:
+                                        Intent intent2 = new Intent(getActivity(), FristActivity.class);
+                                        intent2.putExtra("url",bigImg.get(2).getUrl());
+                                        getActivity().startActivity(intent2);
+                                        break;
+                                    case 3:
+                                        Intent intent3 = new Intent(getActivity(), FristActivity.class);
+                                        intent3.putExtra("url",bigImg.get(3).getUrl());
+                                        getActivity().startActivity(intent3);
+                                        break;
+                                    case 4:
+                                        Intent intent4= new Intent(getActivity(), FristActivity.class);
+                                        intent4.putExtra("url",bigImg.get(4).getUrl());
+                                        getActivity().startActivity(intent4);
+                                        break;
+                                }
+                            }
+                        });
                     }
                 });
 
@@ -224,7 +263,9 @@ public class HomeModule_Fragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        imageView2 =(ImageView) view.findViewById(R.id. imageView2);
+        imageView2 = (ImageView) view.findViewById(R.id.imageView2);
+        imageView = (ImageView) view.findViewById(R.id.imageView);
+
         toolbr = (Toolbar) view.findViewById(R.id.toolbar);
         toolbr.setNavigationIcon(R.mipmap.panda_sign);
         toolbr.setTitle("");
@@ -243,8 +284,8 @@ public class HomeModule_Fragment extends BaseFragment {
         wendforment_tv = (TextView) view.findViewById(R.id.wendforment_tv);
         homethree_gv = (GridView) view.findViewById(R.id.homethree_gv);
         home_live_gv = (GridView) view.findViewById(R.id.home_live_gv);
-        roll_tv= (TextView) view.findViewById(R.id.roll_tv);
-        live_china= (TextView) view.findViewById(R.id.live_china);
+        roll_tv = (TextView) view.findViewById(R.id.roll_tv);
+        live_china = (TextView) view.findViewById(R.id.live_china);
 
     }
 }
