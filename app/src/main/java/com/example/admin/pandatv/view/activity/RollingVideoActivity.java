@@ -65,18 +65,18 @@ public class RollingVideoActivity extends BaseActivity {
         RollingCollection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (a==0){
+                if (b==0){
                     RollingCollection.setImageResource(R.drawable.collect_yes);
                     RollingCollection.setEnabled(false);
                     Toast.makeText(App.mBaseActivity, "已添加，请到【我的收藏】中查看", Toast.LENGTH_SHORT).show();
                     RollingCollection.setEnabled(true);
-                    a=1;
+                    b=1;
                 }else {
                     RollingCollection.setImageResource(R.drawable.collect_no);
                     RollingCollection.setEnabled(false);
                     Toast.makeText(App.mBaseActivity, "已取消收藏", Toast.LENGTH_SHORT).show();
                     RollingCollection.setEnabled(true);
-                    a=0;
+                    b=0;
                 }
             }
         });
@@ -85,6 +85,7 @@ public class RollingVideoActivity extends BaseActivity {
     @Override
     protected void initData() {
         Intent intent = getIntent();
+        videoTitle.setText(intent.getStringExtra("title"));
         rollingVideo.setUp(intent.getStringExtra("video"),intent.getStringExtra("title"));
     }
 
