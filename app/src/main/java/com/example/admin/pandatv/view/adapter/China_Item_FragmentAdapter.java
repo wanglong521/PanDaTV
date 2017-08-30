@@ -78,4 +78,8 @@ public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_
                 china_item_image = (ImageView) itemView.findViewById(R.id.china_item_image);
             }
         }
+        public void notifyChanged(ArrayList<LvieItemBean> list){
+                this.list = list;
+            notifyDataSetChanged();
+        }
 }
