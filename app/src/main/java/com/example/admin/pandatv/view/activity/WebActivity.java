@@ -17,7 +17,6 @@ public class WebActivity extends BaseActivity {
     private ImageView WebShare;
     private WebView webView;
     private int a = 0 ;
-    private ImageView webCollectionOK;
 
     @Override
     protected void initListener() {
@@ -25,13 +24,13 @@ public class WebActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 if (a==0){
-                    webCollectionOK.setVisibility(View.VISIBLE);
+                    WebCollection.setImageResource(R.drawable.collect_yes);
                     WebCollection.setEnabled(false);
                     Toast.makeText(WebActivity.this, "已添加，请到【我的收藏】中查看", Toast.LENGTH_SHORT).show();
                     WebCollection.setEnabled(true);
                     a=1;
                 }else {
-                    webCollectionOK.setVisibility(View.GONE);;
+                    WebCollection.setImageResource(R.drawable.collect_no);
                     WebCollection.setEnabled(false);
                     Toast.makeText(WebActivity.this, "已取消收藏", Toast.LENGTH_SHORT).show();
                     WebCollection.setEnabled(true);
@@ -52,7 +51,6 @@ public class WebActivity extends BaseActivity {
         webView = (WebView) findViewById(R.id.WebView);
         WebCollection = (ImageView) findViewById(R.id.WebCollection);
         WebShare = (ImageView) findViewById(R.id.WebShare);
-        webCollectionOK = (ImageView) findViewById(R.id.WebCollectionOK);
         WebSettings settings = webView.getSettings();
         settings.setUseWideViewPort(true);
         settings.setLoadsImagesAutomatically(true);

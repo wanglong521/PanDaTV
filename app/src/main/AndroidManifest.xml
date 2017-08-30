@@ -26,7 +26,8 @@
         </activity>
         <activity
             android:name=".view.activity.VideoActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="io.vov.vitamio.activity.InitActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
@@ -42,12 +43,14 @@
         <activity
             android:name=".view.activity.OriginalInteractionActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.activity.OriginalInteractiveDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.activity.OriginalInteractiveDetailsActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".view.activity.PersonalCenter" />
         <activity android:name=".view.activity.LoginActivity" />
         <activity android:name=".view.activity.RegisteredActivity" />
-        <activity android:name=".view.activity.ForgetPasswordActivity"></activity>
+        <activity android:name=".view.activity.ForgetPasswordActivity" />
+        <activity android:name=".view.activity.RollingVideoActivity"></activity>
     </application>
 
 </manifest>

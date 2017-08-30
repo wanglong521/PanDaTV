@@ -42,6 +42,7 @@ public class RollingAdapter extends RecyclerView.Adapter {
         Glide.with(context).load(listBean.getImage()).error(R.mipmap.ic_launcher).into(viewHolder.RollingImage);
         viewHolder.RollingTitle.setText(listBean.getTitle());
         viewHolder.RollingContent.setText(listBean.getBrief());
+
     }
 
     @Override
