@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.model.entity.SplendidBean;
+import com.example.admin.pandatv.model.entity.livapandabean.SplendidBean;
 
 import java.util.List;
 

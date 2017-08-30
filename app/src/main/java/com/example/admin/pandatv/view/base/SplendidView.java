@@ -1,6 +1,6 @@
 package com.example.admin.pandatv.view.base;
 
-import com.example.admin.pandatv.model.entity.SplendidBean;
+import com.example.admin.pandatv.model.entity.livapandabean.SplendidBean;
 
 /**
  * Created by LiYRong on 2017/8/27.

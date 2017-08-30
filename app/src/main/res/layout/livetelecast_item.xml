@@ -63,46 +63,60 @@
             android:layout_height="2dp"
             android:background="#ebe7e7"></View>
 
-        <TextView
-            android:layout_margin="10dp"
-            android:visibility="gone"
-            android:text="叫四份哈数据库地方收款方借款拉的屎"
+        <android.support.v4.widget.NestedScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/brief"/>
-
-        <View
-            android:visibility="gone"
-            android:id="@+id/oneself"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#ebe7e7"></View>
+            android:layout_height="match_parent">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-
-            <android.support.design.widget.TabLayout
-                tabMode="scrollable"
-                tabSelectedTextColor="@color/colorPrimaryDark"
-                tabIndicatorColor="@color/colorPrimaryDark"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/live_tablayout"
-                ></android.support.design.widget.TabLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:visibility="gone"
+                    android:text="叫四份哈数据库地方收款方借款拉的屎"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/brief"/>
+
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/oneself"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#ebe7e7"></View>
 
 
-            <android.support.v4.view.ViewPager
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/live_viewpager">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            </android.support.v4.view.ViewPager>
 
-        </LinearLayout>
+                    <android.support.design.widget.TabLayout
+                        tabMode="scrollable"
+                        tabSelectedTextColor="@color/colorPrimaryDark"
+                        tabIndicatorColor="@color/colorPrimaryDark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/live_tablayout"
+                        ></android.support.design.widget.TabLayout>
+
+
+                    <com.example.admin.pandatv.view.view.WrapContentHeightViewPager
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/live_viewpager">
+
+                    </com.example.admin.pandatv.view.view.WrapContentHeightViewPager>
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
 
     </LinearLayout>
 

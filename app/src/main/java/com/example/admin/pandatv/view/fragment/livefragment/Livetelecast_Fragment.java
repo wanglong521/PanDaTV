@@ -5,7 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,12 +12,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.model.entity.LiveMBean;
-import com.example.admin.pandatv.prosenter.IPresenterImplLivemBean;
+import com.example.admin.pandatv.model.entity.livapandabean.LiveMBean;
+import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplLivemBean;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.LiveMBeanView;
 import com.example.admin.pandatv.view.fragment.livefragment.lfragment.Lookalittle;
 import com.example.admin.pandatv.view.fragment.livefragment.lfragment.MoreLiveFragment;
+import com.example.admin.pandatv.view.view.WrapContentHeightViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,6 @@ import java.util.List;
  */
 //这是小媛荣的代码
 
-// TODO: 2017/8/27 这里有一个很严重的问题,就是tablayout的名字会加载两遍
 public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView{
 
     private ImageView live_img;
@@ -40,11 +39,12 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     private TextView brief;
     private View oneself;
     private  TabLayout live_tablayout;
-    private ViewPager live_viewpager;
+    private WrapContentHeightViewPager live_viewpager;
     private List<LiveMBean> liveMBeen=new ArrayList<LiveMBean>();
     private int NUM=1;
     private List<String> tabnamelist;
     private List<Fragment> fragmentlist=new ArrayList<Fragment>();
+
     @Override
     public int getLayout() {
         return R.layout.livetelecast_item;
@@ -52,8 +52,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
     @Override
     protected void initListener() {
-
-
 
         live_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,11 +80,11 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
     @Override
     protected void initData() {
-
         tabnamelist=new ArrayList<>();
         IPresenterImplLivemBean iPresenterImplLivemBean=new IPresenterImplLivemBean(this);
         iPresenterImplLivemBean.Getcontroller();
         live_tablayout.setupWithViewPager(live_viewpager);
+
 
     }
 
@@ -102,12 +100,12 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         live_tablayout = view.findViewById(R.id.live_tablayout);
         live_viewpager = view.findViewById(R.id.live_viewpager);
 
-//zheshishane
 
     }
 
     @Override
     public void OnSucceed(LiveMBean succed) {
+
       liveMBeen.add(succed);
 
         tabnamelist.clear();

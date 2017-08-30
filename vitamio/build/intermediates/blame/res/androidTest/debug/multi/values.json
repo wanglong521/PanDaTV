@@ -1,5 +1,6 @@
 [
     {
+        "outputFile": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "outputFile": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
@@ -11,6 +12,7 @@
                     "endOffset": 105
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
@@ -30,6 +32,7 @@
                     "endOffset": 168
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 3,
@@ -49,6 +52,7 @@
                     "endOffset": 216
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 4,
@@ -68,6 +72,7 @@
                     "endOffset": 270
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 5,
@@ -88,6 +93,7 @@
                     "endOffset": 422
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 6,
@@ -108,6 +114,7 @@
                     "endOffset": 515
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 9,
@@ -127,6 +134,7 @@
                     "endOffset": 583
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 10,
@@ -146,6 +154,7 @@
                     "endOffset": 649
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 11,
@@ -165,6 +174,7 @@
                     "endOffset": 750
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 12,
@@ -184,6 +194,7 @@
                     "endOffset": 821
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 13,
@@ -203,6 +214,7 @@
                     "endOffset": 934
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 14,
@@ -222,6 +234,7 @@
                     "endOffset": 1021
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 15,
@@ -242,6 +255,7 @@
                     "endOffset": 1150
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 16,
@@ -262,6 +276,7 @@
                     "endOffset": 1235
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 18,
@@ -281,6 +296,7 @@
                     "endOffset": 1308
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 19,
@@ -300,6 +316,7 @@
                     "endOffset": 1376
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 20,
@@ -320,6 +337,7 @@
                     "endOffset": 2023
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 21,
@@ -341,6 +359,7 @@
                     "endOffset": 2233
                 },
                 "from": {
+                    "file": "D:\\AnDroidWordFFour\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "file": "F:\\Android-studioCode\\PanDaTV\\vitamio\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 31,

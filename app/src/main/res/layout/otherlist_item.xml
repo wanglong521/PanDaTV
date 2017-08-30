@@ -36,7 +36,7 @@
         <TextView
             android:text="2017.5.12"
             android:gravity="bottom"
-            android:layout_margin="10dp"
+            android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/other_time"/>
