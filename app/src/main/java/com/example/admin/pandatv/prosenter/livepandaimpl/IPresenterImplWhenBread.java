@@ -83,7 +83,6 @@ public class IPresenterImplWhenBread implements IPresenter,Observer<WhenBreadBea
 
     @Override
     public void onError(@NonNull Throwable e) {
-
         whenBreadView.OnDefeated();
     }
 

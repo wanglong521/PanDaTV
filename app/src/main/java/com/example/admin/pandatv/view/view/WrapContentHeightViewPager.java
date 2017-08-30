@@ -3,10 +3,13 @@ package com.example.admin.pandatv.view.view;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
  * Created by LiYRong on 2017/8/29.
+ *
+ * 解决滑动冲突的
  */
 
 public class WrapContentHeightViewPager extends ViewPager {
@@ -31,5 +34,16 @@ public class WrapContentHeightViewPager extends ViewPager {
         }
         heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        // Never allow swiping to switch between pages
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // Never allow swiping to switch between pages
+        return false;
     }
 }

@@ -1,13 +1,16 @@
 package com.example.admin.pandatv.view.fragment;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.example.admin.pandatv.R;
+import com.example.admin.pandatv.view.activity.LoginActivity;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.view.NonSwipeableViewPager;
@@ -36,6 +39,7 @@ public class LiveModule_Fragment  extends BaseFragment {
     private List<Fragment> fraglist=new ArrayList<Fragment>();
     private List<String> titlelist=new ArrayList<String>();
     private TabLayout mTablayout;
+    private ProgressBar bar;
 
 
     @Override
@@ -45,14 +49,21 @@ public class LiveModule_Fragment  extends BaseFragment {
 
     @Override
     protected void initListener() {
+
+        my.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(getActivity(), LoginActivity.class);
+
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override
     protected void initData() {
-
-
-
-
 
     }
 
@@ -64,6 +75,8 @@ public class LiveModule_Fragment  extends BaseFragment {
         mTablayout = view.findViewById(R.id.mTableyout);
 
         mViewPager = view.findViewById(R.id.mViewPager);
+
+        bar = view.findViewById(R.id.bar);
 
         titlelist.add("直播");
         titlelist.add("精彩一刻");
@@ -95,6 +108,9 @@ public class LiveModule_Fragment  extends BaseFragment {
         mTablayout.setupWithViewPager(mViewPager);
         mViewPager.setOffscreenPageLimit(titlelist.size());
         mViewPager.setAdapter(adapter);
+
+        bar.setVisibility(View.GONE);
+
     }
 
     public  class MyAdapter extends FragmentPagerAdapter {

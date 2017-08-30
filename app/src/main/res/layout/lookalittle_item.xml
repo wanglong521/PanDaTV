@@ -12,15 +12,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
+            <com.example.admin.pandatv.view.view.ClearEditText
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:hint="请输入你的评论"
                 android:id="@+id/ed_comment"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/edit_bg"
+                android:layout_height="50px"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="14px"
+                android:layout_marginRight="15px"
+                android:background="@drawable/pe_shape_border_grays"
+                android:layout_toLeftOf="@+id/lpanda_btn"
+                android:gravity="center_vertical"
+                android:hint="添加评论..."
+                android:paddingLeft="3dp"
+                android:textColorHint="#c9c9c9"
+                android:inputType="textMultiLine"
+                android:textCursorDrawable="@null"
+                android:textSize="40px"
                 />
 
             <Button

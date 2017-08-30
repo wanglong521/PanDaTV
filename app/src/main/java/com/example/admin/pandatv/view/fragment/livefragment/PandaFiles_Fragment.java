@@ -49,7 +49,6 @@ public class PandaFiles_Fragment extends BaseFragment implements PandaFilesView{
         ptrFrameLayout.setPtrHandler(new PtrDefaultHandler2() {
             @Override
             public void onLoadMoreBegin(PtrFrameLayout frame) {
-
                 a++;
                 iPresenterImplPanFiles.GetcontrollerPanfiles(a);
                 frame.refreshComplete();
@@ -60,9 +59,7 @@ public class PandaFiles_Fragment extends BaseFragment implements PandaFilesView{
             public void onRefreshBegin(PtrFrameLayout frame) {
 
                 panfileslist.clear();
-
                 a=1;
-
                 iPresenterImplPanFiles.GetcontrollerPanfiles(a);
                 frame.refreshComplete();
 
