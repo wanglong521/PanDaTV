@@ -15,14 +15,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.admin.pandatv.R;
+import com.example.admin.pandatv.model.OkHttpClientManager;
 import com.example.admin.pandatv.model.entity.LvieItemBean;
+import com.example.admin.pandatv.view.activity.MainActivity;
 import com.example.admin.pandatv.view.adapter.China_Item_FragmentAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 import static android.R.attr.filter;
 import static android.R.id.list;
@@ -34,8 +42,10 @@ import static android.R.id.list;
 
 public class China_Item_Fragment extends BaseFragment{
     private Bundle bundle;
-
+    private China_Item_FragmentAdapter adapter;
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+
+
 
 
         @Override
@@ -56,7 +66,7 @@ public class China_Item_Fragment extends BaseFragment{
             };
             timer.schedule(timerTask,0,2000);
             bundle = intent.getBundleExtra("bundle");
-            ArrayList<LvieItemBean> list = new ArrayList<>();
+            final ArrayList<LvieItemBean> list = new ArrayList<>();
             ArrayList<String> brief = bundle.getStringArrayList("brief");
             ArrayList<String> image = bundle.getStringArrayList("image");
             ArrayList<String> title = bundle.getStringArrayList("title");
@@ -65,7 +75,7 @@ public class China_Item_Fragment extends BaseFragment{
                         ,image.get(i),title.get(i));
                 list.add(bean);
             }
-            China_Item_FragmentAdapter adapter = new China_Item_FragmentAdapter(getActivity(),list);
+            adapter = new China_Item_FragmentAdapter(getActivity(),list);
             china_recycler.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
             china_recycler.setAdapter(adapter);
 
@@ -75,6 +85,7 @@ public class China_Item_Fragment extends BaseFragment{
     private RecyclerView china_recycler;
     private ProgressDialog dialog;
     private ProgressBar china_progress;
+    private PtrFrameLayout china_item_pro;
 
     @Override
     public int getLayout() {
@@ -98,7 +109,10 @@ public class China_Item_Fragment extends BaseFragment{
         IntentFilter filter = new IntentFilter();
         filter.addAction("aaa");
         getActivity().registerReceiver(broadcastReceiver,filter);
-
+        china_item_pro =  view.findViewById(R.id.china_item_pro);
+        PtrClassicDefaultHeader header=new PtrClassicDefaultHeader(getActivity());
+        china_item_pro.addPtrUIHandler(header);
+        china_item_pro.setHeaderView(header);
     }
 
     @Override
@@ -117,4 +131,5 @@ public class China_Item_Fragment extends BaseFragment{
             // fragment is no longer visible：不可见时不执行操作
         }
     }
+
 }

@@ -9,12 +9,18 @@
     </style>
 
     <declare-styleable name="VerifyCode">
-        <attr name="codeTextSize" format="dimension"/>
-        <attr name="codeBackground" format="color"/>
-        <attr name="codeLength" format="integer"/>
-        <attr name="isContainChar" format="boolean"/>
-        <attr name="pointNum" format="integer"/>
-        <attr name="linNum" format="integer"/>
+        <attr name="codeTextSize" format="dimension" />
+        <attr name="codeBackground" format="color" />
+        <attr name="codeLength" format="integer" />
+        <attr name="isContainChar" format="boolean" />
+        <attr name="pointNum" format="integer" />
+        <attr name="linNum" format="integer" />
     </declare-styleable>
 
+    <style name="translucent">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
 </resources>

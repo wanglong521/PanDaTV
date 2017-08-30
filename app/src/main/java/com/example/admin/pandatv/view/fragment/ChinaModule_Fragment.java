@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,6 +15,7 @@ import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LvieChina;
 import com.example.admin.pandatv.prosenter.ChinaPersenter;
+import com.example.admin.pandatv.view.activity.DialogActivity;
 import com.example.admin.pandatv.view.adapter.China_item_PagerAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.ChinaViewImpl;
@@ -53,6 +56,13 @@ public class ChinaModule_Fragment extends BaseFragment implements ChinaViewImpl 
         china_viewpager = view.findViewById(R.id.china_viewpager);
         china_login = view.findViewById(R.id.china_login);
         china_iv_add = view.findViewById(R.id.china_iv_add);
+        china_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -88,6 +98,16 @@ public class ChinaModule_Fragment extends BaseFragment implements ChinaViewImpl 
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
+        china_iv_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).setView(LayoutInflater.from(getActivity()
+//                ).inflate(R.layout.baseedit,null)).show();
+                Intent intent = new Intent(getActivity(), DialogActivity.class);
+                startActivity(intent);
             }
         });
     }
