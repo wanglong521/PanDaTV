@@ -59,6 +59,7 @@ public class MoreLiveFragment extends BaseFragment implements LiveMBeanView{
         adapter = new MoreRAdapter(getActivity(),morelist);
 
         more_recycler.setAdapter(adapter);
+        more_recycler.setNestedScrollingEnabled(false);
 
     }
 

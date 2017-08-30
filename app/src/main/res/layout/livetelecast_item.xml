@@ -63,6 +63,12 @@
             android:layout_height="2dp"
             android:background="#ebe7e7"></View>
 
+        <android.support.v4.widget.NestedScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,16 +107,16 @@
                         ></android.support.design.widget.TabLayout>
 
 
-                    <android.support.v4.view.ViewPager
+                    <com.example.admin.pandatv.view.view.WrapContentHeightViewPager
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/live_viewpager">
 
-                    </android.support.v4.view.ViewPager>
+                    </com.example.admin.pandatv.view.view.WrapContentHeightViewPager>
 
                 </LinearLayout>
             </LinearLayout>
-
+        </android.support.v4.widget.NestedScrollView>
 
     </LinearLayout>
 
