@@ -7,4 +7,5 @@
     <color name="color1">#E6E6FA</color>
     <color name="white">#FFFFFF</color>
     <color name="gap">#c1cddc</color>
+    <color name="transparent">#9000</color>
 </resources>

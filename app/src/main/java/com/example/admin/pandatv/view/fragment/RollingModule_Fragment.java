@@ -15,12 +15,15 @@ import com.example.admin.pandatv.model.entity.RllingBean;
 import com.example.admin.pandatv.model.modelutils.GlideImageLoader;
 import com.example.admin.pandatv.prosenter.IPresenterImplRlling;
 import com.example.admin.pandatv.view.activity.PersonalCenter;
+import com.example.admin.pandatv.view.activity.RollingVideoActivity;
+import com.example.admin.pandatv.view.activity.VideoActivity;
 import com.example.admin.pandatv.view.adapter.RollingAdapter;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.IView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +54,24 @@ public class RollingModule_Fragment extends BaseFragment implements IView {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(App.mBaseActivity, PersonalCenter.class));
+            }
+        });
+        rollingBanner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(App.mBaseActivity, VideoActivity.class);
+                intent.putExtra("video",imagesurl.get(position));
+                intent.putExtra("title",titles.get(position));
+                startActivity(intent);
+            }
+        });
+        adap.setOnItemClickListener(new RecyclerAdapterWithHF.OnItemClickListener() {
+            @Override
+            public void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position) {
+                Intent intent = new Intent(App.mBaseActivity, RollingVideoActivity.class);
+                intent.putExtra("title",listBeen.get(position).getTitle());
+                intent.putExtra("video",listBeen.get(position).getUrl());
+                startActivity(intent);
             }
         });
     }

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.pandatv.view.activity.RollingVideoActivity">
+
+    <RelativeLayout
+        android:id="@+id/RollingVideoLinear"
+        android:background="@color/colorPrimary"
+        app:layout_heightPercent="8%"
+        app:layout_widthPercent="100%">
+
+        <TextView
+            android:id="@+id/VideoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/RollingBackwards"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/personal_back_img" />
+    </RelativeLayout>
+
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+        android:id="@+id/RollingVideo"
+        android:layout_below="@id/RollingVideoLinear"
+        app:layout_heightPercent="32%"
+        app:layout_widthPercent="100%" />
+
+    <LinearLayout
+        android:id="@+id/RollingVideoLinear1"
+        android:layout_below="@id/RollingVideo"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        app:layout_heightPercent="10%"
+        app:layout_widthPercent="100%">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="首播时间"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="6dp"
+            android:text="栏目介绍"
+            android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/RollingArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/live_china_detail_up" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/RollingIntroduction"
+        app:layout_heightPercent="15%"
+        app:layout_widthPercent="94%"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/RollingVideoLinear1"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/RollingVideoRelative"
+        android:background="#fff"
+        android:orientation="horizontal"
+        app:layout_heightPercent="8%"
+        app:layout_widthPercent="100%"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/RollingIntroduction"
+        android:layout_toEndOf="@+id/RollingIntroduction">
+
+        <TextView
+            android:id="@+id/RollingMyView"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/RollingCollection"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/collect_no"
+            android:layout_toLeftOf="@id/RollingMyView"/>
+
+        <ImageView
+            android:id="@+id/RollingShare"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/play_fullsrcee_share_true"
+            android:layout_toRightOf="@id/RollingMyView"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/RollingVideoLinear2"
+        app:layout_heightPercent="42%"
+        android:layout_above="@id/RollingVideoRelative"
+        android:layout_below="@id/RollingVideoLinear1"
+        app:layout_widthPercent="100%"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="4dp"
+            android:padding="8dp"
+            android:text="高清完整"
+            android:textSize="18sp"
+            android:background="#ffffff"/>
+
+        <ListView
+            android:id="@+id/RollingListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>
