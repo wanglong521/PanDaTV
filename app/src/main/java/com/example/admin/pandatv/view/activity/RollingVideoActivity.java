@@ -86,7 +86,8 @@ public class RollingVideoActivity extends BaseActivity {
     protected void initData() {
         Intent intent = getIntent();
         videoTitle.setText(intent.getStringExtra("title"));
-        rollingVideo.setUp(intent.getStringExtra("video"),intent.getStringExtra("title"));
+        rollingVideo.setUp(intent.getStringExtra("video"), intent.getStringExtra("title"));
+
     }
 
     @Override

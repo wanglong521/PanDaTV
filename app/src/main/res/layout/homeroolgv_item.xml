@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -8,35 +8,59 @@
         android:id="@+id/three_im"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/collect_yes"
         android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/collect_yes" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/three_tt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="38dp"
+        android:maxLines="2"
+        android:text="TextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/three_im"
+        android:layout_toEndOf="@+id/three_im" />
 
-        <TextView
-            android:id="@+id/three_tt"
+    <TextView
+        android:id="@+id/three_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginBottom="24dp"
+        android:layout_alignBottom="@+id/three_im"
+        android:layout_alignLeft="@+id/three_tt"
+        android:layout_alignStart="@+id/three_tt" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/default_time_view"
+        android:layout_alignTop="@+id/three_time"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="33dp"
-            android:maxLines="2"
-            android:text="TextView" />
+            android:src="@drawable/home_play_icon" />
 
         <TextView
-            android:id="@+id/three_time"
+            android:id="@+id/time_roll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/three_im"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:text="TextView" />
-    </LinearLayout>
-</LinearLayout>
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageView6"
+            android:text="0:30"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/imageView6" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

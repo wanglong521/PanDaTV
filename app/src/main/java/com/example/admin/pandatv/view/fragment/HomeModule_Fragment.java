@@ -1,9 +1,13 @@
 package com.example.admin.pandatv.view.fragment;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -21,7 +25,7 @@ import com.example.admin.pandatv.view.activity.LoginActivity;
 import com.example.admin.pandatv.view.activity.OriginalInteractionActivity;
 import com.example.admin.pandatv.view.activity.banderavtivitys.FristActivity;
 import com.example.admin.pandatv.view.adapter.GvAdapter;
-import com.example.admin.pandatv.view.adapter.LiveAdapter;
+import com.example.admin.pandatv.view.adapter.HomeXRVAdapter;
 import com.example.admin.pandatv.view.adapter.RoolViewAdapter;
 import com.example.admin.pandatv.view.adapter.TwoGVAdapter;
 import com.example.admin.pandatv.view.base.App;
@@ -29,6 +33,8 @@ import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.UrlUtils;
 import com.example.admin.pandatv.view.customview.GlideImageLoader;
 import com.google.gson.Gson;
+import com.jcodecraeer.xrecyclerview.ProgressStyle;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -42,6 +48,9 @@ import java.util.List;
  */
 
 public class HomeModule_Fragment extends BaseFragment {
+    View header, broadheader, livebheader, marvellousheader, videoheader;
+
+    XRecyclerView xrv;
     ImageView imageView2, imageView;
     Toolbar toolbr;
     Banner banner;
@@ -98,6 +107,22 @@ public class HomeModule_Fragment extends BaseFragment {
 
     @Override
     protected void initData() {
+
+        banner = (Banner) header.findViewById(R.id.banner);
+        panda_Broadcast_Text = (TextView) broadheader.findViewById(R.id.panda_Broadcast_Text);
+        zj_tv = (TextView) broadheader.findViewById(R.id.zj_tv);
+        zj_tvs = (TextView) broadheader.findViewById(R.id.zj_tvs);
+        qs_tv = (TextView) broadheader.findViewById(R.id.qs_tv);
+        qs_tvs = (TextView) broadheader.findViewById(R.id.qs_tvs);
+        im_home = (ImageView) broadheader.findViewById(R.id.im_home);
+        liveshwtv = (TextView) livebheader.findViewById(R.id.liveshwtv);
+        home_gv = (GridView) livebheader.findViewById(R.id.home_gv);
+        gv_wendforment = (GridView) marvellousheader.findViewById(R.id.gv_wendforment);
+        wendforment_tv = (TextView) marvellousheader.findViewById(R.id.wendforment_tv);
+        homethree_gv = (ListView) videoheader.findViewById(R.id.homethree_gv);
+
+        roll_tv = (TextView) videoheader.findViewById(R.id.roll_tv);
+
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
@@ -206,7 +231,7 @@ public class HomeModule_Fragment extends BaseFragment {
                         //熊猫直播
                         gvAdapter = new GvAdapter(li);
                         home_gv.setAdapter(gvAdapter);
-                        pbr.setVisibility(View.INVISIBLE);
+
                         gvAdapter.notifyDataSetChanged();
                         //滚滚视频
                         roll_tv.setText(rooltitle);
@@ -215,9 +240,9 @@ public class HomeModule_Fragment extends BaseFragment {
 
                         liveshwtv.setText(titlepandalive);
                         //直播中国
-                        live_china.setText(chinalivetitle);
-                        LiveAdapter liveAdapter = new LiveAdapter(chinaLivelists);
-                        home_live_gv.setAdapter(liveAdapter);
+                        HomeXRVAdapter homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists,chinalivetitle);
+                        xrv.setAdapter(homeXRVAdapter);
+
                         //设置banner样式
                         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
                         banner.setIndicatorGravity(BannerConfig.RIGHT);
@@ -226,29 +251,32 @@ public class HomeModule_Fragment extends BaseFragment {
 
                         //banner设置方法全部调用完毕时最后调用
                         banner.start();
+
+                        pbr.setVisibility(View.INVISIBLE);
+
                         banner.setOnBannerListener(new OnBannerListener() {
                             @Override
                             public void OnBannerClick(int position) {
                                 switch (position) {
                                     case 1:
                                         Intent intent1 = new Intent(getActivity(), FristActivity.class);
-                                          intent1.putExtra("url",bigImg.get(1).getUrl());
+                                        intent1.putExtra("url", bigImg.get(1).getUrl());
                                         getActivity().startActivity(intent1);
 
                                         break;
                                     case 2:
                                         Intent intent2 = new Intent(getActivity(), FristActivity.class);
-                                        intent2.putExtra("url",bigImg.get(2).getUrl());
+                                        intent2.putExtra("url", bigImg.get(2).getUrl());
                                         getActivity().startActivity(intent2);
                                         break;
                                     case 3:
                                         Intent intent3 = new Intent(getActivity(), FristActivity.class);
-                                        intent3.putExtra("url",bigImg.get(3).getUrl());
+                                        intent3.putExtra("url", bigImg.get(3).getUrl());
                                         getActivity().startActivity(intent3);
                                         break;
                                     case 4:
-                                        Intent intent4= new Intent(getActivity(), FristActivity.class);
-                                        intent4.putExtra("url",bigImg.get(4).getUrl());
+                                        Intent intent4 = new Intent(getActivity(), FristActivity.class);
+                                        intent4.putExtra("url", bigImg.get(4).getUrl());
                                         getActivity().startActivity(intent4);
                                         break;
                                 }
@@ -265,29 +293,53 @@ public class HomeModule_Fragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        imageView2 = (ImageView) view.findViewById(R.id.imageView2);
-        imageView = (ImageView) view.findViewById(R.id.imageView);
-
+        pbr = (ProgressBar) view.findViewById(R.id.pbr);
         toolbr = (Toolbar) view.findViewById(R.id.toolbar);
         toolbr.setNavigationIcon(R.mipmap.panda_sign);
         toolbr.setTitle("");
         App.mBaseActivity.setSupportActionBar(toolbr);
-        banner = (Banner) view.findViewById(R.id.banner);
-        pbr = (ProgressBar) view.findViewById(R.id.pbr);
-        panda_Broadcast_Text = (TextView) view.findViewById(R.id.panda_Broadcast_Text);
-        zj_tv = (TextView) view.findViewById(R.id.zj_tv);
-        zj_tvs = (TextView) view.findViewById(R.id.zj_tvs);
-        qs_tv = (TextView) view.findViewById(R.id.qs_tv);
-        qs_tvs = (TextView) view.findViewById(R.id.qs_tvs);
-        im_home = (ImageView) view.findViewById(R.id.im_home);
-        liveshwtv = (TextView) view.findViewById(R.id.liveshwtv);
-        home_gv = (GridView) view.findViewById(R.id.home_gv);
-        gv_wendforment = (GridView) view.findViewById(R.id.gv_wendforment);
-        wendforment_tv = (TextView) view.findViewById(R.id.wendforment_tv);
-        homethree_gv = (ListView) view.findViewById(R.id.homethree_gv);
-        home_live_gv = (GridView) view.findViewById(R.id.home_live_gv);
-        roll_tv = (TextView) view.findViewById(R.id.roll_tv);
-        live_china = (TextView) view.findViewById(R.id.live_china);
+        xrv = (XRecyclerView) view.findViewById(R.id.xrv);
+        imageView2 = (ImageView) view.findViewById(R.id.imageView2);
+        imageView = (ImageView) view.findViewById(R.id.imageView);
+        //轮播图
+        header = LayoutInflater.from(getActivity()).inflate(R.layout.home_banner, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+        //熊猫播报
+        broadheader = LayoutInflater.from(getActivity()).inflate(R.layout.home_broadheader, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+        //直播秀场
+        livebheader = LayoutInflater.from(getActivity()).inflate(R.layout.home_livebroadheader, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+        //精彩一刻
+        marvellousheader = LayoutInflater.from(getActivity()).inflate(R.layout.home_marvellousheader, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+        //滚滚视频
+        videoheader = LayoutInflater.from(getActivity()).inflate(R.layout.home_videoheader, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
 
+        xrv.addHeaderView(header);
+        xrv.addHeaderView(broadheader);
+        xrv.addHeaderView(livebheader);
+        xrv.addHeaderView(marvellousheader);
+        xrv.addHeaderView(videoheader);
+        GridLayoutManager manager = new GridLayoutManager(getActivity(),3);
+        xrv.setLayoutManager(manager);
+        xrv.setRefreshProgressStyle(ProgressStyle.SysProgress);
+        xrv.setArrowImageView(R.drawable._no_history);
+
+        xrv.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        xrv.refreshComplete();
+                    }
+                }, 1000);
+            }
+
+            @Override
+            public void onLoadMore() {
+                Toast.makeText(getActivity(), "没有更多数据了", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
+

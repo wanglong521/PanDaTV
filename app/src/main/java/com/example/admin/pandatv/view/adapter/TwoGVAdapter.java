@@ -25,7 +25,11 @@ public class TwoGVAdapter extends  BaseCommAdapter<Wonderful.ListBean> {
         Wonderful.ListBean item = getItem(position);
 
         TextView tv_name = holder.getItemView(R.id.twotv_gv);
+        //时间
+        TextView time_wf = holder.getItemView(R.id.time_wf);
+
         TextView tv_time = holder.getItemView(R.id.time_tv);
+        time_wf.setText(item.getVideoLength());
         tv_time.setText(item.getDaytime());
         tv_name.setText(item.getTitle());
         ImageView im = holder.getItemView(R.id.twogv_im);

@@ -26,6 +26,8 @@ public class RoolViewAdapter  extends  BaseCommAdapter<RoolView.ListBean> {
 
         TextView tv_name = holder.getItemView(R.id.three_tt);
         TextView tv_time = holder.getItemView(R.id.three_time);
+        TextView time_roll = holder.getItemView(R.id.time_roll);
+        time_roll.setText(item.getVideoLength());
         tv_time.setText(item.getDaytime());
         tv_name.setText(item.getTitle());
         ImageView im = holder.getItemView(R.id.three_im);
