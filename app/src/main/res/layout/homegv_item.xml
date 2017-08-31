@@ -9,7 +9,7 @@
         android:id="@+id/gv_im"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/_no_img"
+        app:srcCompat="@drawable/tab_panda_eye_normal"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -25,5 +25,28 @@
         android:maxLines="2"
         android:text="2222" />
 
-
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/default_time_view"
+        android:layout_above="@+id/tv_gv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="13dp"
+        android:layout_alignRight="@+id/gv_im"
+        android:layout_alignEnd="@+id/gv_im">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home_hot_live_icon"
+            android:id="@+id/imageView6" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageView6"
+            android:layout_toEndOf="@+id/imageView6" />
+    </RelativeLayout>
 </RelativeLayout>

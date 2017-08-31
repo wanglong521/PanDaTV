@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,7 +60,8 @@ public class HomeModule_Fragment extends BaseFragment {
     String pandaeyelogo;
     String titlepandalive;
     List<Home.DataBean.PandaliveBean.ListBean> li = new ArrayList<>();
-    GridView home_gv, gv_wendforment, homethree_gv, home_live_gv;
+    GridView home_gv, gv_wendforment, home_live_gv;
+    ListView homethree_gv;
     private GvAdapter gvAdapter;
     String wnderfulmomnet;
     List<Wonderful.ListBean> wonderfullists = new ArrayList<>();
@@ -282,7 +284,7 @@ public class HomeModule_Fragment extends BaseFragment {
         home_gv = (GridView) view.findViewById(R.id.home_gv);
         gv_wendforment = (GridView) view.findViewById(R.id.gv_wendforment);
         wendforment_tv = (TextView) view.findViewById(R.id.wendforment_tv);
-        homethree_gv = (GridView) view.findViewById(R.id.homethree_gv);
+        homethree_gv = (ListView) view.findViewById(R.id.homethree_gv);
         home_live_gv = (GridView) view.findViewById(R.id.home_live_gv);
         roll_tv = (TextView) view.findViewById(R.id.roll_tv);
         live_china = (TextView) view.findViewById(R.id.live_china);

@@ -23,26 +23,27 @@
             android:id="@+id/homerelativeLayout"
             android:layout_alignParentBottom="true"
             app:layout_heightPercent="8%"
-            app:layout_widthPercent="100%">
+            app:layout_widthPercent="100%"
+            >
 
             <RadioGroup
                 android:id="@+id/HomeRadioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:orientation="horizontal"
-                android:weightSum="5">
+                >
 
                 <RadioButton
                     android:id="@+id/mHomeModule"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
                     android:background="@drawable/rbback"
                     android:drawableTop="@drawable/tab_home_normal"
-                    android:gravity="center_horizontal"
+                    android:gravity="center"
                     android:text="首页" />
 
                 <RadioButton
@@ -53,7 +54,7 @@
                     android:background="@drawable/rbback"
                     android:button="@null"
                     android:drawableTop="@drawable/tab_panda_live_normal"
-                    android:gravity="center_horizontal"
+                    android:gravity="center"
                     android:text="熊猫直播" />
 
                 <RadioButton
@@ -64,7 +65,7 @@
                     android:button="@null"
                     android:background="@drawable/rbback"
                     android:drawableTop="@drawable/tab_panda_culture_normals"
-                    android:gravity="center_horizontal"
+                    android:gravity="center"
                     android:text="滚滚视频" />
 
                 <RadioButton
