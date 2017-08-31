@@ -57,14 +57,14 @@ public class SupersAdapter extends BaseAdapter{
             viewHolder.t = view.findViewById(R.id.other_title);
 
             viewHolder.prtime = view.findViewById(R.id.other_time);
-
+            viewHolder.len = view.findViewById(R.id.len);
             view.setTag(viewHolder);
         }else {
 
             viewHolder = (ViewHolder) view.getTag();
         }
 
-
+        viewHolder.len.setText(list.get(i).getLen());
         Glide.with(context).load(list.get(i).getImg()).into(viewHolder.img);
         viewHolder.prtime.setText(list.get(i).getPtime());
         viewHolder.t.setText(list.get(i).getT());
@@ -73,7 +73,7 @@ public class SupersAdapter extends BaseAdapter{
     static class ViewHolder{
 
         ImageView img;
-        TextView t,prtime;
+        TextView t,prtime,len;
 
     }
 
