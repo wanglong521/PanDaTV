@@ -8,8 +8,9 @@ import com.example.admin.pandatv.view.base.BaseActivity;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
 public class VideoActivity extends BaseActivity {
-    private JCVideoPlayer videoView;
+
     private Intent intent;
+    private JCVideoPlayer videoView;
 
     @Override
     protected void initListener() {
@@ -25,8 +26,10 @@ public class VideoActivity extends BaseActivity {
     @Override
     protected void initView() {
         videoView = (JCVideoPlayer) findViewById(R.id.video);
-        Intent intent = getIntent();
-        videoView.setUp(intent.getStringExtra("video"),intent.getStringExtra("title"));
+     intent = getIntent();
+   videoView.setUp(intent.getStringExtra("video"),intent.getStringExtra("title"));
+
+
       }
 
     @Override
