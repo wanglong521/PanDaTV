@@ -30,7 +30,6 @@ import java.util.List;
  *
  */
 //这是小媛荣的代码
-
 public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView{
 
     private ImageView live_img;
