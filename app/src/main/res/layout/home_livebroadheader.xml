@@ -2,15 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/liveshwtv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:paddingTop="3dp"
         android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="15dp"
         android:text=""
         android:textColor="#0000ff" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/color1"
+        />
     //直播秀场
 
     <GridView
@@ -19,11 +31,13 @@
         android:layout_height="430dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:gravity="center"
         android:horizontalSpacing="10dp"
         android:numColumns="3"
         android:scrollbars="none"
         android:verticalSpacing="10dp"></GridView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/color1"/>
 </LinearLayout>

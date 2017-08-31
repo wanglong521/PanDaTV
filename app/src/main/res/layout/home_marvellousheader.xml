@@ -2,23 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/wendforment_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:paddingTop="3dp"
         android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="15dp"
         android:textColor="#0000ff" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color1"
+        android:layout_marginTop="10dp"/>
     //精彩一刻
 
     <GridView
         android:id="@+id/gv_wendforment"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="450dp"
         android:background="@color/white"
         android:gravity="center"
         android:horizontalSpacing="10dp"
@@ -27,4 +35,9 @@
         android:verticalSpacing="10dp">
 
     </GridView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/color1"
+        />
 </LinearLayout>

@@ -240,7 +240,7 @@ public class HomeModule_Fragment extends BaseFragment {
 
                         liveshwtv.setText(titlepandalive);
                         //直播中国
-                        HomeXRVAdapter homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists,chinalivetitle);
+                        HomeXRVAdapter homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists, chinalivetitle);
                         xrv.setAdapter(homeXRVAdapter);
 
                         //设置banner样式
@@ -317,10 +317,10 @@ public class HomeModule_Fragment extends BaseFragment {
         xrv.addHeaderView(livebheader);
         xrv.addHeaderView(marvellousheader);
         xrv.addHeaderView(videoheader);
-        GridLayoutManager manager = new GridLayoutManager(getActivity(),3);
+        GridLayoutManager manager = new GridLayoutManager(getActivity(), 3);
         xrv.setLayoutManager(manager);
         xrv.setRefreshProgressStyle(ProgressStyle.SysProgress);
-        xrv.setArrowImageView(R.drawable._no_history);
+        xrv.setArrowImageView(R.drawable.custom_tab_indicator_selected2);
 
         xrv.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
@@ -328,7 +328,6 @@ public class HomeModule_Fragment extends BaseFragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-
                         xrv.refreshComplete();
                     }
                 }, 1000);
@@ -336,7 +335,7 @@ public class HomeModule_Fragment extends BaseFragment {
 
             @Override
             public void onLoadMore() {
-                Toast.makeText(getActivity(), "没有更多数据了", Toast.LENGTH_SHORT).show();
+                xrv.refreshComplete();
 
             }
         });
