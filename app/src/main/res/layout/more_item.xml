@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <ImageView
-        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
         android:id="@+id/more_image"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
         android:src="@drawable/_no_img"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -19,9 +20,7 @@
         android:background="@drawable/default_time_view"
         android:layout_alignBottom="@+id/more_image"
         android:layout_alignLeft="@+id/more_image"
-        android:layout_alignStart="@+id/more_image"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp">
+        android:layout_alignStart="@+id/more_image">
 
         <ImageView
             android:id="@+id/imageView6"
@@ -40,12 +39,11 @@
     </RelativeLayout>
 
     <TextView
-        android:layout_gravity="center_horizontal"
-            android:textColor="#000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="成都基地啊"
-            android:id="@+id/more_title"
+        android:id="@+id/more_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="成都基地啊"
+        android:textColor="#000"
         android:layout_below="@+id/more_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp" />

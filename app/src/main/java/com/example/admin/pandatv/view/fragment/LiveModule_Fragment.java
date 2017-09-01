@@ -50,6 +50,7 @@ public class LiveModule_Fragment  extends BaseFragment {
     @Override
     protected void initListener() {
 
+        bar.setVisibility(View.GONE);
         my.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +110,6 @@ public class LiveModule_Fragment  extends BaseFragment {
         mViewPager.setOffscreenPageLimit(titlelist.size());
         mViewPager.setAdapter(adapter);
 
-        bar.setVisibility(View.GONE);
 
     }
 

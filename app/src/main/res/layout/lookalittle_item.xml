@@ -17,7 +17,7 @@
                 android:layout_weight="1"
                 android:id="@+id/ed_comment"
                 android:layout_width="match_parent"
-                android:layout_height="50px"
+                android:layout_height="100px"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="14px"
                 android:layout_marginRight="15px"
