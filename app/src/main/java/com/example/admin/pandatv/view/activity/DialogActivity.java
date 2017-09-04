@@ -21,6 +21,7 @@ import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_Ch
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
 import com.example.admin.pandatv.view.adapter.DialogAdapter;
 import com.example.admin.pandatv.view.adapter.DialogBelowAdapter;
+import com.example.admin.pandatv.view.adapter.callbackimpl.Enabledimpl;
 import com.example.admin.pandatv.view.adapter.callbackimpl.GetRefreshData;
 import com.example.admin.pandatv.view.adapter.callbackimpl.Translateimpl;
 
@@ -29,7 +30,7 @@ import java.util.List;
 
 public class DialogActivity extends Activity implements GetRefreshData,Translateimpl {
 
-    // 这是弹出的页面
+    // 这是直播中国弹出的页面
 
         private ImageView china_dialog_fin;
         private Button china_dialog_base;
@@ -42,6 +43,7 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
         private DialogAdapter dialogAdapter;
         int[] toplocation = new int[2];
         int[] belowlocation = new int[2];
+    Enabledimpl enabledimpl;
         Handler handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -53,8 +55,9 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
             }
         };
         private TranslateAnimation animation;
+    private Intent intent;
 
-        @Override
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_dialog);
@@ -68,7 +71,7 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
             DaoMaster daoMaster = new DaoMaster(devOpenHelper.getReadableDb());
             DaoSession daoSession = daoMaster.newSession();
             dao = daoSession.getGreenDao_China_TabDao();
-            Intent intent = getIntent();
+            intent = getIntent();
             tabtitle = intent.getStringArrayListExtra("tabtitle");
             titles = intent.getStringArrayListExtra("titles");
             for (int i = 0; i < tabtitle.size(); i++) {
@@ -129,7 +132,9 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
             china_dialog_fin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    setResult(RESULT_OK,intent);
                     finish();
+
                 }
             });
 
@@ -139,12 +144,17 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
                 public void onClick(View view) {
                     String s = china_dialog_base.getText().toString();
                     if (s.equals("编辑")) {
+                        enabledimpl.getEbabked(true);
                         china_dialog_top_recy.setEnabled(true);
                         china_dialog_below_recy.setEnabled(true);
                         china_dialog_base.setText("完成");
-
+                        china_dialog_below_recy.setClickable(true);
+                        china_dialog_top_recy.setClickable(true);
                     } else {
+                        enabledimpl.getEbabked(false);
                         china_dialog_base.setText("编辑");
+                        china_dialog_top_recy.setClickable(false);
+                        china_dialog_below_recy.setClickable(false);
                         china_dialog_top_recy.setEnabled(false);
                         china_dialog_below_recy.setEnabled(false);
                     }
@@ -241,4 +251,7 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
 //
 //        }
 //    }
+    public void getEnabled(Enabledimpl enabledimpl){
+            this.enabledimpl = enabledimpl;
+    }
     }

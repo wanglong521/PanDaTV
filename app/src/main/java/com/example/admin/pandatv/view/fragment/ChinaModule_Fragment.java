@@ -14,6 +14,10 @@ import android.widget.ImageView;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LvieChina;
+import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
+import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoSession;
+import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_Tab;
+import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
 import com.example.admin.pandatv.prosenter.ChinaPersenter;
 import com.example.admin.pandatv.view.activity.DialogActivity;
 import com.example.admin.pandatv.view.adapter.China_item_PagerAdapter;
@@ -22,6 +26,9 @@ import com.example.admin.pandatv.view.base.ChinaViewImpl;
 import com.example.admin.pandatv.view.fragment.ChinaModule.China_Item_Fragment;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.admin.pandatv.R.id.li;
 
 /**
  * Created by admin on 2017/8/23.
@@ -34,7 +41,9 @@ public class ChinaModule_Fragment extends BaseFragment implements ChinaViewImpl 
     private ArrayList<Fragment> fragments;
     private ImageView china_login;
     private ImageView china_iv_add;
-
+    private GreenDao_China_TabDao dao;
+    private List<GreenDao_China_Tab> list;
+    ChinaTabList chinaTabList;
     @Override
     public int getLayout() {
         return R.layout.chinamodule_fragment;
@@ -67,6 +76,17 @@ public class ChinaModule_Fragment extends BaseFragment implements ChinaViewImpl 
 
     @Override
     public void OnSucceedChinaTabList(final ChinaTabList chinaTabList) {
+        this.chinaTabList = chinaTabList;
+        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(getActivity(), "hdm.db", null);
+        DaoMaster daoMaster = new DaoMaster(devOpenHelper.getReadableDb());
+        DaoSession daoSession = daoMaster.newSession();
+        dao = daoSession.getGreenDao_China_TabDao();
+        list = dao.queryBuilder().list();
+        for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).getABoolean()){
+                    china_tab.addTab(china_tab.newTab().setText(list.get(i).getTabtitle()));
+                }
+        }
         for (int i = 0; i < chinaTabList.getTablist().size(); i++) {
             china_tab.addTab(china_tab.newTab().setText(chinaTabList.getTablist().get(i).getTitle()));
             china_tab.setTag(china_tab.newTab().setText(chinaTabList.getTablist().get(i).getTitle()));
@@ -106,8 +126,20 @@ public class ChinaModule_Fragment extends BaseFragment implements ChinaViewImpl 
             public void onClick(View view) {
 //                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).setView(LayoutInflater.from(getActivity()
 //                ).inflate(R.layout.baseedit,null)).show();
+                ArrayList<String> tabtitle = new ArrayList<String>();
+                ArrayList<String> titles = new ArrayList<String>();
                 Intent intent = new Intent(getActivity(), DialogActivity.class);
-                startActivity(intent);
+                for (int i = 0; i < list.size(); i++) {
+                            if (list.get(i).getABoolean()){
+                                tabtitle.add(list.get(i).getTabtitle());
+                            }else{
+                                titles.add(list.get(i).getTabtitle());
+                            }
+                }
+                intent.putExtra("tabtitle", tabtitle);
+                intent.putExtra("titles",titles);
+
+                startActivityForResult(intent,20);
             }
         });
     }
@@ -133,6 +165,15 @@ public class ChinaModule_Fragment extends BaseFragment implements ChinaViewImpl 
         intent.setAction("aaa");
         intent.putExtra("bundle", bundle);
         getActivity().sendBroadcast(intent);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        OnSucceedChinaTabList(chinaTabList);
+
+        super.onActivityResult(requestCode, resultCode, data);
 
     }
 }

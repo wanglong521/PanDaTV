@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseActivity;
+import com.umeng.qq.tencent.Tencent;
 
 /**
  * 登陆
@@ -25,6 +26,7 @@ public class LoginActivity extends BaseActivity {
     private EditText LoginPassword;
     private Button LoginButton;
     private TextView ForgetPassword;
+    private Tencent mTencent;
 
     @Override
     protected void initListener() {
@@ -35,6 +37,7 @@ public class LoginActivity extends BaseActivity {
                     case R.id.LoginWX:
                         break;
                     case R.id.LoginQQ:
+
                         break;
                     case R.id.LoginXL:
                         break;
@@ -83,6 +86,7 @@ public class LoginActivity extends BaseActivity {
         LoginPassword = (EditText) findViewById(R.id.LoginPassword);
         LoginButton = (Button) findViewById(R.id.LoginButton);
         ForgetPassword = (TextView) findViewById(R.id.ForgetPassword);
+        mTencent = Tencent.createInstance("222222", getApplicationContext());
     }
 
     @Override
@@ -100,5 +104,7 @@ public class LoginActivity extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_login;
     }
+
+
 
 }

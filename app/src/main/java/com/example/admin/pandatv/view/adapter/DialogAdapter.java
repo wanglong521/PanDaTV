@@ -13,6 +13,8 @@ import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoSession;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_Tab;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
+import com.example.admin.pandatv.view.activity.DialogActivity;
+import com.example.admin.pandatv.view.adapter.callbackimpl.Enabledimpl;
 import com.example.admin.pandatv.view.adapter.callbackimpl.GetRefreshData;
 import com.example.admin.pandatv.view.adapter.callbackimpl.Translateimpl;
 
@@ -22,12 +24,13 @@ import java.util.ArrayList;
  * Created by lenovo on 2017/8/30.
  */
 
-public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder> {
+public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder> implements Enabledimpl{
     Context context;
         ArrayList<String> list;
     GetRefreshData getRefreshData;
     Translateimpl translateimpl;
     private int[] location;
+    private MyHolder myHolder;
 
     public void getface(GetRefreshData getRefreshData){
 
@@ -61,7 +64,9 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder> 
 //            if (position == list.size()-1){
 //                holder.china_dialog_item_btn.setVisibility(View.GONE);
 //            }
-
+            DialogActivity activity = new DialogActivity();
+            activity.getEnabled(this);
+            myHolder = holder;
             holder.china_dialog_item_btn.setText(list.get(position));
 
             if (position == list.size()-1){
@@ -107,7 +112,18 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder> 
             return list.size();
         }
 
-        class MyHolder extends RecyclerView.ViewHolder{
+    @Override
+    public void getEbabked(Boolean aBoolean) {
+        if (aBoolean){
+            myHolder.china_dialog_item_btn.setClickable(true);
+            myHolder.china_dialog_item_btn.setEnabled(true);
+        }else{
+            myHolder.china_dialog_item_btn.setClickable(false);
+            myHolder.china_dialog_item_btn.setEnabled(false);
+        }
+    }
+
+    class MyHolder extends RecyclerView.ViewHolder{
 
             private final Button china_dialog_item_btn;
 
