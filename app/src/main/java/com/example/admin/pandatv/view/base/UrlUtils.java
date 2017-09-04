@@ -64,4 +64,6 @@ public class UrlUtils {
     //个人中心
     public static final String PHONE_URL_FROM = "http://cbox_mobile.regclientuser.cntv.cn";
 
+    public static final String LUNBOOUT = "http://vdn.apps.cntv.cn/api/getVideoInfoForCBox.do?pid=";
+
 }

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -18,12 +19,16 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.OkHttpClientManager;
+import com.example.admin.pandatv.model.bean.FLFBen;
 import com.example.admin.pandatv.model.bean.Home;
 import com.example.admin.pandatv.model.bean.RoolView;
 import com.example.admin.pandatv.model.bean.Wonderful;
 import com.example.admin.pandatv.view.activity.LoginActivity;
 import com.example.admin.pandatv.view.activity.OriginalInteractionActivity;
+import com.example.admin.pandatv.view.activity.banderavtivitys.FourActivity;
 import com.example.admin.pandatv.view.activity.banderavtivitys.FristActivity;
+import com.example.admin.pandatv.view.activity.banderavtivitys.SecondActivity;
+import com.example.admin.pandatv.view.activity.banderavtivitys.ThirdActivity;
 import com.example.admin.pandatv.view.adapter.GvAdapter;
 import com.example.admin.pandatv.view.adapter.HomeXRVAdapter;
 import com.example.admin.pandatv.view.adapter.RoolViewAdapter;
@@ -48,6 +53,7 @@ import java.util.List;
  */
 
 public class HomeModule_Fragment extends BaseFragment {
+    String Fristurl;
     View header, broadheader, livebheader, marvellousheader, videoheader;
 
     XRecyclerView xrv;
@@ -80,6 +86,13 @@ public class HomeModule_Fragment extends BaseFragment {
     List<Home.DataBean.ChinaliveBean.ListBeanX> chinaLivelists = new ArrayList<>();
     String chinalivetitle;
     private List<Home.DataBean.BigImgBean> bigImg;
+    private String url;
+    private String url2;
+    private String url3;
+    private String url4;
+    private List<Home.DataBean.PandaeyeBean.ItemsBean> items;
+    private HomeXRVAdapter homeXRVAdapter;
+    private HomeXRVAdapter homeXRVAdapter1;
 
     @Override
     public int getLayout() {
@@ -102,7 +115,68 @@ public class HomeModule_Fragment extends BaseFragment {
                 getActivity().startActivity(intent);
             }
         });
+        //熊猫播报第一个
+        zj_tvs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String pid = items.get(0).getPid();
+                OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid, new OkHttpClientManager.ResultCallback<String>() {
+                    @Override
+                    public void onError(Request request, Exception e) {
 
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+                        FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                        url = flfBen.getVideo().getChapters().get(0).getUrl();
+                        Log.e("TAG", "onResponse: " + url.toString());
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent1 = new Intent(getActivity(), FristActivity.class);
+                                intent1.putExtra("url", url);
+                                getActivity().startActivity(intent1);
+                            }
+                        });
+
+
+                    }
+                });
+
+            }
+        });
+        //熊猫播报第一个
+        qs_tvs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String pid = items.get(1).getPid();
+                OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid, new OkHttpClientManager.ResultCallback<String>() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+                        FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                        url = flfBen.getVideo().getChapters().get(0).getUrl();
+                        Log.e("TAG", "onResponse: " + url.toString());
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent1 = new Intent(getActivity(), FristActivity.class);
+                                intent1.putExtra("url", url);
+                                getActivity().startActivity(intent1);
+                            }
+                        });
+
+
+                    }
+                });
+
+            }
+        });
     }
 
     @Override
@@ -112,8 +186,12 @@ public class HomeModule_Fragment extends BaseFragment {
         panda_Broadcast_Text = (TextView) broadheader.findViewById(R.id.panda_Broadcast_Text);
         zj_tv = (TextView) broadheader.findViewById(R.id.zj_tv);
         zj_tvs = (TextView) broadheader.findViewById(R.id.zj_tvs);
+
+
         qs_tv = (TextView) broadheader.findViewById(R.id.qs_tv);
         qs_tvs = (TextView) broadheader.findViewById(R.id.qs_tvs);
+
+
         im_home = (ImageView) broadheader.findViewById(R.id.im_home);
         liveshwtv = (TextView) livebheader.findViewById(R.id.liveshwtv);
         home_gv = (GridView) livebheader.findViewById(R.id.home_gv);
@@ -140,7 +218,7 @@ public class HomeModule_Fragment extends BaseFragment {
                 Home home = new Gson().fromJson(response, Home.class);
                 bigImg = home.getData().getBigImg();
                 title = home.getData().getPandaeye().getTitle();
-                List<Home.DataBean.PandaeyeBean.ItemsBean> items = home.getData().getPandaeye().getItems();
+                items = home.getData().getPandaeye().getItems();
                 zj = items.get(0).getBrief();
                 titlezj = items.get(0).getTitle();
                 brief = items.get(1).getBrief();
@@ -220,6 +298,7 @@ public class HomeModule_Fragment extends BaseFragment {
                         panda_Broadcast_Text.setText(HomeModule_Fragment.this.title);
                         zj_tv.setText(zj);
                         zj_tvs.setText(titlezj);
+
                         qs_tv.setText(brief);
                         qs_tvs.setText(titleqs);
                         Glide.with(getActivity()).load(pandaeyelogo).into(im_home);
@@ -227,10 +306,51 @@ public class HomeModule_Fragment extends BaseFragment {
                         wendforment_tv.setText(wnderfulmomnet);
 
                         twoGVAdapter = new TwoGVAdapter(wonderfullists);
+
                         gv_wendforment.setAdapter(twoGVAdapter);
-                        //熊猫直播
+                        //精彩一刻点击事件
+
+                        gv_wendforment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                String pid = wonderfullists.get(i).getPid();
+                                OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid, new OkHttpClientManager.ResultCallback<String>() {
+                                    @Override
+                                    public void onError(Request request, Exception e) {
+
+                                    }
+
+                                    @Override
+                                    public void onResponse(String response) {
+                                        FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                                        url = flfBen.getVideo().getChapters().get(0).getUrl();
+                                        Log.e("TAG", "onResponse: " + url.toString());
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Intent intent1 = new Intent(getActivity(), FristActivity.class);
+                                                intent1.putExtra("url", url);
+                                                getActivity().startActivity(intent1);
+                                            }
+                                        });
+
+
+                                    }
+                                });
+
+                            }
+                        });
+
+                        //直播秀场
                         gvAdapter = new GvAdapter(li);
                         home_gv.setAdapter(gvAdapter);
+                        //直播秀场点击事件
+                        home_gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            }
+                        });
 
                         gvAdapter.notifyDataSetChanged();
                         //滚滚视频
@@ -239,9 +359,43 @@ public class HomeModule_Fragment extends BaseFragment {
                         homethree_gv.setAdapter(roolViewAdapter);
 
                         liveshwtv.setText(titlepandalive);
+                        //滚滚点击事件
+
+                        homethree_gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                String pid = roolViewlists.get(i).getPid();
+                                OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid, new OkHttpClientManager.ResultCallback<String>() {
+                                    @Override
+                                    public void onError(Request request, Exception e) {
+
+                                    }
+
+                                    @Override
+                                    public void onResponse(String response) {
+                                        FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                                        url = flfBen.getVideo().getChapters().get(0).getUrl();
+                                        Log.e("TAG", "onResponse: " + url.toString());
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Intent intent1 = new Intent(getActivity(), FristActivity.class);
+                                                intent1.putExtra("url", url);
+                                                getActivity().startActivity(intent1);
+                                            }
+                                        });
+
+
+                                    }
+                                });
+
+                            }
+                        });
                         //直播中国
-                        HomeXRVAdapter homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists, chinalivetitle);
+                        homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists, chinalivetitle);
                         xrv.setAdapter(homeXRVAdapter);
+
+
 
                         //设置banner样式
                         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
@@ -259,25 +413,117 @@ public class HomeModule_Fragment extends BaseFragment {
                             public void OnBannerClick(int position) {
                                 switch (position) {
                                     case 1:
-                                        Intent intent1 = new Intent(getActivity(), FristActivity.class);
-                                        intent1.putExtra("url", bigImg.get(1).getUrl());
-                                        getActivity().startActivity(intent1);
+                                        String pid1 = bigImg.get(0).getPid();
+
+                                        String title1 = bigImg.get(0).getTitle();
+                                        OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid1, new OkHttpClientManager.ResultCallback<String>() {
+                                            @Override
+                                            public void onError(Request request, Exception e) {
+
+                                            }
+
+                                            @Override
+                                            public void onResponse(String response) {
+                                                FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                                                url = flfBen.getVideo().getChapters().get(0).getUrl();
+                                                Log.e("TAG", "onResponse: " + url.toString());
+                                                getActivity().runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Intent intent1 = new Intent(getActivity(), FristActivity.class);
+                                                        intent1.putExtra("url", url);
+                                                        getActivity().startActivity(intent1);
+                                                    }
+                                                });
+
+
+                                            }
+                                        });
 
                                         break;
                                     case 2:
-                                        Intent intent2 = new Intent(getActivity(), FristActivity.class);
-                                        intent2.putExtra("url", bigImg.get(2).getUrl());
-                                        getActivity().startActivity(intent2);
+                                        String pid2 = bigImg.get(1).getPid();
+
+                                        String title2 = bigImg.get(1).getTitle();
+                                        OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid2, new OkHttpClientManager.ResultCallback<String>() {
+                                            @Override
+                                            public void onError(Request request, Exception e) {
+
+                                            }
+
+                                            @Override
+                                            public void onResponse(String response) {
+                                                FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                                                url2 = flfBen.getVideo().getChapters().get(0).getUrl();
+                                                Log.e("TAG", "onResponse: " + url2.toString());
+                                                getActivity().runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Intent intent2 = new Intent(getActivity(), SecondActivity.class);
+                                                        intent2.putExtra("url2", url2);
+                                                        getActivity().startActivity(intent2);
+                                                    }
+                                                });
+
+
+                                            }
+                                        });
                                         break;
                                     case 3:
-                                        Intent intent3 = new Intent(getActivity(), FristActivity.class);
-                                        intent3.putExtra("url", bigImg.get(3).getUrl());
-                                        getActivity().startActivity(intent3);
+                                        String pid3 = bigImg.get(2).getPid();
+
+                                        String title3 = bigImg.get(2).getTitle();
+                                        OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid3, new OkHttpClientManager.ResultCallback<String>() {
+                                            @Override
+                                            public void onError(Request request, Exception e) {
+
+                                            }
+
+                                            @Override
+                                            public void onResponse(String response) {
+                                                FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                                                url3 = flfBen.getVideo().getChapters().get(0).getUrl();
+                                                Log.e("TAG", "onResponse: " + url3.toString());
+                                                getActivity().runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Intent intent3 = new Intent(getActivity(), ThirdActivity.class);
+                                                        intent3.putExtra("url3", url3);
+                                                        getActivity().startActivity(intent3);
+                                                    }
+                                                });
+
+
+                                            }
+                                        });
                                         break;
                                     case 4:
-                                        Intent intent4 = new Intent(getActivity(), FristActivity.class);
-                                        intent4.putExtra("url", bigImg.get(4).getUrl());
-                                        getActivity().startActivity(intent4);
+                                        String pid4 = bigImg.get(3).getPid();
+
+                                        String title4 = bigImg.get(3).getTitle();
+                                        OkHttpClientManager.getAsyn(UrlUtils.LUNBOOUT + pid4, new OkHttpClientManager.ResultCallback<String>() {
+                                            @Override
+                                            public void onError(Request request, Exception e) {
+
+                                            }
+
+                                            @Override
+                                            public void onResponse(String response) {
+                                                FLFBen flfBen = new Gson().fromJson(response, FLFBen.class);
+                                                url4 = flfBen.getVideo().getChapters().get(0).getUrl();
+                                                Log.e("TAG", "onResponse: " + url4.toString());
+                                                getActivity().runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Intent intent4 = new Intent(getActivity(), FourActivity.class);
+                                                        intent4.putExtra("url4", url4);
+                                                        getActivity().startActivity(intent4);
+                                                    }
+                                                });
+
+
+                                            }
+                                        });
                                         break;
                                 }
                             }
