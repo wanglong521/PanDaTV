@@ -25,7 +25,9 @@
             android:layout_height="0dp"
             android:background="@color/colorPrimaryDark"
             app:layout_heightPercent="8%"
-            app:layout_widthPercent="100%"></android.support.v7.widget.Toolbar>
+            app:layout_widthPercent="100%">
+
+        </android.support.v7.widget.Toolbar>
 
 <com.jcodecraeer.xrecyclerview.XRecyclerView
     android:id="@+id/xrv"

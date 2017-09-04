@@ -55,6 +55,7 @@ public class MoreLiveFragment extends BaseFragment implements LiveMBeanView{
         more_recycler = view.findViewById(R.id.more_recycler);
         more_recycler.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
 
+//        more_recycler.setLayoutManager(new LinearLayoutManager(getActivity(),3,false));
 
         adapter = new MoreRAdapter(getActivity(),morelist);
 

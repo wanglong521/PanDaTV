@@ -1,23 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context="com.example.admin.pandatv.view.activity.DialogActivity">
-        <ImageView
-            android:id="@+id/china_dialog_fin"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/live_china_delect_channel"
-            />
-        <LinearLayout
+        <android.support.percent.PercentRelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/china_dialog_fin"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    app:layout_heightPercent="6%"
+                    app:layout_widthPercent="10%"
+                    android:src="@drawable/live_china_delect_channel"
+                    />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/china_dialog_fin"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:text="切换栏目"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:textColor="#000000"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginRight="5dp"
+                    android:text="编辑"
+                    android:textSize="13sp"
+                    android:id="@+id/china_dialog_base"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/china_dialog_fin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/china_dialog_top_recy"
+                    android:layout_below="@id/china_dialog_base"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
-        </LinearLayout>
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/china_dialog_below"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/china_dialog_top_recy"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:text="点击添加更多栏目"
+                    app:layout_heightPercent="6%"
+                    app:layout_widthPercent="100%" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/china_dialog_below_recy"
+                    android:layout_below="@id/china_dialog_below"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        </android.support.percent.PercentRelativeLayout>
+</ScrollView>
