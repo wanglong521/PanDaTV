@@ -5,19 +5,17 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.ChinaTabList;
 import com.example.admin.pandatv.model.entity.LvieChina;
-import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
-import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoSession;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_Tab;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
+import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoMaster;
+import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoSession;
 import com.example.admin.pandatv.prosenter.ChinaPersenter;
 import com.example.admin.pandatv.view.activity.DialogActivity;
 import com.example.admin.pandatv.view.adapter.China_item_PagerAdapter;
@@ -27,8 +25,6 @@ import com.example.admin.pandatv.view.fragment.ChinaModule.China_Item_Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.admin.pandatv.R.id.li;
 
 /**
  * Created by admin on 2017/8/23.
