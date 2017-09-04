@@ -94,6 +94,13 @@ public class Lookalittle extends BaseFragment {
     @Override
     protected void initData() {
 
+        cha();
+
+//        LookTalkBean unique = getdao.queryBuilder().where(LookTalkBeanDao.Properties.Floor.eq(looklist)).unique();
+//
+//        int floor = unique.getFloor();
+//
+//        FLOOR=FLOOR+floor;
 
     }
 
@@ -116,9 +123,8 @@ public class Lookalittle extends BaseFragment {
         look_litview = view.findViewById(R.id.look_litview);
 
         adapter = new LookTalkAdapter(getActivity(), looklist);
-
-        cha();
         look_litview.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 

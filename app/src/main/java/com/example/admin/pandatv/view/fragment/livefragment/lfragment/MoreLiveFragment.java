@@ -100,10 +100,8 @@ public class MoreLiveFragment extends BaseFragment implements LiveMBeanView{
                         adapter.notifyDataSetChanged();
                     }
                 });
-
             }
         });
-
     }
 
     @Override

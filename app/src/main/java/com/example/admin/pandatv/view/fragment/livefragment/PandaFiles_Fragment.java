@@ -96,6 +96,7 @@ public class PandaFiles_Fragment extends BaseFragment implements PandaFilesView{
         ptrFrameLayout.addPtrUIHandler(footer);
 
         adapter = new PandaFilesAdapter(getActivity(),panfileslist);
+
         other_listview.setAdapter(adapter);
 
     }
