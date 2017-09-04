@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+   android:orientation="vertical"
     android:id="@+id/li"
     tools:context="com.example.admin.pandatv.view.activity.banderavtivitys.FristActivity">
-<WebView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/wv"></WebView>
+    <io.vov.vitamio.widget.VideoView
+        android:id="@+id/vitamio_viedoviews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
