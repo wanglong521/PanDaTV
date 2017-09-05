@@ -2,6 +2,8 @@ package com.example.admin.pandatv.model.modelutils.pandalive_greendao;
 
 import android.content.Context;
 
+import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
+
 /**
  * Created by LiYRong on 2017/8/31.
  */
@@ -13,7 +15,7 @@ public class DaoUtils {
 
 
     private DaoUtils(Context context) {
-        devOpenHelper = new DaoMaster.DevOpenHelper(context, "Students.db");
+        devOpenHelper = new DaoMaster.DevOpenHelper(context, "Stnts.db");
     }
 
     public LookTalkBeanDao getdao(){

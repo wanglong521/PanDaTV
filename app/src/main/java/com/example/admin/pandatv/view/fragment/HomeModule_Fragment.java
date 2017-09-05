@@ -412,7 +412,7 @@ public class HomeModule_Fragment extends BaseFragment {
                             @Override
                             public void OnBannerClick(int position) {
                                 switch (position) {
-                                    case 1:
+                                    case 0:
                                         String pid1 = bigImg.get(0).getPid();
 
                                         String title1 = bigImg.get(0).getTitle();
@@ -441,7 +441,7 @@ public class HomeModule_Fragment extends BaseFragment {
                                         });
 
                                         break;
-                                    case 2:
+                                    case 1:
                                         String pid2 = bigImg.get(1).getPid();
 
                                         String title2 = bigImg.get(1).getTitle();
@@ -469,7 +469,7 @@ public class HomeModule_Fragment extends BaseFragment {
                                             }
                                         });
                                         break;
-                                    case 3:
+                                    case 2:
                                         String pid3 = bigImg.get(2).getPid();
 
                                         String title3 = bigImg.get(2).getTitle();
@@ -497,7 +497,7 @@ public class HomeModule_Fragment extends BaseFragment {
                                             }
                                         });
                                         break;
-                                    case 4:
+                                    case 3:
                                         String pid4 = bigImg.get(3).getPid();
 
                                         String title4 = bigImg.get(3).getTitle();

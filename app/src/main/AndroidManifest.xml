@@ -62,6 +62,18 @@
             android:name="UMENG_APPKEY"
             android:value="59a669b1c62dca174b000545" >
         </meta-data>
+        <activity android:name=".view.activity.banderavtivitys.FristActivity"
+            android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".view.activity.banderavtivitys.SecondActivity"
+            android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".view.activity.banderavtivitys.ThirdActivity"
+            android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".view.activity.banderavtivitys.FourActivity"
+            android:screenOrientation="landscape"
+            ></activity>
     </application>
 
 </manifest>
