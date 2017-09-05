@@ -63,7 +63,8 @@ public class UrlUtils {
     public static final String LOGIN = "https://reg.cntv.cn/login/login.action";
     //个人中心
     public static final String PHONE_URL_FROM = "http://cbox_mobile.regclientuser.cntv.cn";
-
+    //首页   视频
     public static final String LUNBOOUT = "http://vdn.apps.cntv.cn/api/getVideoInfoForCBox.do?pid=";
-
+    //直播秀场
+    public static final String LIVESHOW = "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd";
 }

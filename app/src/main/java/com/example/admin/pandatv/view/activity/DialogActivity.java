@@ -14,10 +14,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.admin.pandatv.R;
+import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
+import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoSession;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_Tab;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
-import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoMaster;
-import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoSession;
 import com.example.admin.pandatv.view.adapter.DialogAdapter;
 import com.example.admin.pandatv.view.adapter.DialogBelowAdapter;
 import com.example.admin.pandatv.view.adapter.callbackimpl.Enabledimpl;
