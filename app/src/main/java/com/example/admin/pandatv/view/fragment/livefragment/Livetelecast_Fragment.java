@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.entity.livapandabean.LiveMBean;
 import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplLivemBean;
@@ -138,7 +137,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
             for (LiveMBean.LiveBean bean:
             live){
 
-                Glide.with(getActivity()).load(bean.getImage()).into(live_img);
+//                Glide.with(getActivity()).load(bean.getImage()).into(live_img);
 
                 live_title.setText(bean.getTitle());
 
@@ -151,9 +150,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(0)));
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(1)));
-
-
-
         FragmentManager manager = getActivity().getSupportFragmentManager();
 
         MyliveAdapter adapter=new MyliveAdapter(manager);
