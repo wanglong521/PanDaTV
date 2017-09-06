@@ -100,11 +100,6 @@ public class LiveModule_Fragment  extends BaseFragment {
         fraglist.add(new Special_Fragment());
         fraglist.add(new Primarynew_Fragment());
 
-
-        /**
-         * 这个方法是设置viewpager不能左右滑动
-         */
-
         MyAdapter adapter=new MyAdapter(App.mBaseActivity.getSupportFragmentManager(),fraglist,titlelist);
 
         mTablayout.setupWithViewPager(mViewPager);

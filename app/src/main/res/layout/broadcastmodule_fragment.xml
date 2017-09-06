@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
         android:id="@+id/BroadcastLinear"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
@@ -31,7 +31,7 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/person_sign" />
         </RelativeLayout>
-    </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
     <ScrollView
         app:layout_heightPercent="92%"

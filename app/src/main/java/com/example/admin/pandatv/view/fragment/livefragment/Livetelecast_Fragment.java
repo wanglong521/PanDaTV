@@ -82,7 +82,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         tabnamelist=new ArrayList<>();
         IPresenterImplLivemBean iPresenterImplLivemBean=new IPresenterImplLivemBean(this);
         iPresenterImplLivemBean.Getcontroller();
-        live_tablayout.setupWithViewPager(live_viewpager);
+
 
 
     }
@@ -98,7 +98,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
         live_tablayout = view.findViewById(R.id.live_tablayout);
         live_viewpager = view.findViewById(R.id.live_viewpager);
-
+        live_tablayout.setupWithViewPager(live_viewpager);
 
     }
 

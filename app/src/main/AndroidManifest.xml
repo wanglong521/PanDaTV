@@ -9,8 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -54,19 +54,26 @@
         <activity
             android:name=".view.activity.OriginalInteractionActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.OriginalInteractiveDetailsActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".view.activity.OriginalInteractiveDetailsActivity"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".view.activity.PersonalCenter" />
         <activity android:name=".view.activity.LoginActivity" />
         <activity android:name=".view.activity.RegisteredActivity" />
-        <activity android:name=".view.activity.ForgetPasswordActivity" />
-        <activity android:name=".view.activity.RollingVideoActivity" />
+        <activity android:name=".view.activity.ForgetPasswordActivity"></activity>
+        <activity android:name=".view.activity.RollingVideoActivity"/>
         <activity
             android:name=".view.activity.banderavtivitys.FristActivity"
             android:screenOrientation="landscape" />
         <meta-data
             android:name="UMENG_APPKEY"
+            android:value="59a669b1c62dca174b000545" >
+        </meta-data>
+        <activity android:name=".view.activity.banderavtivitys.FristActivity"
+            android:screenOrientation="landscape"
+            ></activity>
+        <activity android:name=".view.activity.banderavtivitys.SecondActivity"
+            android:screenOrientation="landscape"
+            ></activity>
             android:value="59a669b1c62dca174b000545" />
         <activity
             android:name="io.vov.vitamio.activity.InitActivity"
@@ -78,8 +85,11 @@
             android:name=".view.activity.banderavtivitys.SecondActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".view.activity.banderavtivitys.ThirdActivity"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape"
+            ></activity>
         <activity android:name=".view.activity.banderavtivitys.FourActivity"
+            android:screenOrientation="landscape"
+            ></activity>
             android:screenOrientation="landscape"></activity>
         <activity android:name=".view.activity.DialogActivity" android:theme="@style/translucent"
             android:screenOrientation="portrait"

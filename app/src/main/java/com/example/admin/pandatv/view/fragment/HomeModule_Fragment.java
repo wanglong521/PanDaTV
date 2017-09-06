@@ -21,6 +21,7 @@ import com.example.admin.pandatv.R;
 import com.example.admin.pandatv.model.OkHttpClientManager;
 import com.example.admin.pandatv.model.bean.FLFBen;
 import com.example.admin.pandatv.model.bean.Home;
+import com.example.admin.pandatv.model.bean.LiveShow;
 import com.example.admin.pandatv.model.bean.RoolView;
 import com.example.admin.pandatv.model.bean.Wonderful;
 import com.example.admin.pandatv.view.activity.LoginActivity;
@@ -93,6 +94,9 @@ public class HomeModule_Fragment extends BaseFragment {
     private List<Home.DataBean.PandaeyeBean.ItemsBean> items;
     private HomeXRVAdapter homeXRVAdapter;
     private HomeXRVAdapter homeXRVAdapter1;
+    private String vid;
+    private String uri;
+    private String vid1;
 
     @Override
     public int getLayout() {
@@ -177,6 +181,7 @@ public class HomeModule_Fragment extends BaseFragment {
 
             }
         });
+
     }
 
     @Override
@@ -348,7 +353,29 @@ public class HomeModule_Fragment extends BaseFragment {
                         home_gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                vid = li.get(i).getId();
+                                Log.e("TAG", "onItemClick:" + vid.toString());
+                                OkHttpClientManager.getAsyn(UrlUtils.LIVESHOW + vid + "&client=androidapp", new OkHttpClientManager.ResultCallback<String>() {
+                                    @Override
+                                    public void onError(Request request, Exception e) {
 
+                                    }
+
+                                    @Override
+                                    public void onResponse(String response) {
+                                        LiveShow liveShow = new Gson().fromJson(response, LiveShow.class);
+                                        final String hls1 = liveShow.getHls_url().getHls1();
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Intent intent=new Intent(getActivity(),FristActivity.class);
+                                                intent.putExtra("url",hls1);
+                                                getActivity().startActivity(intent);
+
+                                            }
+                                        });
+                                    }
+                                });
                             }
                         });
 
@@ -392,9 +419,37 @@ public class HomeModule_Fragment extends BaseFragment {
                             }
                         });
                         //直播中国
-                        homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists, chinalivetitle);
+                        homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists);
                         xrv.setAdapter(homeXRVAdapter);
+                        //直播中国条目点击事件
 
+                        homeXRVAdapter.setOnclicklinster(new HomeXRVAdapter.onclicklinster() {
+                            @Override
+                            public void onItemClick(int ppp) {
+                                vid1 = chinaLivelists.get(ppp).getId();
+                                Log.e("TAG", "onItemClick:" + vid1.toString());
+                                OkHttpClientManager.getAsyn(UrlUtils.LIVESHOW + vid1 + "&client=androidapp", new OkHttpClientManager.ResultCallback<String>() {
+                                    @Override
+                                    public void onError(Request request, Exception e) {
+
+                                    }
+
+                                    @Override
+                                    public void onResponse(String response) {
+                                        LiveShow liveShow = new Gson().fromJson(response, LiveShow.class);
+                                        final String hls2 = liveShow.getHls_url().getHls1();
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Intent intent = new Intent(getActivity(), FristActivity.class);
+                                                intent.putExtra("url", hls2);
+                                                getActivity().startActivity(intent);
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
 
 
                         //设置banner样式
@@ -412,7 +467,7 @@ public class HomeModule_Fragment extends BaseFragment {
                             @Override
                             public void OnBannerClick(int position) {
                                 switch (position) {
-                                    case 1:
+                                    case 0:
                                         String pid1 = bigImg.get(0).getPid();
 
                                         String title1 = bigImg.get(0).getTitle();
@@ -441,7 +496,7 @@ public class HomeModule_Fragment extends BaseFragment {
                                         });
 
                                         break;
-                                    case 2:
+                                    case 1:
                                         String pid2 = bigImg.get(1).getPid();
 
                                         String title2 = bigImg.get(1).getTitle();
@@ -469,7 +524,7 @@ public class HomeModule_Fragment extends BaseFragment {
                                             }
                                         });
                                         break;
-                                    case 3:
+                                    case 2:
                                         String pid3 = bigImg.get(2).getPid();
 
                                         String title3 = bigImg.get(2).getTitle();
@@ -497,7 +552,7 @@ public class HomeModule_Fragment extends BaseFragment {
                                             }
                                         });
                                         break;
-                                    case 4:
+                                    case 3:
                                         String pid4 = bigImg.get(3).getPid();
 
                                         String title4 = bigImg.get(3).getTitle();
