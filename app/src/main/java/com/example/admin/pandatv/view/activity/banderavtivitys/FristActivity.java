@@ -17,6 +17,7 @@ import io.vov.vitamio.widget.VideoView;
 public class FristActivity extends BaseActivity implements MediaPlayer.OnPreparedListener {
     private VideoView vitamio_viedoview;
     private ImageView live_share;
+    private String url;
 
     @Override
     protected void initListener() {
@@ -27,6 +28,8 @@ public class FristActivity extends BaseActivity implements MediaPlayer.OnPrepare
 
 
                 Intent intent=new Intent(FristActivity.this, ShareActivity.class);
+
+                intent.putExtra("url",url);
 
                 startActivity(intent);
 
@@ -44,7 +47,7 @@ public class FristActivity extends BaseActivity implements MediaPlayer.OnPrepare
     @Override
     protected void initView() {
         Intent intent = this.getIntent();
-        String url = intent.getStringExtra("url");
+        url = intent.getStringExtra("url");
         vitamio_viedoview = (VideoView) findViewById(R.id.vitamio_viedoviews);
         Vitamio.isInitialized(this);
         vitamio_viedoview.setVideoPath(url);
