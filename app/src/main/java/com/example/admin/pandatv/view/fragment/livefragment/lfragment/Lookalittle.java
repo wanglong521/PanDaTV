@@ -28,7 +28,7 @@ public class Lookalittle extends BaseFragment {
     private Button send;
     private ListView look_litview;
     private List<LookTalkBean> looklist = new ArrayList<LookTalkBean>();
-    private int FLOOR = 0;
+    private int FLOOR;
     private String TIME;
     private LookTalkBeanDao getdao;
     private LookTalkAdapter adapter;
@@ -45,8 +45,7 @@ public class Lookalittle extends BaseFragment {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                FLOOR=looklist.size();
                 if (!ed_comment.getText().toString().trim().equals("")){
 
                     FLOOR++;
@@ -74,6 +73,7 @@ public class Lookalittle extends BaseFragment {
                         @Override
                         public void run() {
                             cha();
+                            adapter.notifyDataSetChanged();
                         }
                     });
 
@@ -121,6 +121,7 @@ public class Lookalittle extends BaseFragment {
         ed_comment = view.findViewById(R.id.ed_comment);
         send = view.findViewById(R.id.send);
         look_litview = view.findViewById(R.id.look_litview);
+
 
         adapter = new LookTalkAdapter(getActivity(), looklist);
         look_litview.setAdapter(adapter);

@@ -15,7 +15,7 @@ public class DaoUtils {
 
 
     private DaoUtils(Context context) {
-        devOpenHelper = new DaoMaster.DevOpenHelper(context, "Stnts.db");
+        devOpenHelper = new DaoMaster.DevOpenHelper(context, "Snts.db");
     }
 
     public LookTalkBeanDao getdao(){

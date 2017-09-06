@@ -22,7 +22,6 @@ import com.example.admin.pandatv.model.OkHttpClientManager;
 import com.example.admin.pandatv.model.bean.LiveShow;
 import com.example.admin.pandatv.model.entity.livapandabean.LiveMBean;
 import com.example.admin.pandatv.prosenter.livepandaimpl.IPresenterImplLivemBean;
-import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.LiveMBeanView;
 import com.example.admin.pandatv.view.base.UrlUtils;
@@ -35,7 +34,7 @@ import com.squareup.okhttp.Request;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.vov.vitamio.widget.MediaController;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 
 /**
  * Created by LiYRong on 2017/8/25.
@@ -47,7 +46,7 @@ import io.vov.vitamio.widget.MediaController;
 // TODO: 2017/9/6  这里的直播不行有很多问题
 public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView,io.vov.vitamio.MediaPlayer.OnPreparedListener {
 
-    private io.vov.vitamio.widget.VideoView live_img;
+    private JCVideoPlayer  live_img;
     private TextView live_title;
     private ImageView live_up;
     private TextView brief;
@@ -111,24 +110,21 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
                 live_re.setVisibility(View.GONE);
                 lve_img.setVisibility(View.GONE);
 
+                LIVEB="";
 /*
                 Vitamio.isInitialized(getActivity());
 /*        http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd" + livelist.get(position).getId() + "&client=androidapp")*/
+                LIVEB="http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/09/04/3138164066cf49ad88b8a236545996fb_h2642000000nero_aac16-1.mp4";
 
+//                live_img.setVideoPath(LIVEB);
+//                live_img.setOnPreparedListener(App.mBaseFragment);
+//                live_img.setMediaController(new MediaController(getActivity()));
 
-                String url="http://ipanda.vtime.cntv.cloudcdn.net/live/ipandahls_/index.m3u8?AUTH=+wkAx86TUPs1W+HNaIG/UZkHwC4R5kmiofdMKLjOP6VfC2wEcN6lC0jS3OaQymWVQA7o+SIswjUxndFKsjo68w==";
-
-                live_img.setVideoPath(LIVEB);
-                live_img.setOnPreparedListener(App.mBaseFragment);
-                live_img.setMediaController(new MediaController(getActivity()));
+                live_img.setUp(LIVEB,"熊猫");
 
             }
         });
 
-    }
-    @Override
-    public void onPrepared(io.vov.vitamio.MediaPlayer mp) {
-        live_img.start();
     }
     @Override
     protected void initData() {
@@ -155,43 +151,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         live_tablayout = view.findViewById(R.id.live_tablayout);
         live_viewpager = view.findViewById(R.id.live_viewpager);
         live_tablayout.setupWithViewPager(live_viewpager);
-
-//        这里是接受广播的
-
-        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("abcc");
-        BroadcastReceiver mItemViewListClickReceiver = new BroadcastReceiver() {
-                    @Override
-                    public void onReceive(Context context, Intent intent){
-                        network = intent.getStringExtra("network");
-
-                        liv_title = intent.getStringExtra("title");
-                        live_title.setText(liv_title);
-
-                        //这里是网络请求到视屏播放的地址
-
-                        OkHttpClientManager.getAsyn(network, new OkHttpClientManager.ResultCallback<String>() {
-                            @Override
-                            public void onError(Request request, Exception e) {
-                            }
-
-                            @Override
-                            public void onResponse(String response) {
-
-                                LIVEB="";
-                                LiveShow liveShow = new Gson().fromJson(response, LiveShow.class);
-                                hls2 = liveShow.getHls_url().getHls1();
-
-                                LIVEB=hls2;
-                                Log.i("BBB", Livetelecast_Fragment.this.hls1);
-                            }
-                        });
-
-
-                    }
-        };
-        broadcastManager.registerReceiver(mItemViewListClickReceiver, intentFilter);
 
     }
 
@@ -243,27 +202,63 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
             }
 
         }
+        //        这里是接受广播的
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("abcc");
+        BroadcastReceiver mItemViewListClickReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent){
+                network = intent.getStringExtra("network");
+
+                liv_title = intent.getStringExtra("title");
+                live_title.setText(liv_title);
+
+                //这里是网络请求到视屏播放的地址
+
+                OkHttpClientManager.getAsyn(network, new OkHttpClientManager.ResultCallback<String>() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+
+                        LIVEB="";
+                        LiveShow liveShow = new Gson().fromJson(response, LiveShow.class);
+                        hls2 = liveShow.getHls_url().getHls1();
+
+                        LIVEB=hls2;
+                    }
+                });
+
+
+            }
+        };
+        broadcastManager.registerReceiver(mItemViewListClickReceiver, intentFilter);
+
+
 
         //这里是网络请求到视屏播放的地址
 
-        OkHttpClientManager.getAsyn(URLIVE, new OkHttpClientManager.ResultCallback<String>() {
-            @Override
-            public void onError(Request request, Exception e) {
-
-            }
-
-            @Override
-            public void onResponse(String response) {
-
-                LIVEB="";
-                LiveShow liveShow = new Gson().fromJson(response, LiveShow.class);
-
-                LIVEB=hls1;
-                hls1 = liveShow.getHls_url().getHls1();
-
-                Log.i("BBB",hls1);
-            }
-        });
+//        OkHttpClientManager.getAsyn(URLIVE, new OkHttpClientManager.ResultCallback<String>() {
+//            @Override
+//            public void onError(Request request, Exception e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(String response) {
+//
+//                LIVEB="";
+//                LiveShow liveShow = new Gson().fromJson(response, LiveShow.class);
+//
+//                LIVEB=hls1;
+//                hls1 = liveShow.getHls_url().getHls1();
+//
+//                Log.i("BBB",hls1);
+//            }
+//        });
 
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(0)));
         live_tablayout.addTab(live_tablayout.newTab().setText(tabnamelist.get(1)));

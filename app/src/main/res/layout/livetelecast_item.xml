@@ -27,14 +27,12 @@
             android:id="@+id/bfang"
             android:src="@drawable/bofang"/>
     </RelativeLayout>
-
-    <io.vov.vitamio.widget.VideoView
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
         android:visibility="gone"
         android:layout_weight="1.3"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:id="@+id/livetel_img"
-        />
+        android:id="@+id/livetel_img" />
 
     <LinearLayout
         android:layout_weight="1"

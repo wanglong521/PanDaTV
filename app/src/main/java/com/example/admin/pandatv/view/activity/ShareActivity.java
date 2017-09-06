@@ -27,6 +27,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
     private ImageView share_qq;
     private ImageView share_delete;
     private ImageView share_facebook;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,8 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         share_delete.setOnClickListener(this);
         share_facebook.setOnClickListener(this);
 
+        url = getIntent().getStringExtra("url");
+
     }
 
     @Override
@@ -54,11 +57,12 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
 
             case R.id.share_qq:
+
                 Intent intent = new Intent("android.intent.action.SEND");
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT, "哈哈哈");
                 //这里是发送的内容
-                intent.putExtra(Intent.EXTRA_TEXT, "http://124.236.96.43/vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/08/31/e6c80dae83884dc3a18bbf279b1815b0_h264818000nero_aac32-1.mp4?wshc_tag=0&wsts_tag=59aca93f&wsid_tag=73ab8029&wsiphost=ipdbm");
+                intent.putExtra(Intent.EXTRA_TEXT, url);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setComponent(new ComponentName("com.tencent.mobileqq", "com.tencent.mobileqq.activity.JumpActivity"));
                 //若是分享到QQ，可将包名改为com.tencent.mobileqq，分享页面名改为com.tencent.mobileqq.activity.JumpActivity
