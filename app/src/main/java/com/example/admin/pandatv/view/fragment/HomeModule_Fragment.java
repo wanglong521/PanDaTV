@@ -349,12 +349,15 @@ public class HomeModule_Fragment extends BaseFragment {
                         //直播秀场
                         gvAdapter = new GvAdapter(li);
                         home_gv.setAdapter(gvAdapter);
+                        // TODO: 2017/9/5 这里是直播用的
                         //直播秀场点击事件
                         home_gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                 vid = li.get(i).getId();
-                                Log.e("TAG", "onItemClick:" + vid.toString());
+                                Log.e("ZZZ", "onItemClick:" + vid.toString());//ipanda
+
+                                //http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hdipanda&client=androidapp
                                 OkHttpClientManager.getAsyn(UrlUtils.LIVESHOW + vid + "&client=androidapp", new OkHttpClientManager.ResultCallback<String>() {
                                     @Override
                                     public void onError(Request request, Exception e) {
@@ -420,6 +423,7 @@ public class HomeModule_Fragment extends BaseFragment {
                         });
                         //直播中国
                         homeXRVAdapter = new HomeXRVAdapter(getActivity(), chinaLivelists);
+//                        xrv.setadapte(homeXRVAdapter);
                         xrv.setAdapter(homeXRVAdapter);
                         //直播中国条目点击事件
 

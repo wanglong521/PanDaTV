@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import io.vov.vitamio.MediaPlayer;
+
 /**
  * Created by admin on 2017/8/23.
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements MediaPlayer.OnPreparedListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,4 +56,8 @@ public abstract class BaseFragment extends Fragment {
     protected abstract void initView(View view);
 
 
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+
+    }
 }

@@ -1,9 +1,12 @@
 package com.example.admin.pandatv.view.activity.banderavtivitys;
 
 import android.content.Intent;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.example.admin.pandatv.R;
+import com.example.admin.pandatv.view.activity.ShareActivity;
 import com.example.admin.pandatv.view.base.BaseActivity;
 
 import io.vov.vitamio.MediaPlayer;
@@ -13,8 +16,23 @@ import io.vov.vitamio.widget.VideoView;
 
 public class FristActivity extends BaseActivity implements MediaPlayer.OnPreparedListener {
     private VideoView vitamio_viedoview;
+    private ImageView live_share;
+
     @Override
     protected void initListener() {
+
+        live_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent=new Intent(FristActivity.this, ShareActivity.class);
+
+                startActivity(intent);
+
+
+            }
+        });
 
     }
 
@@ -32,7 +50,7 @@ public class FristActivity extends BaseActivity implements MediaPlayer.OnPrepare
         vitamio_viedoview.setVideoPath(url);
         vitamio_viedoview.setOnPreparedListener(this);
         vitamio_viedoview.setMediaController(new MediaController(this));
-
+        live_share = (ImageView) findViewById(R.id.live_share);
 
 
     }
