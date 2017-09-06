@@ -4,4 +4,5 @@
     <string name="forgetpassword"><u>忘记密码</u></string>
     <string name="title_activity_edit">EditActivity</string>
     <string name="title_activity_dialog">DialogActivity</string>
+    <string name="facebook_app_id">467888243594344</string>
 </resources>

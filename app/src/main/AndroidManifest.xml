@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.admin.pandatv">
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,12 +10,14 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".view.base.App"
@@ -23,7 +26,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="Android:icon, android:theme">
         <activity
             android:name=".view.activity.WelcomeActivity"
             android:screenOrientation="portrait">
@@ -54,11 +58,15 @@
         <activity
             android:name=".view.activity.OriginalInteractionActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.activity.OriginalInteractiveDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.activity.OriginalInteractiveDetailsActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".view.activity.PersonalCenter" />
         <activity android:name=".view.activity.LoginActivity" />
         <activity android:name=".view.activity.RegisteredActivity" />
+        <activity android:name=".view.activity.ForgetPasswordActivity" />
+        <activity android:name=".view.activity.RollingVideoActivity" />
+
         <activity android:name=".view.activity.ForgetPasswordActivity"></activity>
         <activity android:name=".view.activity.RollingVideoActivity"/>
         <activity
@@ -66,6 +74,42 @@
             android:screenOrientation="landscape" />
         <meta-data
             android:name="UMENG_APPKEY"
+            android:value="59a669b1c62dca174b000545"></meta-data>
+
+        <activity
+            android:name=".view.activity.banderavtivitys.FristActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".view.activity.banderavtivitys.SecondActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".view.activity.banderavtivitys.ThirdActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".view.activity.banderavtivitys.FourActivity"
+            android:screenOrientation="landscape" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider734032233449672"
+            android:exported="true" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        <activity android:name=".view.activity.ShareActivity"
+
+            android:theme="@style/Transparent"
+            android:screenOrientation="landscape">
+
+
+        </activity>
             android:value="59a669b1c62dca174b000545" >
         </meta-data>
         <activity android:name=".view.activity.banderavtivitys.FristActivity"
