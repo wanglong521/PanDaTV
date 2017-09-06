@@ -110,15 +110,12 @@
 
 
         </activity>
-            android:value="59a669b1c62dca174b000545" >
-        </meta-data>
         <activity android:name=".view.activity.banderavtivitys.FristActivity"
             android:screenOrientation="landscape"
             ></activity>
         <activity android:name=".view.activity.banderavtivitys.SecondActivity"
             android:screenOrientation="landscape"
             ></activity>
-            android:value="59a669b1c62dca174b000545" />
         <activity
             android:name="io.vov.vitamio.activity.InitActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
