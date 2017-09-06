@@ -90,7 +90,6 @@
         <activity android:name=".view.activity.banderavtivitys.FourActivity"
             android:screenOrientation="landscape"
             ></activity>
-            android:screenOrientation="landscape"></activity>
         <activity android:name=".view.activity.DialogActivity" android:theme="@style/translucent"
             android:screenOrientation="portrait"
             >

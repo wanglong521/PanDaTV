@@ -18,10 +18,9 @@ import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoSession;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_Tab;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
-import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoMaster;
-import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoSession;
 import com.example.admin.pandatv.prosenter.ChinaPersenter;
 import com.example.admin.pandatv.view.activity.DialogActivity;
+import com.example.admin.pandatv.view.activity.PersonalCenter;
 import com.example.admin.pandatv.view.adapter.China_item_PagerAdapter;
 import com.example.admin.pandatv.view.base.BaseFragment;
 import com.example.admin.pandatv.view.base.ChinaViewImpl;
@@ -29,8 +28,6 @@ import com.example.admin.pandatv.view.fragment.ChinaModule.China_Item_Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.umeng.socialize.a.b.d.i;
 
 /**
  * Created by admin on 2017/8/23.
@@ -73,7 +70,7 @@ public class ChinaModule_Fragment extends BaseFragment implements ChinaViewImpl 
         china_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(getActivity(), PersonalCenter.class);
                 startActivity(intent);
             }
         });

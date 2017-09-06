@@ -1,6 +1,7 @@
 package com.example.admin.pandatv.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,8 +12,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.admin.pandatv.R;
+import com.example.admin.pandatv.model.OkHttpClientManager;
+import com.example.admin.pandatv.model.bean.LiveShow;
 import com.example.admin.pandatv.model.entity.ChinaAck;
 import com.example.admin.pandatv.model.entity.LvieItemBean;
+import com.example.admin.pandatv.view.activity.banderavtivitys.FristActivity;
+import com.example.admin.pandatv.view.base.App;
+import com.example.admin.pandatv.view.base.UrlUtils;
 import com.google.gson.Gson;
 import com.yixia.weibo.sdk.VCamera;
 import com.yixia.weibo.sdk.util.DeviceUtils;
@@ -42,11 +48,13 @@ public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_
     ArrayList<LvieItemBean> list;
     MyHolder myHolder;
     private ChinaAck chinaAck;
+    private String hls2;
 
     public China_Item_FragmentAdapter(Context context, ArrayList<LvieItemBean> list) {
+
             this.context = context;
             this.list = list ;
-            JCVideoPlayer.releaseAllVideos();
+
         }
         @Override
         public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -64,13 +72,12 @@ public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_
             holder.china_item_title.setText(list.get(position).getTitle());
 //            holder.china_item_video.setUp("http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/09/04/3138164066cf49ad88b8a236545996fb_h2642000000nero_aac16-1.mp4",
 //                    "");
-            String url = "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+list.get(position).getId()+"&client=androidapp";
-            String setUp = getSetUp(url);
-            holder.china_item_video.setUp(setUp,
+
+            holder.china_item_video.setUp(list.get(position).getId(),
                     "");
             JCVideoPlayer.setThumbImageViewScalType(ImageView.ScaleType.FIT_XY);
             Glide.with(context).load(list.get(position).getImage()).placeholder(R.drawable._no_img).error(R.drawable._no_img).into(holder.china_item_video.ivThumb);
-            holder.china_item_updele.setOnClickListener(new View.OnClickListener() {
+            holder.china_item_updele.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (holder.china_item_brief.getVisibility() == View.VISIBLE){
@@ -113,23 +120,6 @@ public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_
                 this.list = list;
             notifyDataSetChanged();
         }
-        public String getSetUp(String url){
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder().url(url).build();
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
 
-                }
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    String string = response.body().string();
-                    Gson gson = new Gson();
-                     chinaAck = gson.fromJson(string, ChinaAck.class);
-                }
-            });
-
-            return chinaAck.getHls_url().getHls1();
-        }
 }
