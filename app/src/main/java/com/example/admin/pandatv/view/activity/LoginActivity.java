@@ -22,10 +22,10 @@ public class LoginActivity extends BaseActivity {
     private ImageView loginBackwards;
     private TextView LoginRegistered;
     private RadioGroup LoginRadioGroup;
-    private EditText LoginNumber;
-    private EditText LoginPassword;
     private Button LoginButton;
     private TextView ForgetPassword;
+    private EditText LoginNumber;
+    private EditText LoginPassword;
     private Tencent mTencent;
 
     @Override
@@ -37,6 +37,7 @@ public class LoginActivity extends BaseActivity {
                     case R.id.LoginWX:
                         break;
                     case R.id.LoginQQ:
+
 
                         break;
                     case R.id.LoginXL:

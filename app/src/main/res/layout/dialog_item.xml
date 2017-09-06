@@ -10,8 +10,6 @@
             android:id="@+id/china_dialog_item_btn"
             android:layout_width="wrap_content"
             android:text="Button"
-            android:clickable="false"
-            android:enabled="false"
             android:textSize="13sp"
             android:background="@color/white"
             android:textColor="#000000"

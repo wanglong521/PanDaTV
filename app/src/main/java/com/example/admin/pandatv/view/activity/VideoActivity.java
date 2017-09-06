@@ -26,8 +26,8 @@ public class VideoActivity extends BaseActivity {
     @Override
     protected void initView() {
         videoView = (JCVideoPlayer) findViewById(R.id.video);
-     intent = getIntent();
-   videoView.setUp(intent.getStringExtra("video"),intent.getStringExtra("title"));
+        intent = getIntent();
+        videoView.setUp(intent.getStringExtra("video"),intent.getStringExtra("title"));
 
 
       }

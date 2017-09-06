@@ -3,10 +3,10 @@ package com.example.admin.pandatv.view.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -20,12 +20,17 @@ import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_Ch
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
 import com.example.admin.pandatv.view.adapter.DialogAdapter;
 import com.example.admin.pandatv.view.adapter.DialogBelowAdapter;
-import com.example.admin.pandatv.view.adapter.callbackimpl.Enabledimpl;
 import com.example.admin.pandatv.view.adapter.callbackimpl.GetRefreshData;
 import com.example.admin.pandatv.view.adapter.callbackimpl.Translateimpl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.id.list;
+import static com.umeng.socialize.a.b.d.f;
+import static com.umeng.socialize.a.b.d.i;
+import static com.umeng.socialize.a.b.d.j;
+import static com.umeng.socialize.a.b.d.k;
 
 public class DialogActivity extends Activity implements GetRefreshData,Translateimpl {
 
@@ -42,20 +47,9 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
         private DialogAdapter dialogAdapter;
         int[] toplocation = new int[2];
         int[] belowlocation = new int[2];
-    Enabledimpl enabledimpl;
-        Handler handler = new Handler(){
-            @Override
-            public void handleMessage(Message msg) {
-
-
-
-                super.handleMessage(msg);
-
-            }
-        };
         private TranslateAnimation animation;
-    private Intent intent;
-
+        private Intent intent;
+        private Boolean aBoolean = false;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -74,21 +68,24 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
             tabtitle = intent.getStringArrayListExtra("tabtitle");
             titles = intent.getStringArrayListExtra("titles");
             for (int i = 0; i < tabtitle.size(); i++) {
-
+                
 
                 for (int j = 0; j < titles.size(); j++) {
-                    if (titles.get(j).equals(tabtitle.get(i))) {
-                        if (dao.queryBuilder().where(GreenDao_China_TabDao.Properties.Tabtitle.eq(tabtitle.get(i))).build().unique() == null){
-                            GreenDao_China_Tab china_tab = new GreenDao_China_Tab(null,true,titles.remove(j));
-                            dao.insert(china_tab);
-                        }
-                        titles.remove(j);
+
+                    if (dao.queryBuilder().where(GreenDao_China_TabDao.Properties.Tabtitle.eq(tabtitle.get(i))).build().unique() == null){
+                        GreenDao_China_Tab china_tab = new GreenDao_China_Tab(null,true,tabtitle.get(i));
+                        dao.insert(china_tab);
 
                     }
-                    if (dao.queryBuilder().where(GreenDao_China_TabDao.Properties.Tabtitle.eq(titles.get(i))).build().unique() == null){
-                        GreenDao_China_Tab china_tab = new GreenDao_China_Tab(null,false,titles.get(i));
-                        dao.insert(china_tab);
+
                     }
+            }
+
+            for (int k = 0; k < titles.size(); k++) {
+                if (dao.queryBuilder().where(GreenDao_China_TabDao.Properties.Tabtitle.eq(titles.get(k))).build().unique() == null){
+                    GreenDao_China_Tab china_tab = new GreenDao_China_Tab(null,false,titles.get(k));
+                    dao.insert(china_tab);
+
                 }
             }
             tabtitle.clear();
@@ -141,21 +138,18 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
             china_dialog_base.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String s = china_dialog_base.getText().toString();
-                    if (s.equals("编辑")) {
-                        enabledimpl.getEbabked(true);
+                    if (aBoolean) {
+                        china_dialog_top_recy.setEnabled(false);
+                        china_dialog_below_recy.setEnabled(false);
+                        china_dialog_base.setText("编辑");
+                        aBoolean = false;
+
+                    } else {
                         china_dialog_top_recy.setEnabled(true);
                         china_dialog_below_recy.setEnabled(true);
                         china_dialog_base.setText("完成");
-                        china_dialog_below_recy.setClickable(true);
-                        china_dialog_top_recy.setClickable(true);
-                    } else {
-                        enabledimpl.getEbabked(false);
-                        china_dialog_base.setText("编辑");
-                        china_dialog_top_recy.setClickable(false);
-                        china_dialog_below_recy.setClickable(false);
-                        china_dialog_top_recy.setEnabled(false);
-                        china_dialog_below_recy.setEnabled(false);
+                        aBoolean = true;
+
                     }
                 }
             });
@@ -168,13 +162,23 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
 //        DaoSession daoSession = daoMaster.newSession();
 //        GreenDao_China_TabDao dao = daoSession.getGreenDao_China_TabDao();
             if (aBoolean){
+                View childAt =  china_dialog_below_recy.getLayoutManager().getChildAt(titles.size() - 1);
+//                belowlocation[0] = childAt.getLeft();
+//                belowlocation[1] = childAt.getTop();
+                childAt.getLocationOnScreen(belowlocation);
                 animation = new TranslateAnimation(coordinate[0],
                         belowlocation[0],coordinate[1],belowlocation[1]);
+
             }else{
+                View childAt =  china_dialog_top_recy.getLayoutManager().getChildAt(tabtitle.size() - 1);
+//                toplocation[0] = childAt.getLeft();
+//                toplocation[1] = childAt.getTop();
+                childAt.getLocationOnScreen(toplocation);
                 animation = new TranslateAnimation(coordinate[0],
                         toplocation[0],coordinate[1],toplocation[1]);
             }
-
+            Log.e( "3333333333333333333: ", coordinate[0]+"aaa"+ coordinate[1]+"bbb"+belowlocation[0]
+            + "ccc" + belowlocation[1]);
             animation.setDuration(500);
             view.setAnimation(animation);
             animation.setAnimationListener(new Animation.AnimationListener() {
@@ -250,7 +254,4 @@ public class DialogActivity extends Activity implements GetRefreshData,Translate
 //
 //        }
 //    }
-    public void getEnabled(Enabledimpl enabledimpl){
-            this.enabledimpl = enabledimpl;
-    }
     }
