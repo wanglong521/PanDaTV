@@ -72,10 +72,10 @@ public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_
             holder.china_item_title.setText(list.get(position).getTitle());
 //            holder.china_item_video.setUp("http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/09/04/3138164066cf49ad88b8a236545996fb_h2642000000nero_aac16-1.mp4",
 //                    "");
-
-            holder.china_item_video.setUp(list.get(position).getId(),
-                    "");
             JCVideoPlayer.setThumbImageViewScalType(ImageView.ScaleType.FIT_XY);
+            holder.china_item_video.setUp(list.get(position).getId(),
+                    "",false);
+
             Glide.with(context).load(list.get(position).getImage()).placeholder(R.drawable._no_img).error(R.drawable._no_img).into(holder.china_item_video.ivThumb);
             holder.china_item_updele.setOnClickListener( new View.OnClickListener() {
                 @Override
