@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
-import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoSession;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_Tab;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
+import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoMaster;
+import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoSession;
 import com.example.admin.pandatv.view.activity.DialogActivity;
 import com.example.admin.pandatv.view.adapter.callbackimpl.Enabledimpl;
 import com.example.admin.pandatv.view.adapter.callbackimpl.GetRefreshData;
@@ -20,11 +20,13 @@ import com.example.admin.pandatv.view.adapter.callbackimpl.Translateimpl;
 
 import java.util.ArrayList;
 
+import static com.example.admin.pandatv.R.id.bar;
+
 /**
  * Created by lenovo on 2017/8/30.
  */
 
-public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder> implements Enabledimpl{
+public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder>{
     Context context;
         ArrayList<String> list;
     GetRefreshData getRefreshData;
@@ -64,45 +66,50 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder> 
 //            if (position == list.size()-1){
 //                holder.china_dialog_item_btn.setVisibility(View.GONE);
 //            }
-            DialogActivity activity = new DialogActivity();
-            activity.getEnabled(this);
             myHolder = holder;
             holder.china_dialog_item_btn.setText(list.get(position));
 
             if (position == list.size()-1){
                 location = new int[2];
-                holder.china_dialog_item_btn.getLocationInWindow(location);
+                holder.china_dialog_item_btn.getLocationOnScreen(location);
                 translateimpl.getCoordinates(location,holder.china_dialog_item_btn,true);
             }
 
-            holder.china_dialog_item_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    GreenDao_China_Tab unique = dao.queryBuilder().where(GreenDao_China_TabDao.Properties.Tabtitle.eq(list.get(position))).build().unique();
-                    if (unique.getABoolean()){
-                        dao.delete(unique);
-                        unique.setABoolean(false);
-                        GreenDao_China_Tab china_tab = new GreenDao_China_Tab(null,unique.getABoolean(),unique.getTabtitle());
-                        dao.insert(china_tab);
-                    }else{
-                        unique.setABoolean(true);
-                        dao.update(unique);
-                    }
-                    Toast.makeText(context, list.get(position), Toast.LENGTH_SHORT).show();
-//                    notifyDataSetChanged();
-                    int[] coordinate = new int[2];
-                    holder.china_dialog_item_btn.getLocationInWindow(coordinate);
-                    holder.china_dialog_item_btn.setText("");
+                holder.china_dialog_item_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
 
-                    getRefreshData.getRefreshData(coordinate,holder.china_dialog_item_btn,true);
+                        if (list.size() <= 4){
+                            Toast.makeText(context, "栏目区，不能少于四个频道", Toast.LENGTH_SHORT).show();
+                            return;
+                        }else {
+                        GreenDao_China_Tab unique = dao.queryBuilder().where(GreenDao_China_TabDao.Properties.Tabtitle.eq(list.get(position))).build().unique();
+                        if (unique.getABoolean()){
+                            dao.delete(unique);
+                            unique.setABoolean(false);
+                            GreenDao_China_Tab china_tab = new GreenDao_China_Tab(null,unique.getABoolean(),unique.getTabtitle());
+                            dao.insert(china_tab);
+                        }else{
+                            unique.setABoolean(true);
+                            dao.update(unique);
+                        }
+                        Toast.makeText(context, list.get(position), Toast.LENGTH_SHORT).show();
+//                    notifyDataSetChanged();
+                        int[] coordinate = new int[2];
+                        holder.china_dialog_item_btn.getLocationOnScreen(coordinate);
+                        holder.china_dialog_item_btn.setText("");
+
+                        getRefreshData.getRefreshData(coordinate,holder.china_dialog_item_btn,true);
 
 //                    int[] coordinate = new int[2];
 //                    holder.china_dialog_item_btn.getLocationOnScreen(coordinate);
 //                    getRefreshData.getRefreshData(coordinate);
 //                    TranslateAnimation animation = new TranslateAnimation(coordinate[0],,coordinate[1],);
+                        }
+                    }
+                });
 
-                }
-            });
+
 
         }
 
@@ -111,17 +118,6 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.MyHolder> 
 
             return list.size();
         }
-
-    @Override
-    public void getEbabked(Boolean aBoolean) {
-        if (aBoolean){
-            myHolder.china_dialog_item_btn.setClickable(true);
-            myHolder.china_dialog_item_btn.setEnabled(true);
-        }else{
-            myHolder.china_dialog_item_btn.setClickable(false);
-            myHolder.china_dialog_item_btn.setEnabled(false);
-        }
-    }
 
     class MyHolder extends RecyclerView.ViewHolder{
 

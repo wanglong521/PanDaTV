@@ -5,6 +5,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -32,10 +34,6 @@ public class China_Item_Fragment extends BaseFragment{
     private Bundle bundle;
     private China_Item_FragmentAdapter adapter;
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-
-
-
-
         @Override
         public void onReceive(Context context, Intent intent) {
             china_progress.setVisibility(View.VISIBLE);
@@ -57,8 +55,9 @@ public class China_Item_Fragment extends BaseFragment{
             ArrayList<String> brief = bundle.getStringArrayList("brief");
             ArrayList<String> image = bundle.getStringArrayList("image");
             ArrayList<String> title = bundle.getStringArrayList("title");
+            ArrayList<String> id = bundle.getStringArrayList("id");
             for (int i = 0; i < brief.size(); i++) {
-                LvieItemBean bean = new LvieItemBean(brief.get(i)
+                LvieItemBean bean = new LvieItemBean(id.get(i),brief.get(i)
                         ,image.get(i),title.get(i));
                 list.add(bean);
             }
@@ -119,5 +118,29 @@ public class China_Item_Fragment extends BaseFragment{
             // fragment is no longer visible：不可见时不执行操作
         }
     }
+    /**
+     * 判断手机是否有网络
+     *
+     * @return true 有网络
+     */
+    public boolean isConnected() {
+        // 获取手机所有连接管理对象（包括对wi-fi,net等连接的管理）
+        try {
+            ConnectivityManager connectivity = (ConnectivityManager) getActivity()
+                    .getSystemService(getActivity().CONNECTIVITY_SERVICE);
+            if (connectivity != null) {
+                // 获取网络连接管理的对象
+                NetworkInfo info = connectivity.getActiveNetworkInfo();
 
+                if (info != null && info.isConnected()) {
+                    // 判断当前网络是否已经连接
+                    if (info.getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
 }

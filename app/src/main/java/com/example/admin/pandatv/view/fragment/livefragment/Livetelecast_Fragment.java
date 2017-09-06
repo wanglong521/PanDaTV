@@ -196,10 +196,4 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
             return tabnamelist.get(position);
         }
     }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-    }
 }

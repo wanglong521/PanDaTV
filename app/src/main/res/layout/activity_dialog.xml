@@ -12,10 +12,11 @@
                     android:id="@+id/china_dialog_fin"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    app:layout_heightPercent="6%"
-                    app:layout_widthPercent="10%"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/live_china_delect_channel"
                     />
+
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_below="@id/china_dialog_fin"
@@ -36,7 +37,6 @@
                     android:layout_below="@id/china_dialog_fin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-
                 <android.support.v7.widget.RecyclerView
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
@@ -52,8 +52,8 @@
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:text="点击添加更多栏目"
-                    app:layout_heightPercent="6%"
-                    app:layout_widthPercent="100%" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
                 <android.support.v7.widget.RecyclerView
                     android:layout_marginTop="10dp"

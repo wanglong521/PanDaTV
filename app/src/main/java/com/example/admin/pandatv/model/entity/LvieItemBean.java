@@ -5,6 +5,16 @@ package com.example.admin.pandatv.model.entity;
  */
 
 public class LvieItemBean {
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     private String brief;
     private String image;
     private String title;
@@ -12,7 +22,8 @@ public class LvieItemBean {
     public LvieItemBean() {
     }
 
-    public LvieItemBean(String brief, String image, String title) {
+    public LvieItemBean(String id,String brief, String image, String title) {
+        this.id = id;
         this.brief = brief;
         this.image = image;
         this.title = title;

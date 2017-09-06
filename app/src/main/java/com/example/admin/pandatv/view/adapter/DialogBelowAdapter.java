@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoMaster;
-import com.example.admin.pandatv.model.modelutils.chinalive_greendao.DaoSession;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_Tab;
 import com.example.admin.pandatv.model.modelutils.chinalive_greendao.GreenDao_China_TabDao;
+import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoMaster;
+import com.example.admin.pandatv.model.modelutils.pandalive_greendao.DaoSession;
 import com.example.admin.pandatv.view.activity.DialogActivity;
 import com.example.admin.pandatv.view.adapter.callbackimpl.Enabledimpl;
 import com.example.admin.pandatv.view.adapter.callbackimpl.GetRefreshData;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
  * Created by lenovo on 2017/8/30.
  */
 
-public class DialogBelowAdapter extends RecyclerView.Adapter<DialogBelowAdapter.MyHolder> implements Enabledimpl {
+public class DialogBelowAdapter extends RecyclerView.Adapter<DialogBelowAdapter.MyHolder>{
     private GreenDao_China_TabDao dao;
     Context context;
         ArrayList<String> list;
@@ -63,14 +63,12 @@ public class DialogBelowAdapter extends RecyclerView.Adapter<DialogBelowAdapter.
 //            if (position == list.size()-1){
 //                holder.china_dialog_item_btn.setVisibility(View.GONE);
 //            }
-            DialogActivity activity = new DialogActivity();
-            activity.getEnabled(this);
             myHolder = holder;
             holder.china_dialog_item_btn.setText(list.get(position));
 
             if (position == list.size()-1){
                 location = new int[2];
-                holder.china_dialog_item_btn.getLocationInWindow(location);
+                holder.china_dialog_item_btn.getLocationOnScreen(location);
                 translateimpl.getCoordinates(location,holder.china_dialog_item_btn,false);
             }
 
@@ -91,7 +89,7 @@ public class DialogBelowAdapter extends RecyclerView.Adapter<DialogBelowAdapter.
                     Toast.makeText(context, list.get(position), Toast.LENGTH_SHORT).show();
                     holder.china_dialog_item_btn.setText("");
                     int[] coordinate = new int[2];
-                    holder.china_dialog_item_btn.getLocationInWindow(coordinate);
+                    holder.china_dialog_item_btn.getLocationOnScreen(coordinate);
                     holder.china_dialog_item_btn.setText("");
 
                     getRefreshData.getRefreshData(coordinate,holder.china_dialog_item_btn,false);
@@ -110,16 +108,6 @@ public class DialogBelowAdapter extends RecyclerView.Adapter<DialogBelowAdapter.
             return list==null ? 0 : list.size();
         }
 
-    @Override
-    public void getEbabked(Boolean aBoolean) {
-        if (aBoolean){
-            myHolder.china_dialog_item_btn.setClickable(true);
-            myHolder.china_dialog_item_btn.setEnabled(true);
-        }else{
-            myHolder.china_dialog_item_btn.setClickable(false);
-            myHolder.china_dialog_item_btn.setEnabled(false);
-        }
-    }
 
     class MyHolder extends RecyclerView.ViewHolder{
 
