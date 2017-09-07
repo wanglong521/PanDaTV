@@ -10,10 +10,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.admin.pandatv.R;
-import com.example.admin.pandatv.view.activity.LoginActivity;
+import com.example.admin.pandatv.view.activity.PersonalCenter;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseFragment;
-import com.example.admin.pandatv.view.view.NonSwipeableViewPager;
 import com.example.admin.pandatv.view.fragment.livefragment.Livetelecast_Fragment;
 import com.example.admin.pandatv.view.fragment.livefragment.PandaFiles_Fragment;
 import com.example.admin.pandatv.view.fragment.livefragment.PandaTOP_Fragment;
@@ -23,6 +22,7 @@ import com.example.admin.pandatv.view.fragment.livefragment.Special_Fragment;
 import com.example.admin.pandatv.view.fragment.livefragment.Splendid_Fragment;
 import com.example.admin.pandatv.view.fragment.livefragment.Supersprout_Fragment;
 import com.example.admin.pandatv.view.fragment.livefragment.WhenBear_Fragment;
+import com.example.admin.pandatv.view.view.NonSwipeableViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class LiveModule_Fragment  extends BaseFragment {
             @Override
             public void onClick(View view) {
 
-                Intent intent=new Intent(getActivity(), LoginActivity.class);
+                Intent intent=new Intent(getActivity(), PersonalCenter.class);
 
                 startActivity(intent);
 

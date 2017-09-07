@@ -120,7 +120,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 //                live_img.setOnPreparedListener(App.mBaseFragment);
 //                live_img.setMediaController(new MediaController(getActivity()));
 
-                live_img.setUp(LIVEB,"熊猫");
+                live_img.setUp(LIVEB,"熊猫直播");
 
             }
         });
