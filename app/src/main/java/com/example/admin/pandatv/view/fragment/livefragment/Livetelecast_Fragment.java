@@ -110,17 +110,19 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
                 live_re.setVisibility(View.GONE);
                 lve_img.setVisibility(View.GONE);
 
-                LIVEB="";
+//                LIVEB="";
 /*
                 Vitamio.isInitialized(getActivity());
 /*        http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd" + livelist.get(position).getId() + "&client=androidapp")*/
-                LIVEB="http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/09/04/3138164066cf49ad88b8a236545996fb_h2642000000nero_aac16-1.mp4";
+               String CD="http://ipanda.vtime.cntv.cloudcdn.net/live/ipandahls_/index.m3u8?AUTH=u50YiaMPwsAnMa/F569M06USVaqoGbQ/BSQW/Bwf3vxmqOOLuTmiRXMxrbrj3s3tbAdWWS2ucXtLeNduoWA/Lg==";
 
 //                live_img.setVideoPath(LIVEB);
 //                live_img.setOnPreparedListener(App.mBaseFragment);
 //                live_img.setMediaController(new MediaController(getActivity()));
 
-                live_img.setUp(LIVEB,"熊猫直播");
+                live_img.setUp(CD,"熊猫直播");
+
+                bfing.setVisibility(View.GONE);
 
             }
         });
@@ -229,6 +231,8 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
                         hls2 = liveShow.getHls_url().getHls1();
 
                         LIVEB=hls2;
+
+                        live_img.setUp(LIVEB,"熊猫直播");
                     }
                 });
 

@@ -1,6 +1,8 @@
 package com.example.admin.pandatv.view.activity.set;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -74,20 +76,58 @@ public class SetAcivity extends BaseActivity{
             }
         });
 
-
+//版本更新
         l_detection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(SetAcivity.this, "已经是最新版本了", Toast.LENGTH_SHORT).show();
             }
         });
-
+//用户帮助与反馈
         l_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(SetAcivity.this,HelpActivity.class);
 
                 startActivity(intent);
+            }
+        });
+ //关于熊猫频道
+        l_asregards.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(SetAcivity.this,AsregardsActivity.class);
+
+                startActivity(intent);
+
+            }
+        });
+
+        delete_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder dialog=new AlertDialog.Builder(SetAcivity.this);
+
+                dialog.setTitle("确认清楚缓存吗？");
+                dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        delete_text.setText("0.00MB");
+
+                    }
+                });
+                dialog.setNegativeButton("取消",null);
+
+
+
+                dialog.create();
+                dialog.setCancelable(false);
+                dialog.show();
+
+
             }
         });
 

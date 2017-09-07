@@ -140,6 +140,7 @@
         <activity android:name=".view.activity.set.SetAcivity"></activity>
 
         <activity android:name=".view.activity.set.HelpActivity"></activity>
+        <activity android:name=".view.activity.set.AsregardsActivity"></activity>
     </application>
 
 </manifest>

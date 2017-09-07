@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_weight="10"
+        android:id="@+id/LoginLinear"
+        android:background="@color/colorPrimary"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="关于熊猫频道"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/LoginBackwards"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/personal_back_img"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/about_sign"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="熊猫频道V1.1.1"/>
+
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:text="熊猫频道是央视网创新理念·倾力打造的一个国际化新媒体产品，以直播大熊猫这一中国特有的珍稀动物为特色，以大熊猫相关事件性和日常移动直播为基础，以多终端·多平台为媒介，希望向全国互联网用户展现真实·可爱的大熊猫及其保护情况，传递和平·友爱·公益的理念。现价段开设了《精彩一刻》·《熊猫百科全说》·《熊猫那些事儿》等符合网络视频传播特点，及知识性和趣味性的一系列原创大熊猫点播节目。"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
