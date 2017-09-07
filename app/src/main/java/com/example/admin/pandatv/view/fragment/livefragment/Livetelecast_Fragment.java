@@ -13,6 +13,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -67,6 +69,8 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     private String network;
     private String liv_title;
     private String hls2;
+    private ProgressBar bar;
+    private LinearLayout linear;
 
     @Override
     public int getLayout() {
@@ -76,7 +80,12 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     @Override
     protected void initListener() {
 
+        bar.setVisibility(View.GONE);
+        linear.setVisibility(View.VISIBLE);
         live_up.setOnClickListener(new View.OnClickListener() {
+
+
+
             @Override
             public void onClick(View view) {
                 if (NUM == 1) {
@@ -104,7 +113,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         bfing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 live_img.setVisibility(View.VISIBLE);
 
                 live_re.setVisibility(View.GONE);
@@ -130,6 +138,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
     }
     @Override
     protected void initData() {
+//        bar.setVisibility(View.VISIBLE);
         tabnamelist=new ArrayList<>();
         IPresenterImplLivemBean iPresenterImplLivemBean=new IPresenterImplLivemBean(this);
         iPresenterImplLivemBean.Getcontroller();
@@ -149,6 +158,8 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         bfing = view.findViewById(R.id.bfang);
 
         live_re = view.findViewById(R.id.live_re);
+        bar = view.findViewById(R.id.bar);
+        linear = view.findViewById(R.id.linear);
 
         live_tablayout = view.findViewById(R.id.live_tablayout);
         live_viewpager = view.findViewById(R.id.live_viewpager);
@@ -271,6 +282,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         MyliveAdapter adapter=new MyliveAdapter(manager);
 
         live_viewpager.setAdapter(adapter);
+
 
     }
 
