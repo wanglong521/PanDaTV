@@ -22,10 +22,10 @@ public class LoginActivity extends BaseActivity {
     private ImageView loginBackwards;
     private TextView LoginRegistered;
     private RadioGroup LoginRadioGroup;
-    private Button LoginButton;
-    private TextView ForgetPassword;
     private EditText LoginNumber;
     private EditText LoginPassword;
+    private Button LoginButton;
+    private TextView ForgetPassword;
     private Tencent mTencent;
 
     @Override
