@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.admin.pandatv.R;
+import com.example.admin.pandatv.view.activity.set.SetAcivity;
 import com.example.admin.pandatv.view.base.App;
 import com.example.admin.pandatv.view.base.BaseActivity;
 
@@ -30,16 +31,28 @@ public class PersonalCenter extends BaseActivity {
         personalLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(App.mBaseActivity,LoginActivity.class);
-                startActivityForResult(intent,1001);
+                Intent intent = new Intent(App.mBaseActivity, LoginActivity.class);
+                startActivityForResult(intent, 1001);
             }
         });
+
+        personalSetup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(PersonalCenter.this, SetAcivity.class);
+
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (resultCode){
+        switch (resultCode) {
             case 1001:
                 break;
         }

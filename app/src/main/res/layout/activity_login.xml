@@ -168,7 +168,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/roundbutton"
             android:text="登录"
             android:textColor="#ffffff"/>
 

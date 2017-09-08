@@ -110,6 +110,8 @@
 
 
         </activity>
+            android:value="59a669b1c62dca174b000545" >
+
         <activity android:name=".view.activity.banderavtivitys.FristActivity"
             android:screenOrientation="landscape"
             ></activity>
@@ -135,6 +137,10 @@
             android:screenOrientation="portrait"
             >
         </activity>
+        <activity android:name=".view.activity.set.SetAcivity"></activity>
+
+        <activity android:name=".view.activity.set.HelpActivity"></activity>
+        <activity android:name=".view.activity.set.AsregardsActivity"></activity>
     </application>
 
 </manifest>

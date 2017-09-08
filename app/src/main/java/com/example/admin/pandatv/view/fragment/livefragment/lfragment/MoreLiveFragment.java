@@ -73,7 +73,7 @@ public class MoreLiveFragment extends BaseFragment implements LiveMBeanView{
                 String id = morelist.get(position).getId();
                 String title = morelist.get(position).getTitle();
                 MORELIVE= UrlUtils.LIVESHOW+id+"&client=androidapp";
-                Toast.makeText(getActivity(), MORELIVE, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), title, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent();
                 intent.putExtra("network",MORELIVE);
