@@ -1,6 +1,5 @@
 package com.example.admin.pandatv.view.fragment.livefragment;
 
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -45,7 +44,6 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
  *
  */
 //这是小媛荣的代码
-// TODO: 2017/9/6  这里的直播不行有很多问题
 public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView,io.vov.vitamio.MediaPlayer.OnPreparedListener {
 
     private JCVideoPlayer  live_img;
@@ -106,7 +104,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         fragmentlist.clear();
         fragmentlist.add(new MoreLiveFragment());
         fragmentlist.add(new Lookalittle());
-
 
         //这里是点击按钮然后视屏开始播放
 
@@ -252,9 +249,7 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         };
         broadcastManager.registerReceiver(mItemViewListClickReceiver, intentFilter);
 
-
-
-        //这里是网络请求到视屏播放的地址
+//这里是网络请求到视屏播放的地址
 
 //        OkHttpClientManager.getAsyn(URLIVE, new OkHttpClientManager.ResultCallback<String>() {
 //            @Override
@@ -283,7 +278,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
 
         live_viewpager.setAdapter(adapter);
 
-
     }
 
     @Override
@@ -292,9 +286,6 @@ public class Livetelecast_Fragment extends BaseFragment implements LiveMBeanView
         Log.e("TAG","请求失败");
 
     }
-
-
-
 
     public  class MyliveAdapter extends FragmentPagerAdapter {
 
