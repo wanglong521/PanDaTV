@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -30,12 +31,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':vitamio')
-    compile project(':vitamio')
-
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'in.srain.cube:ptr-load-more:1.0.6'
-    compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'io.reactivex.rxjava2:rxjava:2.1.3'
@@ -46,9 +44,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.squareup.okio:okio:1.5.0'
-    compile 'com.jcodecraeer:xrecyclerview:1.3.2'
-
-    /* compile 'org.greenrobot:greendao:3.2.2'*/
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.github.bumptech.glide:glide:3.8.0'
     compile 'com.android.support:percent:26.+'
@@ -58,7 +53,6 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'org.greenrobot:greendao:3.0.1'
     compile 'org.greenrobot:greendao-generator:3.0.0'
-    compile 'fm.jiecao:jiecaovideoplayer:2.0'
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
     compile 'com.jcodecraeer:xrecyclerview:1.3.2'
     testCompile 'junit:junit:4.12'

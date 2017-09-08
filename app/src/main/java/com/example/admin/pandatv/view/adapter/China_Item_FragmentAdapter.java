@@ -81,7 +81,7 @@ public class China_Item_FragmentAdapter extends RecyclerView.Adapter<China_Item_
                 @Override
                 public void onClick(View view) {
                     if (holder.china_item_brief.getVisibility() == View.VISIBLE){
-                            holder.china_item_brief.setVisibility(View.GONE);
+                        holder.china_item_brief.setVisibility(View.GONE);
                         holder.china_item_updele.setImageResource(R.drawable.live_down);
                     }else{
                         holder.china_item_brief.setVisibility(View.VISIBLE);
